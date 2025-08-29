@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Estudio de Abogados Tributarios | Cabello Abogados Tributarios</title>
+    <meta name="description" content="Asesoría tributaria, auditorías preventivas y defensa legal en controversias fiscales. Más de 2 décadas de experiencia.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Applying Work Sans as the default font */
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #FFFFFF; /* White background as base */
+            color: #212C44; /* Main text color */
+            font-size: 14px; /* Base font size reduction */
+        }
+
+        /* Custom Colors */
+        .bg-custom-blue { background-color: #212C44; }
+        .text-custom-blue { color: #212C44; }
+        .border-custom-blue { border-color: #212C44; }
+
+        .bg-custom-gold { background-color: #BB9D73; }
+        .text-custom-gold { color: #BB9D73; }
+        .hover-text-custom-gold:hover { color: #BB9D73; }
+
+        .bg-custom-white { background-color: #FFFFFF; }
+        .text-custom-white { color: #FFFFFF; }
+        
+        .text-custom-dark-gray { color: #666666; }
+
+        /* Header styles */
+        .header-scrolled {
+            background-color: #212C44;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Button Style */
+        .btn {
+            padding: 10px 30px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible; /* Changed from hidden to visible */
+            border-radius: 4px;
+            font-size: 13px;
+            display: inline-block;
+        }
+        .btn::before, .btn::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 25px; /* Fixed width */
+            background-color: currentColor;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+        .btn::before {
+            left: -15px; /* Initial position */
+        }
+        .btn::after {
+            right: -15px; /* Initial position */
+        }
+        .btn:hover::before {
+            left: -25px; /* Move out on hover */
+        }
+        .btn:hover::after {
+            right: -25px; /* Move out on hover */
+        }
+        
+        .btn-primary {
+            background-color: #FFFFFF;
+            color: #212C44;
+            border: 1px solid #212C44;
+        }
+        .btn-primary:hover {
+            background-color: #BB9D73;
+            color: #212C44;
+        }
+        
+        .btn-white {
+            background-color: #FFFFFF;
+            color: #212C44;
+            border: 1px solid #FFFFFF;
+        }
+        .btn-white:hover {
+            background-color: #BB9D73;
+            color: #FFFFFF;
+            border-color: #BB9D73;
+        }
+        .btn-white::before, .btn-white::after {
+             color: #212C44;
+        }
+        .btn-white:hover::before, .btn-white:hover::after {
+             color: #FFFFFF;
+        }
+
+
+        /* Secondary Button Style */
+        .btn-secondary {
+            color: #BB9D73;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.3s ease;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .btn-secondary:hover {
+            color: #212C44;
+        }
+
+        /* Menu link styles */
+        .menu-link {
+            position: relative;
+            color: #FFFFFF;
+            transition: color 0.3s ease;
+        }
+        .menu-link:hover, .menu-link.active {
+            color: #BB9D73;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #212C44;
+            min-width: 260px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        .dropdown-menu a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dropdown-menu a:hover {
+            background-color: #BB9D73;
+            color: #FFFFFF;
+        }
+
+        /* Animation for scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Logo Carousel Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .scrolling-wrapper {
+            display: flex;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+        .logo-carousel-container:hover .scrolling-wrapper {
+            animation-play-state: paused;
+        }
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+        }
+        
+        /* Global Title Styles */
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #BB9D73;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+        .section-subtitle {
+            font-size: 1.75rem;
+            font-weight: 400; /* Regular weight */
+            color: #212C44;
+        }
+
+        /* Slider Styles */
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+        }
+        .slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .slider-dot.active {
+            background-color: #FFFFFF;
+        }
+        
+        /* Form Styles */
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4b5563; /* Darker border for contrast on blue */
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent background */
+            color: #f9fafb; /* Light text */
+            font-size: 13px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #BB9D73;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(187, 157, 115, 0.3);
+        }
+        .form-label {
+            display: block;
+            color: #d1d5db; /* Lighter gray for labels */
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.05em;
+        }
+        .cintillo-text {
+             font-size: 11px;
+        }
+
+        /* Differentiators section styles */
+        .differentiator-item .icon-wrapper {
+            background-color: hsl(37deg 27% 59% / 10%);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .differentiator-item .icon-wrapper svg {
+            transition: stroke 0.3s ease;
+        }
+        .differentiator-item:hover .icon-wrapper {
+            background-color: #BB9D73;
+        }
+        .differentiator-item:hover .icon-wrapper svg {
+            stroke: #FFFFFF;
+        }
+        .differentiator-item .differentiator-title {
+            color: #BB9D73;
+            transition: color 0.3s ease;
+        }
+        .differentiator-item:hover .differentiator-title {
+            color: #212C44;
+        }
+
+        /* Custom icon styles for service cards */
+        .service-card .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 9999px;
+            background-color: hsl(37deg 27% 59% / 10%);
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+         .service-card .icon-wrapper svg {
+            transition: stroke 0.3s ease;
+        }
+        .service-card:hover .icon-wrapper {
+            background-color: #BB9D73;
+        }
+        .service-card:hover .icon-wrapper svg {
+            stroke: #FFFFFF;
+        }
+
+
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- =================================================================
+    // START of header.php
+    ================================================================== -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <!-- Cintillo -->
+        <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
+            <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
+                <div class="flex-grow">
+                    <h1 class="tracking-wider uppercase">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</h1>
+                </div>
+                <div class="flex items-center space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors"><i class="fas fa-phone-alt mr-1"></i> +56229416205</a>
+                    <span class="text-gray-500">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors"><i class="fas fa-envelope mr-1"></i> contacto@cabelloabogados.cl</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6">
+             <hr id="header-divider" class="border-gray-600 transition-opacity duration-300">
+        </div>
+
+        <!-- Menú Principal -->
+        <nav id="main-nav" class="py-3">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="/">
+                    <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios" class="h-10">
+                </a>
+
+                <!-- Navigation Links -->
+                <ul class="hidden lg:flex items-center space-x-6 font-light text-xs tracking-widest uppercase">
+                    <li><a href="/" class="menu-link active">Inicio</a></li>
+                    <li><a href="/quienes-somos" class="menu-link">Quiénes Somos</a></li>
+                    <li class="dropdown relative">
+                        <a href="/areas-practica" class="menu-link flex items-center">
+                            Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
+                        </a>
+                        <ul class="dropdown-menu mt-2">
+                            <li><a href="/areas-practica/reorganizacion-empresarial-familiar">Reorganización empresarial y familiar</a></li>
+                            <li><a href="/areas-practica/asesoria-legal-tributaria">Asesoría Legal Tributaria</a></li>
+                            <li><a href="/areas-practica/litigio-solucion-controversias">Litigios y solución de controversias</a></li>
+                            <li><a href="/areas-practica/auditoria-tributaria">Auditoría tributaria</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/prensa" class="menu-link">Prensa</a></li>
+                    <li><a href="/contacto" class="menu-link">Contacto</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-custom-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-custom-blue z-40 p-8">
+        <ul class="flex flex-col items-center justify-center h-full space-y-6 text-white text-lg uppercase tracking-widest">
+            <li><a href="/" class="hover-text-custom-gold">Inicio</a></li>
+            <li><a href="/quienes-somos" class="hover-text-custom-gold">Quiénes Somos</a></li>
+            <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
+            <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="/contacto" class="hover-text-custom-gold">Contacto</a></li>
+        </ul>
+    </div>
+    <!-- =================================================================
+    // END of header.php
+    ================================================================== -->
+
+
+    <!-- =================================================================
+    // START of index.php (or other page content)
+    ================================================================== -->
+    <main>
+        <!-- BANNER PRINCIPAL -->
+        <section id="main-banner" class="h-screen min-h-[600px] bg-custom-blue text-white relative overflow-hidden">
+             <!-- Slides Container -->
+            <div class="slide active">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-1.webp');"></div>
+                <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
+                <div class="w-full h-full flex justify-center items-center">
+                    <div class="container mx-auto px-6 relative z-10">
+                        <div class="max-w-2xl text-center mx-auto">
+                            <h2 class="text-2xl md:text-3xl font-normal leading-tight mb-4">Confía en un estudio especializado en derecho tributario</h2>
+                            <h3 class="text-base md:text-lg font-light mb-8">Más de 2 décadas acompañando a empresas y familias de alto patrimonio en Chile</h3>
+                            <a href="/quienes-somos" class="btn btn-primary">Quiénes somos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-2.webp');"></div>
+                 <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
+                <div class="w-full h-full flex justify-center items-center">
+                     <div class="container mx-auto px-6 relative z-10">
+                        <div class="max-w-2xl text-center mx-auto">
+                            <h2 class="text-2xl md:text-3xl font-normal leading-tight mb-4">Tu tranquilidad fiscal es nuestra prioridad</h2>
+                            <h3 class="text-base md:text-lg font-light mb-8">Soluciones legales que anticipan y resuelven conflictos tributarios</h3>
+                            <a href="/areas-practica" class="btn btn-primary">Ver Áreas de práctica</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Dots -->
+            <div class="slider-dots">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </section>
+
+        <!-- INSIGNIAS DE RESPALDO Y CONFIANZA -->
+        <section class="py-12 bg-white overflow-hidden">
+            <div class="logo-carousel-container">
+                <div class="scrolling-wrapper">
+                    <!-- Duplicate logos for seamless loop -->
+                    <div class="logo-item"><img src="img/reconocimiento-1.webp" alt="Logo Reconocimiento 1" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-2.webp" alt="Logo Reconocimiento 2" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-3.webp" alt="Logo Reconocimiento 3" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-4.webp" alt="Logo Reconocimiento 4" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-5.webp" alt="Logo Reconocimiento 5" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-1.webp" alt="Logo Reconocimiento 1" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-2.webp" alt="Logo Reconocimiento 2" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-3.webp" alt="Logo Reconocimiento 3" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-4.webp" alt="Logo Reconocimiento 4" class="mx-auto grayscale opacity-60 h-20"></div>
+                    <div class="logo-item"><img src="img/reconocimiento-5.webp" alt="Logo Reconocimiento 5" class="mx-auto grayscale opacity-60 h-20"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN QUIÉNES SOMOS -->
+        <section class="py-14 bg-gray-50">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <h2 class="section-title">Quiénes Somos</h2>
+                    <p class="text-base leading-relaxed mb-6 text-custom-dark-gray font-light">
+                        Cabello Abogados Tributarios es una firma boutique especializada en derecho tributario. Brindamos soluciones personalizadas a empresas, personas naturales y familias de alto patrimonio desde hace más de 2 décadas. Combinamos excelencia legal, visión estratégica y atención cercana para enfrentar los desafíos fiscales más complejos.
+                    </p>
+                    <a href="/quienes-somos" class="btn-secondary">Conocer Equipo →</a>
+                </div>
+                <div class="fade-in-up flex items-center justify-center md:justify-end" style="transition-delay: 0.2s;">
+                    <div class="w-full max-w-md aspect-w-1 aspect-h-1">
+                        <img src="img/quienes-somos-equipo.webp" alt="Equipo de Cabello Abogados Tributarios en un ambiente colaborativo" class="rounded-lg w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ÁREAS DE PRÁCTICA -->
+        <section class="bg-gray-50 pt-20">
+            <!-- Image and Title Section -->
+            <div class="relative bg-cover bg-center" style="background-image: url('img/areas-practica-fondo.webp');">
+                <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
+                <div class="container mx-auto px-6 relative z-10 py-48 text-center">
+                    <h2 class="section-title !text-custom-gold">Áreas de Práctica</h2>
+                    <h3 class="section-subtitle !text-white">Especialización y experiencia en derecho tributario</h3>
+                </div>
+            </div>
+    
+            <!-- Cards Section -->
+            <div class="container mx-auto px-6 -mt-28 relative z-20 pb-20">
+                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="service-card bg-white p-6 rounded-md text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="icon-wrapper">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-normal mb-3 text-custom-blue">Reorganización empresarial y familiar</h3>
+                        <a href="/areas-practica/reorganizacion-empresarial-familiar" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card bg-white p-6 rounded-md text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-normal mb-3 text-custom-blue">Asesoría Legal Tributaria</h3>
+                        <a href="/areas-practica/asesoria-legal-tributaria" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="service-card bg-white p-6 rounded-md text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="icon-wrapper">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-normal mb-3 text-custom-blue">Litigios y solución de controversias</h3>
+                        <a href="/areas-practica/litigio-solucion-controversias" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="service-card bg-white p-6 rounded-md text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-normal mb-3 text-custom-blue">Auditoría tributaria</h3>
+                        <a href="/areas-practica/auditoria-tributaria" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DIFERENCIADORES -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12 fade-in-up">
+                    <h2 class="section-title">¿Por qué elegirnos?</h2>
+                    <h3 class="section-subtitle">Nuestros diferenciadores competitivos</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+                    <!-- Item 1 -->
+                    <div class="differentiator-item flex items-start space-x-5 fade-in-up">
+                        <div class="icon-wrapper flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="differentiator-title text-lg font-semibold mb-2">Asesoría personalizada</h4>
+                            <p class="text-custom-dark-gray text-sm font-light">Nos involucramos directamente en cada caso para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="differentiator-item flex items-start space-x-5 fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="icon-wrapper flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        </div>
+                        <div>
+                            <h4 class="differentiator-title text-lg font-semibold mb-2">Equipo multidisciplinario</h4>
+                            <p class="text-custom-dark-gray text-sm font-light">Combinamos experticia legal, contable y financiera.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="differentiator-item flex items-start space-x-5 fade-in-up" style="transition-delay: 0.2s;">
+                         <div class="icon-wrapper flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="differentiator-title text-lg font-semibold mb-2">Trayectoria comprobada</h4>
+                            <p class="text-custom-dark-gray text-sm font-light">Experiencia con holdings familiares y multinacionales.</p>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="differentiator-item flex items-start space-x-5 fade-in-up" style="transition-delay: 0.3s;">
+                         <div class="icon-wrapper flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <h4 class="differentiator-title text-lg font-semibold mb-2">Visión estratégica y enfoque preventivo</h4>
+                            <p class="text-custom-dark-gray text-sm font-light">Anticipamos riesgos y optimizamos la carga fiscal de nuestros clientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN MULTIMEDIA -->
+        <section class="h-[350px] bg-cover bg-center bg-fixed" style="background-image: url('img/multimedia-equipo-reunion.webp');">
+        </section>
+        
+        <!-- SECCIÓN CINTILLO SEGURIDAD -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center fade-in-up">
+                <h2 class="section-title">Confianza y respaldo</h2>
+                <h3 class="section-subtitle">Contamos con certificaciones y membresías en las principales asociaciones del ámbito tributario</h3>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 mt-8">
+                    <img src="img/logo-colegio-abogados.webp" alt="Logo del Colegio de Abogados de Chile" class="h-14 grayscale opacity-70">
+                    <img src="img/logo-icdt.webp" alt="Logo del Instituto Chileno de Derecho Tributario" class="h-14 grayscale opacity-70">
+                    <img src="img/logo-ifa.webp" alt="Logo de la Asociación Fiscal Internacional (IFA)" class="h-14 grayscale opacity-70">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN BLOG / NOTICIAS -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-up">
+                    <h2 class="section-title">Prensa</h2>
+                    <h3 class="section-subtitle">Mantente informado sobre las últimas novedades</h3>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <!-- Artículo 1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden group fade-in-up">
+                        <img src="img/articulo-1.webp" alt="Artículo sobre International Tax Review" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <p class="text-xs text-custom-gold uppercase mb-2 font-semibold tracking-wider">Cabello Abogados Tributarios</p>
+                            <h3 class="text-lg font-normal mb-4">International<br>Tax Review</h3>
+                             <p class="text-sm font-light text-custom-dark-gray mb-4">Cabello y Cía. Abogados Tributarios, se encuentra rankeada en la Banda 3 de Litigación Tributaria y Corporativo.</p>
+                            <a href="#" class="btn-secondary">Ver más →</a>
+                        </div>
+                    </div>
+                    <!-- Artículo 2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden group fade-in-up" style="transition-delay: 0.1s;">
+                        <img src="img/articulo-2.webp" alt="Artículo sobre el fin a las contribuciones en la primera vivienda" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <p class="text-xs text-custom-gold uppercase mb-2 font-semibold tracking-wider">Pilar Cabello</p>
+                            <h3 class="text-lg font-normal mb-4 h-12">¿Fin a las contribuciones en la primera vivienda?</h3>
+                            <p class="text-sm font-light text-custom-dark-gray mb-4">Entrevista radial a María Pilar Cabello...</p>
+                            <a href="#" class="btn-secondary">Ver más →</a>
+                        </div>
+                    </div>
+                    <!-- Artículo 3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden group fade-in-up" style="transition-delay: 0.2s;">
+                        <img src="img/articulo-3.webp" alt="Artículo sobre alivio de deudas tributarias para Pymes" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <p class="text-xs text-custom-gold uppercase mb-2 font-semibold tracking-wider">Michel Aguilera</p>
+                            <h3 class="text-lg font-normal mb-4 h-12">Fórmula a pymes de alivio por deudas tributarias</h3>
+                            <p class="text-sm font-light text-custom-dark-gray mb-4">El objetivo de declarar las obligaciones de las empresas de menor tamaño como incobrables y reduce la tasa de interés penal.</p>
+                            <a href="#" class="btn-secondary">Ver más →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center fade-in-up">
+                    <a href="/prensa" class="btn btn-primary">Ver más Prensa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CTA -->
+        <section class="py-20 bg-custom-gold text-center">
+            <div class="container mx-auto px-6 fade-in-up">
+                <h2 class="text-2xl md:text-3xl font-normal max-w-3xl mx-auto mb-4 text-white">Nuestro equipo está listo para atender tus necesidades tributarias específicas</h2>
+                <p class="text-base text-white opacity-90 mb-2">Agenda una reunión personalizada o contáctanos directamente por WhatsApp.</p>
+                <p class="text-base text-white opacity-90 mb-8 flex items-center justify-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    Respuesta garantizada en menos de 24 horas.
+                </p>
+                <a href="/contacto" class="btn btn-white">Contáctanos</a>
+            </div>
+        </section>
+
+        <!-- CONTACTO / FORMULARIO -->
+        <section class="relative py-20 text-white">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/formulario-contacto-fondo.webp');"></div>
+            <div class="absolute inset-0 bg-custom-blue opacity-60"></div>
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 relative z-10">
+                <div class="fade-in-up">
+                    <h2 class="section-title !text-custom-gold">Contacto</h2>
+                    <h3 class="section-subtitle !text-white !font-light mb-6">¿Necesitas una solución tributaria confiable?</h3>
+                    <p class="text-gray-300 text-sm mb-10">Agenda tu reunión o escríbenos. Estamos listos para ayudarte.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-8 text-sm">
+                        <div>
+                             <div class="w-8 h-px bg-custom-gold mb-3"></div>
+                             <h4 class="font-semibold tracking-widest uppercase mb-2">Teléfono</h4>
+                             <a href="tel:+56229416205" class="text-gray-300 hover:text-white">+56 2 2941 6205</a>
+                        </div>
+                         <div>
+                             <div class="w-8 h-px bg-custom-gold mb-3"></div>
+                             <h4 class="font-semibold tracking-widest uppercase mb-2">Email</h4>
+                             <a href="mailto:contacto@cabelloabogados.cl" class="text-gray-300 hover:text-white">contacto@cabelloabogados.cl</a>
+                        </div>
+                         <div class="sm:col-span-2">
+                             <div class="w-8 h-px bg-custom-gold mb-3"></div>
+                             <h4 class="font-semibold tracking-widest uppercase mb-2">Horario</h4>
+                             <p class="text-gray-300">Lunes - Viernes - 9:00 a 19:00hrs</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="space-y-5 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" id="name" placeholder="Tu nombre" class="form-input" required>
+                        </div>
+                         <div>
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <input type="tel" id="phone" placeholder="Tu teléfono" class="form-input">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="company" class="form-label">Empresa</label>
+                        <input type="text" id="company" placeholder="Nombre de la empresa" class="form-input" required>
+                    </div>
+                     <div>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" placeholder="Tu email" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="message" class="form-label">Mensaje</label>
+                        <textarea id="message" placeholder="Escribe tu mensaje aquí..." rows="4" class="form-input" required></textarea>
+                    </div>
+                    <div class="flex items-start pt-2">
+                        <input type="checkbox" id="privacy" class="mt-1 mr-2 bg-gray-700 border-gray-600">
+                        <label for="privacy" class="text-xs text-gray-400">Acepto la <a href="/politica-privacidad" class="underline hover:text-custom-gold">política de privacidad</a>.</label>
+                    </div>
+                    <div class="text-left pt-2">
+                        <button type="submit" class="btn btn-primary">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    <!-- =================================================================
+    // END of index.php
+    ================================================================== -->
+
+
+    <!-- =================================================================
+    // START of footer.php
+    ================================================================== -->
+    <footer class="bg-gray-900 text-gray-400 text-sm">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Desc -->
+                <div class="md:col-span-2">
+                    <a href="/">
+                        <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios en el pie de página" class="h-12">
+                    </a>
+                    <p class="mt-4 max-w-md text-xs">Estudio de Abogados Tributarios. Asesoría tributaria, auditorías preventivas y defensa legal en controversias fiscales.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
+                    <ul class="mt-4 space-y-2 text-xs">
+                        <li><a href="/areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="/politica-privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="/terminos-condiciones" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-xs">
+                        <li>
+                            <a href="https://www.linkedin.com" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin w-5"></i> LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="mailto:contacto@cabelloabogados.cl" class="hover:text-white transition-colors"><i class="fas fa-envelope w-5"></i> contacto@cabelloabogados.cl</a>
+                        </li>
+                        <li>
+                            <a href="tel:+56229416205" class="hover:text-white transition-colors"><i class="fas fa-phone-alt w-5"></i> +56229416205</a>
+                        </li>
+                         <li>
+                            <span class="flex"><i class="fas fa-clock w-5 mt-1"></i> Lunes - Viernes<br>9:00 a 19:00hrs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-10 pt-6 border-t border-gray-800 text-center text-xs">
+                <p><a href="https://www.google.com/maps/place/Av.+Alonso+de+C%C3%B3rdova+5900,+Las+Condes,+Regi%C3%B3n+Metropolitana" target="_blank" class="hover:text-white transition-colors"><i class="fas fa-map-marker-alt mr-2"></i> Av. Alonso de Córdova 5900, Of. 301, Las Condes, Santiago, Chile</a></p>
+                <p class="mt-4">&copy; <span id="year"></span> Cabello Abogados Tributarios. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- =================================================================
+    // END of footer.php
+    ================================================================== -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Header scroll effect
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            }
+            handleScroll(); 
+            window.addEventListener('scroll', handleScroll);
+
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Banner Slider
+            const banner = document.getElementById('main-banner');
+            if(banner) {
+                let currentSlide = 0;
+                const slides = banner.querySelectorAll('.slide');
+                const dots = banner.querySelectorAll('.slider-dot');
+                const slideInterval = 5000; // 5 seconds
+                let slideTimer;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        dots[i].classList.remove('active');
+                    });
+                    slides[index].classList.add('active');
+                    dots[index].classList.add('active');
+                }
+                
+                function resetTimer() {
+                    clearInterval(slideTimer);
+                    slideTimer = setInterval(nextSlide, slideInterval);
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                        currentSlide = index;
+                        resetTimer();
+                    });
+                });
+
+                slideTimer = setInterval(nextSlide, slideInterval);
+            }
+        });
+    </script>
+
+</body>
+</html>
+
