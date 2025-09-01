@@ -56,7 +56,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
-            overflow: visible; /* Changed from hidden to visible */
+            overflow: visible; /* Allows lines to be seen outside */
             border-radius: 4px;
             font-size: 13px;
             display: inline-block;
@@ -72,10 +72,10 @@
             transition: all 0.3s ease;
         }
         .btn::before {
-            left: -15px; /* Initial position */
+            left: -15px; /* Initial position: 10px inside, 15px outside */
         }
         .btn::after {
-            right: -15px; /* Initial position */
+            right: -15px; /* Initial position: 10px inside, 15px outside */
         }
         .btn:hover::before {
             left: -25px; /* Move out on hover */
@@ -268,7 +268,12 @@
             letter-spacing: 0.05em;
         }
         .cintillo-text {
-             font-size: 11px;
+             font-size: 10px; /* Reduced font size for mobile */
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .cintillo-text {
+                font-size: 11px;
+            }
         }
 
         /* Differentiators section styles */
@@ -327,14 +332,27 @@
         <!-- Cintillo -->
         <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
             <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
-                <div class="flex-grow">
-                    <h1 class="tracking-wider uppercase">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</h1>
+                <div class="flex-grow pr-2">
+                    <!-- START: Mobile/Desktop Text Swap -->
+                    <h1 class="tracking-wider uppercase">
+                        <span class="lg:hidden">Tu respaldo legal en asesoría tributaria</span>
+                        <span class="hidden lg:inline">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</span>
+                    </h1>
+                    <!-- END: Mobile/Desktop Text Swap -->
                 </div>
-                <div class="flex items-center space-x-4 uppercase">
-                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors"><i class="fas fa-phone-alt mr-1"></i> +56229416205</a>
-                    <span class="text-gray-500">|</span>
-                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors"><i class="fas fa-envelope mr-1"></i> contacto@cabelloabogados.cl</a>
+                <!-- START: Mobile/Desktop Contact Info Swap -->
+                <div class="flex items-center flex-shrink-0 space-x-3 lg:space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-phone-alt lg:mr-1"></i> 
+                        <span class="hidden lg:inline">+56229416205</span>
+                    </a>
+                    <span class="text-gray-500 hidden lg:inline">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-envelope lg:mr-1"></i> 
+                        <span class="hidden lg:inline">contacto@cabelloabogados.cl</span>
+                    </a>
                 </div>
+                <!-- END: Mobile/Desktop Contact Info Swap -->
             </div>
         </div>
         <div class="container mx-auto px-6">
@@ -573,8 +591,10 @@
         </section>
 
         <!-- SECCIÓN MULTIMEDIA -->
-        <section class="h-[350px] bg-cover bg-center bg-fixed" style="background-image: url('img/multimedia-equipo-reunion.webp');">
+        <!-- START: Mobile/Desktop background-attachment swap -->
+        <section class="h-[350px] bg-cover bg-center bg-scroll lg:bg-fixed" style="background-image: url('img/multimedia-equipo-reunion.webp');">
         </section>
+        <!-- END: Mobile/Desktop background-attachment swap -->
         
         <!-- SECCIÓN CINTILLO SEGURIDAD -->
         <section class="py-20 bg-gray-50">
