@@ -22,6 +22,9 @@
     <!-- Custom Styles -->
     <style>
         /* Applying Work Sans as the default font */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Work Sans', sans-serif;
             background-color: #FFFFFF; /* White background as base */
@@ -261,7 +264,7 @@
         }
         .form-label {
             display: block;
-            color: #d1d5db; /* Lighter gray for labels */
+            color: #FFFFFF; /* Changed to white */
             font-size: 11px;
             text-transform: uppercase;
             margin-bottom: 4px;
@@ -320,6 +323,10 @@
             stroke: #FFFFFF;
         }
 
+        /* Scroll to top button */
+        #scrollTopBtn {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
 
     </style>
 </head>
@@ -420,7 +427,7 @@
              <!-- Slides Container -->
             <div class="slide active">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-1.webp');"></div>
-                <div class="absolute inset-0 bg-custom-blue opacity-20"></div>
+                <div class="absolute inset-0 bg-custom-blue opacity-25"></div>
                 <div class="w-full h-full flex justify-center items-center">
                     <div class="container mx-auto px-6 relative z-10">
                         <div class="max-w-2xl text-center mx-auto">
@@ -433,7 +440,7 @@
             </div>
             <div class="slide">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-2.webp');"></div>
-                 <div class="absolute inset-0 bg-custom-blue opacity-20"></div>
+                 <div class="absolute inset-0 bg-custom-blue opacity-25"></div>
                 <div class="w-full h-full flex justify-center items-center">
                      <div class="container mx-auto px-6 relative z-10">
                         <div class="max-w-2xl text-center mx-auto">
@@ -790,11 +797,17 @@
     // END of footer.php
     ================================================================== -->
 
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.getElementById('main-header');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
 
             // Header scroll effect
             function handleScroll() {
@@ -802,6 +815,13 @@
                     header.classList.add('header-scrolled');
                 } else {
                     header.classList.remove('header-scrolled');
+                }
+
+                // Scroll to top button visibility
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                } else {
+                    scrollTopBtn.classList.add('opacity-0', 'invisible');
                 }
             }
             handleScroll(); 
