@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Quiénes Somos | Cabello Abogados Tributarios</title>
+    <meta name="description" content="Conozca la historia, el enfoque y al equipo de expertos de Cabello Abogados Tributarios. Más de 15 años de trayectoria en derecho tributario en Chile.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles (Reused from Home) -->
+    <style>
+        /* Applying Work Sans as the default font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #FFFFFF;
+            color: #212C44;
+            font-size: 14px;
+        }
+
+        /* Custom Colors */
+        .bg-custom-blue { background-color: #212C44; }
+        .text-custom-blue { color: #212C44; }
+        .border-custom-blue { border-color: #212C44; }
+        .bg-custom-gold { background-color: #BB9D73; }
+        .text-custom-gold { color: #BB9D73; }
+        .hover-text-custom-gold:hover { color: #BB9D73; }
+        .bg-custom-white { background-color: #FFFFFF; }
+        .text-custom-white { color: #FFFFFF; }
+        .text-custom-dark-gray { color: #666666; }
+
+        /* Header styles */
+        .header-scrolled {
+            background-color: #212C44;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Button Style */
+        .btn {
+            padding: 10px 30px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible;
+            border-radius: 4px;
+            font-size: 13px;
+            display: inline-block;
+        }
+        .btn::before, .btn::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 25px;
+            background-color: currentColor;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+        .btn::before { left: -15px; }
+        .btn::after { right: -15px; }
+        .btn:hover::before { left: -25px; }
+        .btn:hover::after { right: -25px; }
+        
+        .btn-primary {
+            background-color: #FFFFFF;
+            color: #212C44;
+            border: 1px solid #212C44;
+        }
+        .btn-primary:hover {
+            background-color: #BB9D73;
+            color: #212C44;
+        }
+        
+        /* Secondary Button Style */
+        .btn-secondary {
+            color: #BB9D73;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.3s ease;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .btn-secondary:hover {
+            color: #212C44;
+        }
+
+        /* Menu link styles */
+        .menu-link {
+            position: relative;
+            color: #FFFFFF;
+            transition: color 0.3s ease;
+        }
+        .menu-link:hover, .menu-link.active {
+            color: #BB9D73;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; background-color: #212C44; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 4px; }
+        .dropdown-menu a { color: white; padding: 12px 16px; text-decoration: none; display: block; transition: background-color 0.3s ease, color 0.3s ease; }
+        .dropdown-menu a:hover { background-color: #BB9D73; color: #FFFFFF; }
+
+        /* Animation for scroll */
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Global Title Styles */
+        .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #BB9D73; margin-bottom: 0.75rem; font-weight: 400; }
+        .section-subtitle { font-size: 1.75rem; font-weight: 400; color: #212C44; }
+
+        /* Scroll to top button */
+        #scrollTopBtn { transition: opacity 0.3s ease, visibility 0.3s ease; }
+
+        /* Team Section Accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .accordion-content.open {
+            max-height: 1500px; /* Increased max-height */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .accordion-toggle .fa-chevron-down {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-toggle.open .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .cintillo-text {
+             font-size: 10px; /* Reduced font size for mobile */
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .cintillo-text {
+                font-size: 11px;
+            }
+        }
+        
+        /* Icon Wrapper Style (for Valores and Por que elegirnos) */
+        .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 9999px;
+            background-color: hsl(37deg 27% 59% / 10%);
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        .icon-wrapper .fas {
+            transition: color 0.3s ease;
+        }
+        .group:hover .icon-wrapper {
+            background-color: #BB9D73;
+        }
+        .group:hover .icon-wrapper .fas {
+            color: #FFFFFF;
+        }
+        .group:hover .differentiator-title {
+            color: #212C44;
+        }
+        .differentiator-title {
+            color: #BB9D73;
+            transition: color 0.3s ease;
+        }
+
+        /* Animated Circle for stats */
+        .progress-circle {
+            stroke-dasharray: 283; /* 2 * PI * 45 */
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .fade-in-up.visible .progress-circle-animated {
+            stroke-dashoffset: 0;
+        }
+        .fade-in-up.visible .progress-circle-90 {
+            stroke-dashoffset: 28.3; /* 283 * (1 - 0.90) */
+        }
+        
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- =================================================================
+    // START of header.php
+    ================================================================== -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <!-- Cintillo -->
+        <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
+            <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
+                <div class="flex-grow pr-2">
+                    <h1 class="tracking-wider uppercase">
+                        <span class="lg:hidden">Tu respaldo legal en asesoría tributaria</span>
+                        <span class="hidden lg:inline">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</span>
+                    </h1>
+                </div>
+                <div class="flex items-center flex-shrink-0 space-x-3 lg:space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-phone-alt lg:mr-1"></i> 
+                        <span class="hidden lg:inline">+56229416205</span>
+                    </a>
+                    <span class="text-gray-500 hidden lg:inline">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-envelope lg:mr-1"></i> 
+                        <span class="hidden lg:inline">contacto@cabelloabogados.cl</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6">
+             <hr id="header-divider" class="border-gray-600 transition-opacity duration-300">
+        </div>
+
+        <!-- Menú Principal -->
+        <nav id="main-nav" class="py-3">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="abogados_tributarios_cl">
+                    <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios" class="h-10">
+                </a>
+                <!-- Navigation Links -->
+                <ul class="hidden lg:flex items-center space-x-6 font-light text-xs tracking-widest uppercase">
+                    <li><a href="abogados_tributarios_cl" class="menu-link">Inicio</a></li>
+                    <li><a href="quienes-somos.html" class="menu-link active">Quiénes Somos</a></li>
+                    <li class="dropdown relative">
+                        <a href="/areas-practica" class="menu-link flex items-center">
+                            Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
+                        </a>
+                        <ul class="dropdown-menu mt-2">
+                            <li><a href="/areas-practica/reorganizacion-empresarial-familiar">Reorganización empresarial y familiar</a></li>
+                            <li><a href="/areas-practica/asesoria-legal-tributaria">Asesoría Legal Tributaria</a></li>
+                            <li><a href="/areas-practica/litigio-solucion-controversias">Litigios y solución de controversias</a></li>
+                            <li><a href="/areas-practica/auditoria-tributaria">Auditoría tributaria</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/prensa" class="menu-link">Prensa</a></li>
+                    <li><a href="/contacto" class="menu-link">Contacto</a></li>
+                </ul>
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-custom-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-custom-blue z-40 p-8">
+        <ul class="flex flex-col items-center justify-center h-full space-y-6 text-white text-lg uppercase tracking-widest">
+            <li><a href="abogados_tributarios_cl" class="hover-text-custom-gold">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
+            <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
+            <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="/contacto" class="hover-text-custom-gold">Contacto</a></li>
+        </ul>
+    </div>
+    <!-- =================================================================
+    // END of header.php
+    ================================================================== -->
+
+    <!-- =================================================================
+    // START of page content
+    ================================================================== -->
+    <main>
+        <!-- BANNER PRINCIPAL -->
+        <section class="h-[50vh] min-h-[400px] text-white relative bg-cover bg-center" style="background-image: url('img/banner-quienes-somos.webp');">
+             <div class="absolute inset-0 bg-custom-blue opacity-50"></div>
+            <div class="w-full h-full flex justify-center items-center">
+                <div class="container mx-auto px-6 relative z-10 text-center">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">Cabello Abogados Tributarios: <br class="hidden md:block"> Excelencia, cercanía y visión estratégica</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN HISTORIA Y ENFOQUE -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <!-- Centered Part -->
+                <div class="fade-in-up text-center max-w-4xl mx-auto mb-16">
+                     <h2 class="section-title">Historia y enfoque</h2>
+                     <p class="section-subtitle !text-2xl !font-light leading-relaxed text-custom-dark-gray">
+                        Desde 2008, nuestra firma ha sido referente en servicios legales tributarios, corporativos y de reorganización. Nuestro equipo está formado por abogados y auditores con profunda experiencia, y una cultura enfocada en el conocimiento del cliente.
+                    </p>
+                </div>
+
+                <!-- Two-column Part -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in-up text-left">
+                         <h3 class="section-subtitle !text-xl !font-semibold mb-4">Enfoque</h3>
+                         <p class="text-custom-dark-gray font-light leading-relaxed">
+                            Nuestro principal objetivo es prestar una asesoría de excelencia a clientes diversos, adaptando nuestros servicios a sus propios requerimientos, logrando optimizar sus recursos con la tranquilidad de un cumplimiento integro de la normativa vigente. Para ello entregamos respuestas precisas y oportunas.
+                            <br><br>
+                            Cabello Abogados Tributarios ofrece asesoría tributaria a empresas y personas; representación ante organismos fiscalizadores y tribunales de justicia, emisión de informes en Derecho, capacitación a través de charlas y cursos, entre otros.
+                         </p>
+                    </div>
+                    <div class="fade-in-up" style="transition-delay: 0.2s;">
+                        <img src="img/enfoque-imagen.webp" alt="Oficina de abogados con enfoque en el cliente" class="rounded-lg shadow-xl w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCIÓN VALORES -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                 <div class="fade-in-up mb-12 text-center">
+                    <h2 class="section-title">Nuestros Principios</h2>
+                    <h3 class="section-subtitle">Valores</h3>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="fade-in-up group">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-eye-slash text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue">Confidencialidad</h3>
+                    </div>
+                     <div class="fade-in-up group" style="transition-delay: 0.1s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-medal text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue">Excelencia</h3>
+                    </div>
+                     <div class="fade-in-up group" style="transition-delay: 0.2s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-chess-knight text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue">Visión Estratégica</h3>
+                    </div>
+                     <div class="fade-in-up group" style="transition-delay: 0.3s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-book-open text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue">Formación Continua</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUESTRA EXPERIENCIA EN CIFRAS -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="section-title">Resultados que nos respaldan</h2>
+                    <h3 class="section-subtitle">Nuestra experiencia en cifras</h3>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+                    <!-- Cifra 1 -->
+                    <div class="fade-in-up flex flex-col items-center text-center">
+                        <div class="relative w-40 h-40">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="transparent" />
+                                <circle class="progress-circle progress-circle-animated" cx="50" cy="50" r="45" stroke="#BB9D73" stroke-width="8" fill="transparent" transform="rotate(-90 50 50)" />
+                            </svg>
+                            <span class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-custom-blue counter" data-target="15">0</span>
+                        </div>
+                        <p class="mt-4 text-sm text-custom-dark-gray max-w-[150px]">+15 años de trayectoria en derecho tributario</p>
+                    </div>
+                    <!-- Cifra 2 -->
+                    <div class="fade-in-up flex flex-col items-center text-center" style="transition-delay: 0.1s;">
+                        <div class="relative w-40 h-40">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="transparent" />
+                                <circle class="progress-circle progress-circle-animated" cx="50" cy="50" r="45" stroke="#BB9D73" stroke-width="8" fill="transparent" transform="rotate(-90 50 50)" />
+                            </svg>
+                            <span class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-custom-blue counter" data-target="100">0</span>
+                        </div>
+                        <p class="mt-4 text-sm text-custom-dark-gray max-w-[150px]">+100 Reorganizaciones patrimoniales exitosas</p>
+                    </div>
+                    <!-- Cifra 3 -->
+                    <div class="fade-in-up flex flex-col items-center text-center" style="transition-delay: 0.2s;">
+                        <div class="relative w-40 h-40">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="transparent" />
+                                <circle class="progress-circle progress-circle-animated" cx="50" cy="50" r="45" stroke="#BB9D73" stroke-width="8" fill="transparent" transform="rotate(-90 50 50)" />
+                            </svg>
+                            <span class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-custom-blue counter" data-target="200">0</span>
+                        </div>
+                        <p class="mt-4 text-sm text-custom-dark-gray max-w-[150px]">+200 Auditorías tributarias realizadas</p>
+                    </div>
+                    <!-- Cifra 4 -->
+                    <div class="fade-in-up flex flex-col items-center text-center" style="transition-delay: 0.3s;">
+                        <div class="relative w-40 h-40">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="transparent" />
+                                <circle class="progress-circle progress-circle-90" cx="50" cy="50" r="45" stroke="#BB9D73" stroke-width="8" fill="transparent" transform="rotate(-90 50 50)" />
+                            </svg>
+                            <span class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-custom-blue counter" data-target="90%">0%</span>
+                        </div>
+                        <p class="mt-4 text-sm text-custom-dark-gray max-w-[150px]">+90% Clientes recurren a nuestros servicios nuevamente</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN EQUIPO -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="section-title">Nuestro equipo</h2>
+                    <h3 class="section-subtitle">Conoce a nuestros expertos en área tributaria</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Juan Pablo Cabello -->
+                    <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg">
+                        <img src="img/equipo-jp-cabello.webp" alt="Foto de Juan Pablo Cabello" class="w-full rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-custom-blue">Juan Pablo Cabello</h3>
+                        <p class="text-custom-gold mb-2">Abogado, Socio</p>
+                        <a href="mailto:juan.cabello@cabelloabogados.cl" class="text-sm text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center"><i class="fas fa-envelope mr-2 text-custom-gold"></i>juan.cabello@cabelloabogados.cl</a>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue">
+                                Ver más <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                                <h4 class="font-semibold text-custom-blue mt-2 mb-1 flex items-center"><i class="fas fa-graduation-cap mr-2 text-custom-gold"></i>Antecedentes Académicos:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Abogado, Universidad de Chile (2002).</li>
+                                    <li>Magister en Dirección y Gestión Tributaria, UAI.</li>
+                                    <li>Cursos en Georgetown University y McGill University.</li>
+                                    <li>Profesor en PUC y U. de Chile.</li>
+                                </ul>
+                                <h4 class="font-semibold text-custom-blue mt-4 mb-1 flex items-center"><i class="fas fa-briefcase mr-2 text-custom-gold"></i>Antecedentes Laborales:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Socio en Cabello & Cía. (2017 a la fecha).</li>
+                                    <li>Socio en Asesorías Legales Cabello, Letonja & Cía. (2008 – 2017).</li>
+                                    <li>Gerente en Tax & Legal, Ernst & Young Chile (2002 – 2008).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- María Pilar Cabello -->
+                    <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg" style="transition-delay: 0.1s;">
+                        <img src="img/equipo-mp-cabello.webp" alt="Foto de María Pilar Cabello" class="w-full rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-custom-blue">María Pilar Cabello</h3>
+                        <p class="text-custom-gold mb-2">Socia Auditoria</p>
+                        <a href="mailto:pilar.cabello@cabelloabogados.cl" class="text-sm text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center"><i class="fas fa-envelope mr-2 text-custom-gold"></i>pilar.cabello@cabelloabogados.cl</a>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue">
+                                Ver más <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                                <h4 class="font-semibold text-custom-blue mt-2 mb-1 flex items-center"><i class="fas fa-graduation-cap mr-2 text-custom-gold"></i>Antecedentes Académicos:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Tutora y Profesora programa “Compite”.</li>
+                                    <li>Profesora Diplomado en Tributación, U. de Chile.</li>
+                                </ul>
+                                <h4 class="font-semibold text-custom-blue mt-4 mb-1 flex items-center"><i class="fas fa-briefcase mr-2 text-custom-gold"></i>Antecedentes Laborales:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Socia Auditoría Tributaria en Cabello & Cía. (2017 a la fecha).</li>
+                                    <li>Gerente y Subgerente en Walmart Chile S.A. (2007 – 2012).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Jonathan Molina -->
+                    <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg" style="transition-delay: 0.2s;">
+                        <img src="img/equipo-j-molina.webp" alt="Foto de Jonathan Molina" class="w-full rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-custom-blue">Jonathan Molina</h3>
+                        <p class="text-custom-gold mb-2">Director Auditor</p>
+                        <a href="mailto:jonathan.molina@cabelloabogados.cl" class="text-sm text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center"><i class="fas fa-envelope mr-2 text-custom-gold"></i>jonathan.molina@cabelloabogados.cl</a>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue">
+                                Ver más <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                                <h4 class="font-semibold text-custom-blue mt-2 mb-1 flex items-center"><i class="fas fa-graduation-cap mr-2 text-custom-gold"></i>Antecedentes Académicos:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Diplomado Reforma Tributaria, UAI (2017).</li>
+                                    <li>Contador Auditor, UNAB (2015).</li>
+                                </ul>
+                                <h4 class="font-semibold text-custom-blue mt-4 mb-1 flex items-center"><i class="fas fa-briefcase mr-2 text-custom-gold"></i>Antecedentes Laborales:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Director Tributario en Cabello & Cía. (2017 a la fecha).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estephania Aguayo -->
+                    <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg">
+                        <img src="img/equipo-e-aguayo.webp" alt="Foto de Estephania Aguayo" class="w-full rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-custom-blue">Estephania Aguayo</h3>
+                        <p class="text-custom-gold mb-2">Abogada</p>
+                        <a href="mailto:estephania.aguayo@cabelloabogados.cl" class="text-sm text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center"><i class="fas fa-envelope mr-2 text-custom-gold"></i>estephania.aguayo@cabelloabogados.cl</a>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue">
+                                Ver más <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                                <h4 class="font-semibold text-custom-blue mt-2 mb-1 flex items-center"><i class="fas fa-graduation-cap mr-2 text-custom-gold"></i>Antecedentes Académicos:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Abogada, Universidad de Chile (2013).</li>
+                                    <li>Diplomado en Tributación, U. de Chile (2018).</li>
+                                    <li>Magister en Derecho LLM, Mención Derecho Tributario, PUC (2018).</li>
+                                </ul>
+                                <h4 class="font-semibold text-custom-blue mt-4 mb-1 flex items-center"><i class="fas fa-briefcase mr-2 text-custom-gold"></i>Antecedentes Laborales:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Asociada en Cabello & Cía. (2017 a la fecha).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Michel Alejandro Aguilera -->
+                    <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg" style="transition-delay: 0.1s;">
+                        <img src="img/equipo-m-aguilera.webp" alt="Foto de Michel Alejandro Aguilera" class="w-full rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-custom-blue">Michel Alejandro Aguilera</h3>
+                        <p class="text-custom-gold mb-2">Abogado, Director de Litigios y Controversias</p>
+                        <a href="mailto:michel.aguilera@cabelloabogados.cl" class="text-sm text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center"><i class="fas fa-envelope mr-2 text-custom-gold"></i>michel.aguilera@cabelloabogados.cl</a>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue">
+                                Ver más <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                                <h4 class="font-semibold text-custom-blue mt-2 mb-1 flex items-center"><i class="fas fa-graduation-cap mr-2 text-custom-gold"></i>Antecedentes Académicos:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Abogado, Universidad de Chile (2017).</li>
+                                    <li>Diplomado en Tributación, U. de Chile (2019).</li>
+                                </ul>
+                                <h4 class="font-semibold text-custom-blue mt-4 mb-1 flex items-center"><i class="fas fa-briefcase mr-2 text-custom-gold"></i>Antecedentes Laborales:</h4>
+                                <ul class="list-disc pl-5">
+                                    <li>Director Litigios y Controversias, Cabello & Cía. (2022 a la fecha).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Franssesca Forné Grantt -->
+                    <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg" style="transition-delay: 0.2s;">
+                        <img src="img/equipo-f-forne.webp" alt="Foto de Franssesca Forné Grantt" class="w-full rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-custom-blue">Franssesca Forné Grantt</h3>
+                        <p class="text-custom-gold mb-2">Abogada senior</p>
+                        <a href="mailto:franssesca.forne@cabelloabogados.cl" class="text-sm text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center"><i class="fas fa-envelope mr-2 text-custom-gold"></i>franssesca.forne@cabelloabogados.cl</a>
+                         <div class="mt-4 border-t border-gray-200 pt-4">
+                            <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue">
+                                Ver más <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                                <h4 class="font-semibold text-custom-blue mt-2 mb-1 flex items-center"><i class="fas fa-briefcase mr-2 text-custom-gold"></i>Antecedentes Laborales:</h4>
+                                <p>Abogada especializada en derecho tributario, con más de 7 años de experiencia en consultoría. Graduada con distinción máxima de la Universidad de Chile y con un Diplomado en Planificación Tributaria. Ha trabajado en firmas como EY y BDO.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCIÓN ¿POR QUÉ ELEGIRNOS? -->
+        <section class="py-20 bg-white relative">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/porque-elegirnos-fondo.webp');"></div>
+            <div class="absolute inset-0 bg-custom-blue opacity-80"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                 <div class="text-center mb-12 fade-in-up">
+                    <h2 class="section-title !text-white opacity-80">¿Por qué elegirnos?</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="fade-in-up group">
+                        <div class="bg-white p-8 rounded-lg shadow-lg h-full text-center">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-users text-4xl text-custom-gold"></i>
+                            </div>
+                            <h3 class="differentiator-title text-lg font-semibold mb-2">Equipo multidisciplinario</h3>
+                            <p class="text-custom-dark-gray text-sm font-light">Combinamos la experiencia de abogados y auditores para ofrecer una visión 360° en cada caso.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="fade-in-up group" style="transition-delay: 0.1s;">
+                        <div class="bg-white p-8 rounded-lg shadow-lg h-full text-center">
+                            <div class="icon-wrapper">
+                                 <i class="fas fa-chart-line text-4xl text-custom-gold"></i>
+                            </div>
+                            <h3 class="differentiator-title text-lg font-semibold mb-2">Casos reales con impacto</h3>
+                            <p class="text-custom-dark-gray text-sm font-light">Nuestra trayectoria se basa en la resolución exitosa de casos complejos para empresas y familias.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="fade-in-up group" style="transition-delay: 0.2s;">
+                        <div class="bg-white p-8 rounded-lg shadow-lg h-full text-center">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-shield-alt text-4xl text-custom-gold"></i>
+                            </div>
+                            <h3 class="differentiator-title text-lg font-semibold mb-2">Enfoque preventivo y estratégico</h3>
+                            <p class="text-custom-dark-gray text-sm font-light">Nos anticipamos a los riesgos fiscales para proteger y optimizar su patrimonio a largo plazo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <!-- =================================================================
+    // END of page content
+    ================================================================== -->
+
+
+    <!-- =================================================================
+    // START of footer.php
+    ================================================================== -->
+    <footer class="bg-gray-900 text-gray-400 text-sm">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Desc -->
+                <div class="md:col-span-2">
+                    <a href="/">
+                        <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios en el pie de página" class="h-12">
+                    </a>
+                    <p class="mt-4 max-w-md text-xs">Estudio de Abogados Tributarios. Asesoría tributaria, auditorías preventivas y defensa legal en controversias fiscales.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
+                    <ul class="mt-4 space-y-2 text-xs">
+                        <li><a href="/areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="/politica-privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="/terminos-condiciones" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-xs">
+                        <li>
+                            <a href="https://www.linkedin.com" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin w-5"></i> LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="mailto:contacto@cabelloabogados.cl" class="hover:text-white transition-colors"><i class="fas fa-envelope w-5"></i> contacto@cabelloabogados.cl</a>
+                        </li>
+                        <li>
+                            <a href="tel:+56229416205" class="hover:text-white transition-colors"><i class="fas fa-phone-alt w-5"></i> +56229416205</a>
+                        </li>
+                         <li>
+                            <span class="flex"><i class="fas fa-clock w-5 mt-1"></i> Lunes - Viernes<br>9:00 a 19:00hrs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-10 pt-6 border-t border-gray-800 text-center text-xs">
+                <p><a href="https://www.google.com/maps/place/Av.+Alonso+de+C%C3%B3rdova+5900,+Las+Condes,+Regi%C3%B3n+Metropolitana" target="_blank" class="hover:text-white transition-colors"><i class="fas fa-map-marker-alt mr-2"></i> Av. Alonso de Córdova 5900, Of. 301, Las Condes, Santiago, Chile</a></p>
+                <p class="mt-4">&copy; <span id="year"></span> Cabello Abogados Tributarios. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- =================================================================
+    // END of footer.php
+    ================================================================== -->
+
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // Header scroll effect & Scroll to top button
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                } else {
+                    scrollTopBtn.classList.add('opacity-0', 'invisible');
+                }
+            }
+            handleScroll(); 
+            window.addEventListener('scroll', handleScroll);
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        const counter = entry.target.querySelector('.counter') || (entry.target.matches('.counter') ? entry.target.parentElement.querySelector('.counter') : null);
+                        if (counter && !counter.classList.contains('animated')) {
+                            const targetValue = counter.getAttribute('data-target');
+                            const isPercent = targetValue.includes('%');
+                            const target = parseInt(targetValue.replace('%',''));
+                            counter.innerText = '0' + (isPercent ? '%' : '');
+                            counter.classList.add('animated');
+
+                            const updateCounter = () => {
+                                const count = parseInt(counter.innerText.replace('%',''));
+                                const increment = target / 100;
+
+                                if(count < target) {
+                                    let nextCount = Math.ceil(count + increment);
+                                    if (nextCount > target) nextCount = target;
+                                    counter.innerText = `${nextCount}${isPercent ? '%' : ''}`;
+                                    setTimeout(updateCounter, 20);
+                                } else {
+                                     counter.innerText = `${target}${isPercent ? '%' : ''}`;
+                                }
+                            };
+                            updateCounter();
+                        }
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // Accordion for Team Section
+            const accordions = document.querySelectorAll('.accordion-toggle');
+            accordions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    button.classList.toggle('open');
+                    content.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
