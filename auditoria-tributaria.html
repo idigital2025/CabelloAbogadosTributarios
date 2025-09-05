@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Auditoría Tributaria Preventiva | Cabello Abogados</title>
+    <meta name="description" content="Auditores tributarios en Santiago. Realizamos un examen riguroso de la situación fiscal de personas y empresas, con precisión técnica y perspectiva preventiva.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles (Reused from Home) -->
+    <style>
+        /* Applying Work Sans as the default font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #FFFFFF;
+            color: #212C44;
+            font-size: 14px;
+        }
+
+        /* Custom Colors */
+        .bg-custom-blue { background-color: #212C44; }
+        .text-custom-blue { color: #212C44; }
+        .border-custom-blue { border-color: #212C44; }
+        .bg-custom-gold { background-color: #BB9D73; }
+        .text-custom-gold { color: #BB9D73; }
+        .hover-text-custom-gold:hover { color: #BB9D73; }
+        .bg-custom-white { background-color: #FFFFFF; }
+        .text-custom-white { color: #FFFFFF; }
+        .text-custom-dark-gray { color: #666666; }
+
+        /* Header styles */
+        .header-scrolled {
+            background-color: #212C44;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Menu link styles */
+        .menu-link {
+            position: relative;
+            color: #FFFFFF;
+            transition: color 0.3s ease;
+        }
+        .menu-link:hover, .menu-link.active {
+            color: #BB9D73;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; background-color: #212C44; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 4px; }
+        .dropdown-menu a { color: white; padding: 12px 16px; text-decoration: none; display: block; transition: background-color 0.3s ease, color 0.3s ease; }
+        .dropdown-menu a:hover { background-color: #BB9D73; color: #FFFFFF; }
+        .dropdown-menu a.active { background-color: #BB9D73; color: #FFFFFF; }
+
+
+        /* Animation for scroll */
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Global Title Styles */
+        .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #BB9D73; margin-bottom: 0.75rem; font-weight: 400; }
+        .section-subtitle { font-size: 1.75rem; font-weight: 400; color: #212C44; }
+
+        /* Scroll to top button */
+        #scrollTopBtn { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        
+        .cintillo-text {
+             font-size: 10px; /* Reduced font size for mobile */
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .cintillo-text {
+                font-size: 11px;
+            }
+        }
+        
+        /* Icon Wrapper Style */
+        .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 9999px;
+            background-color: hsl(37deg 27% 59% / 10%);
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        .icon-wrapper .fas {
+            transition: color 0.3s ease;
+        }
+        .group:hover .icon-wrapper {
+            background-color: #BB9D73;
+        }
+        .group:hover .icon-wrapper .fas {
+            color: #FFFFFF;
+        }
+        
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- =================================================================
+    // START of header.php
+    ================================================================== -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <!-- Cintillo -->
+        <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
+            <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
+                <div class="flex-grow pr-2">
+                    <h1 class="tracking-wider uppercase">
+                        <span class="lg:hidden">Tu respaldo legal en asesoría tributaria</span>
+                        <span class="hidden lg:inline">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</span>
+                    </h1>
+                </div>
+                <div class="flex items-center flex-shrink-0 space-x-3 lg:space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-phone-alt lg:mr-1"></i> 
+                        <span class="hidden lg:inline">+56229416205</span>
+                    </a>
+                    <span class="text-gray-500 hidden lg:inline">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-envelope lg:mr-1"></i> 
+                        <span class="hidden lg:inline">contacto@cabelloabogados.cl</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6">
+             <hr id="header-divider" class="border-gray-600 transition-opacity duration-300">
+        </div>
+
+        <!-- Menú Principal -->
+        <nav id="main-nav" class="py-3">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios" class="h-10">
+                </a>
+                <!-- Navigation Links -->
+                <ul class="hidden lg:flex items-center space-x-6 font-light text-xs tracking-widest uppercase">
+                    <li><a href="index.html" class="menu-link">Inicio</a></li>
+                    <li><a href="quienes-somos.html" class="menu-link">Quiénes Somos</a></li>
+                    <li class="dropdown relative">
+                        <a href="/areas-practica" class="menu-link active flex items-center">
+                            Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
+                        </a>
+                        <ul class="dropdown-menu mt-2">
+                            <li><a href="reorganizacion.html">Reorganización empresarial y familiar</a></li>
+                            <li><a href="/areas-practica/asesoria-legal-tributaria">Asesoría Legal Tributaria</a></li>
+                            <li><a href="/areas-practica/litigio-solucion-controversias">Litigios y solución de controversias</a></li>
+                            <li><a href="auditoria-tributaria.html" class="active">Auditoría tributaria</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/prensa" class="menu-link">Prensa</a></li>
+                    <li><a href="/contacto" class="menu-link">Contacto</a></li>
+                </ul>
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-custom-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-custom-blue z-40 p-8">
+        <ul class="flex flex-col items-center justify-center h-full space-y-6 text-white text-lg uppercase tracking-widest">
+            <li><a href="index.html" class="hover-text-custom-gold">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
+            <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
+            <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="/contacto" class="hover-text-custom-gold">Contacto</a></li>
+        </ul>
+    </div>
+    <!-- =================================================================
+    // END of header.php
+    ================================================================== -->
+
+    <!-- =================================================================
+    // START of page content
+    ================================================================== -->
+    <main>
+        <!-- HERO INICIAL -->
+        <section class="h-[60vh] min-h-[450px] text-white relative bg-cover bg-center" style="background-image: url('img/servicio-auditoria.webp');">
+             <div class="absolute inset-0 bg-custom-blue opacity-50"></div>
+            <div class="w-full h-full flex justify-center items-center">
+                <div class="container mx-auto px-6 relative z-10 text-center">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight mb-4">Auditoría tributaria con enfoque estratégico</h1>
+                    <p class="text-lg md:text-xl font-light max-w-3xl mx-auto">Un examen riguroso de la situación fiscal de personas y empresas, realizado con precisión técnica y perspectiva preventiva.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ¿QUÉ HACEMOS? -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto fade-in-up">
+                    <h2 class="section-title text-center">Nuestra Práctica</h2>
+                    <h3 class="section-subtitle mb-6 text-center">¿Qué hacemos?</h3>
+                    <p class="text-custom-dark-gray font-light leading-relaxed mb-6">
+                        En Cabello Abogados abordamos la auditoría tributaria como una herramienta preventiva y estratégica, orientada a identificar inconsistencias, omisiones o contingencias fiscales antes de que se produzca una fiscalización. Nuestro enfoque combina análisis técnico profundo, interpretación normativa y experiencia en litigación, permitiéndonos evaluar cada caso con rigor y claridad.
+                    </p>
+                    <p class="text-custom-dark-gray font-light leading-relaxed">
+                        A través de esta práctica, examinamos estructuras internas, documentación tributaria, cumplimiento formal y criterios administrativos aplicables, en función de la normativa vigente y su evolución jurisprudencial. Elaboramos informes estructurados y técnicamente fundamentados, con hallazgos que permiten anticipar escenarios de riesgo y definir criterios de acción sólidos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ASPECTOS EXAMINADOS -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-up">
+                     <h2 class="section-subtitle">Algunos aspectos tributarios que examinamos</h2>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-x-12 gap-y-4">
+                    <div class="fade-in-up">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
+                                <span class="text-custom-dark-gray">Revisión técnico-tributaria de operaciones, declaraciones y documentación fiscal.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
+                                <span class="text-custom-dark-gray">Evaluación del cumplimiento normativo bajo criterios actuales del SII y la jurisprudencia.</span>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
+                                <span class="text-custom-dark-gray">Detección de omisiones u observaciones susceptibles de cuestionamiento administrativo.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
+                                <span class="text-custom-dark-gray">Análisis preventivo en contextos de reorganización, fusiones o procesos sucesorios.</span>
+                            </li>
+                        </ul>
+                    </div>
+                     <div class="fade-in-up" style="transition-delay: 0.2s;">
+                        <ul class="space-y-4">
+                             <li class="flex items-start">
+                                <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
+                                <span class="text-custom-dark-gray">Due diligence tributario en procesos de adquisición o auditorías internas.</span>
+                            </li>
+                              <li class="flex items-start">
+                                <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
+                                <span class="text-custom-dark-gray">Análisis de estructuras contractuales con impacto fiscal, tanto en Chile como en el extranjero.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
+                                <span class="text-custom-dark-gray">Acompañamiento técnico ante rectificaciones o autodenuncias voluntarias.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCIÓN NUESTRO ENFOQUE -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in-up">
+                        <img src="img/enfoque-auditoria.webp" alt="Abogados revisando documentos de auditoría tributaria" class="rounded-lg shadow-xl w-full h-full object-cover">
+                    </div>
+                    <div class="fade-in-up" style="transition-delay: 0.2s;">
+                         <h2 class="section-subtitle mb-6">Nuestro enfoque</h2>
+                         <div class="space-y-4 text-custom-dark-gray font-light leading-relaxed">
+                            <p>Nuestra práctica en auditoría tributaria se caracteriza por la aplicación estricta de criterios legales y técnicos, con un enfoque preventivo que busca anticipar contingencias antes de que escalen en conflictos administrativos o judiciales.</p>
+                            <p>Adaptamos cada revisión al giro, sector y dimensión de la empresa evaluada, considerando sus particularidades operativas y fiscales. Este análisis se construye a partir de documentación real, procesos internos y criterios administrativos vigentes.</p>
+                            <p>Los informes que elaboramos son técnicamente fundamentados y válidos para presentaciones internas o procedimientos ante el Servicio de Impuestos Internos (SII). Su estructura permite abordar observaciones con sustento jurídico, técnico y documental.</p>
+                            <p>Todos los procesos son dirigidos directamente por socios del estudio y peritos tributarios con trayectoria reconocida. Mantenemos una línea de trabajo rigurosa, sobria y precisa, sin sobreexposición pública y con total foco en la calidad técnica del análisis.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCIÓN NUESTRA DIFERENCIA PROFESIONAL -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-up">
+                     <h2 class="section-subtitle">Nuestra diferencia profesional</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="fade-in-up group text-center p-6">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-user-tie text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Participación directa de socios</h3>
+                        <p class="text-custom-dark-gray text-sm font-light">Todas las auditorías son dirigidas por abogados con trayectoria en litigación tributaria compleja.</p>
+                    </div>
+                    <!-- Item 2 -->
+                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.1s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-gavel text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Peritajes con respaldo judicial</h3>
+                        <p class="text-custom-dark-gray text-sm font-light">Contamos con peritos tributarios inscritos en Cortes de Apelaciones, con informes usados en procesos contenciosos.</p>
+                    </div>
+                    <!-- Item 3 -->
+                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.2s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-shield-alt text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Visión contenciosa y preventiva</h3>
+                        <p class="text-custom-dark-gray text-sm font-light">Nuestro enfoque une análisis técnico con experiencia práctica en fiscalizaciones y defensas ante el SII.</p>
+                    </div>
+                    <!-- Item 4 -->
+                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.3s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-book-open text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Criterio jurídico, no estandarización</h3>
+                        <p class="text-custom-dark-gray text-sm font-light">Cada revisión parte desde la comprensión del negocio y se adapta a su contexto legal y tributario.</p>
+                    </div>
+                     <!-- Item 5 -->
+                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.4s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-file-alt text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Informes técnicamente fundamentados</h3>
+                        <p class="text-custom-dark-gray text-sm font-light">Documentación clara, estructurada y válida para procedimientos administrativos o judiciales.</p>
+                    </div>
+                     <!-- Item 6 -->
+                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.5s;">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-user-secret text-4xl text-custom-gold"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Práctica discreta y técnica</h3>
+                        <p class="text-custom-dark-gray text-sm font-light">Mantenemos una línea de trabajo sobria, sin exposición innecesaria, enfocada en la precisión.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- =================================================================
+    // END of page content
+    ================================================================== -->
+
+
+    <!-- =================================================================
+    // START of footer.php
+    ================================================================== -->
+    <footer class="bg-gray-900 text-gray-400 text-sm">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Desc -->
+                <div class="md:col-span-2">
+                    <a href="index.html">
+                        <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios en el pie de página" class="h-12">
+                    </a>
+                    <p class="mt-4 max-w-md text-xs">Estudio de Abogados Tributarios. Asesoría tributaria, auditorías preventivas y defensa legal en controversias fiscales.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
+                    <ul class="mt-4 space-y-2 text-xs">
+                        <li><a href="/areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="/politica-privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="/terminos-condiciones" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-xs">
+                        <li>
+                            <a href="https://www.linkedin.com" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin w-5"></i> LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="mailto:contacto@cabelloabogados.cl" class="hover:text-white transition-colors"><i class="fas fa-envelope w-5"></i> contacto@cabelloabogados.cl</a>
+                        </li>
+                        <li>
+                            <a href="tel:+56229416205" class="hover:text-white transition-colors"><i class="fas fa-phone-alt w-5"></i> +56229416205</a>
+                        </li>
+                         <li>
+                            <span class="flex"><i class="fas fa-clock w-5 mt-1"></i> Lunes - Viernes<br>9:00 a 19:00hrs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-10 pt-6 border-t border-gray-800 text-center text-xs">
+                <p><a href="https://www.google.com/maps/place/Av.+Alonso+de+C%C3%B3rdova+5900,+Las+Condes,+Regi%C3%B3n+Metropolitana" target="_blank" class="hover:text-white transition-colors"><i class="fas fa-map-marker-alt mr-2"></i> Av. Alonso de Córdova 5900, Of. 301, Las Condes, Santiago, Chile</a></p>
+                <p class="mt-4">&copy; <span id="year"></span> Cabello Abogados Tributarios. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- =================================================================
+    // END of footer.php
+    ================================================================== -->
+
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // Header scroll effect & Scroll to top button
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                } else {
+                    scrollTopBtn.classList.add('opacity-0', 'invisible');
+                }
+            }
+            handleScroll(); 
+            window.addEventListener('scroll', handleScroll);
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
