@@ -22,9 +22,6 @@
     <!-- Custom Styles -->
     <style>
         /* Applying Work Sans as the default font */
-        html {
-            scroll-behavior: smooth;
-        }
         body {
             font-family: 'Work Sans', sans-serif;
             background-color: #FFFFFF; /* White background as base */
@@ -59,7 +56,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
-            overflow: visible; /* Allows lines to be seen outside */
+            overflow: visible; /* Changed from hidden to visible */
             border-radius: 4px;
             font-size: 13px;
             display: inline-block;
@@ -75,10 +72,10 @@
             transition: all 0.3s ease;
         }
         .btn::before {
-            left: -15px; /* Initial position: 10px inside, 15px outside */
+            left: -15px; /* Initial position */
         }
         .btn::after {
-            right: -15px; /* Initial position: 10px inside, 15px outside */
+            right: -15px; /* Initial position */
         }
         .btn:hover::before {
             left: -25px; /* Move out on hover */
@@ -264,19 +261,14 @@
         }
         .form-label {
             display: block;
-            color: #FFFFFF; /* Changed to white */
+            color: #d1d5db; /* Lighter gray for labels */
             font-size: 11px;
             text-transform: uppercase;
             margin-bottom: 4px;
             letter-spacing: 0.05em;
         }
         .cintillo-text {
-             font-size: 10px; /* Reduced font size for mobile */
-        }
-        @media (min-width: 1024px) { /* lg breakpoint */
-            .cintillo-text {
-                font-size: 11px;
-            }
+             font-size: 11px;
         }
 
         /* Differentiators section styles */
@@ -323,10 +315,6 @@
             stroke: #FFFFFF;
         }
 
-        /* Scroll to top button */
-        #scrollTopBtn {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
 
     </style>
 </head>
@@ -339,27 +327,14 @@
         <!-- Cintillo -->
         <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
             <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
-                <div class="flex-grow pr-2">
-                    <!-- START: Mobile/Desktop Text Swap -->
-                    <h1 class="tracking-wider uppercase">
-                        <span class="lg:hidden">Tu respaldo legal en asesoría tributaria</span>
-                        <span class="hidden lg:inline">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</span>
-                    </h1>
-                    <!-- END: Mobile/Desktop Text Swap -->
+                <div class="flex-grow">
+                    <h1 class="tracking-wider uppercase">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</h1>
                 </div>
-                <!-- START: Mobile/Desktop Contact Info Swap -->
-                <div class="flex items-center flex-shrink-0 space-x-3 lg:space-x-4 uppercase">
-                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
-                        <i class="fas fa-phone-alt lg:mr-1"></i> 
-                        <span class="hidden lg:inline">+56229416205</span>
-                    </a>
-                    <span class="text-gray-500 hidden lg:inline">|</span>
-                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
-                        <i class="fas fa-envelope lg:mr-1"></i> 
-                        <span class="hidden lg:inline">contacto@cabelloabogados.cl</span>
-                    </a>
+                <div class="flex items-center space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors"><i class="fas fa-phone-alt mr-1"></i> +56229416205</a>
+                    <span class="text-gray-500">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors"><i class="fas fa-envelope mr-1"></i> contacto@cabelloabogados.cl</a>
                 </div>
-                <!-- END: Mobile/Desktop Contact Info Swap -->
             </div>
         </div>
         <div class="container mx-auto px-6">
@@ -370,14 +345,14 @@
         <nav id="main-nav" class="py-3">
             <div class="container mx-auto px-6 flex justify-between items-center">
                 <!-- Logo -->
-                <a href="index.html">
+                <a href="/">
                     <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios" class="h-10">
                 </a>
 
                 <!-- Navigation Links -->
                 <ul class="hidden lg:flex items-center space-x-6 font-light text-xs tracking-widest uppercase">
-                    <li><a href="index.html" class="menu-link active">Inicio</a></li>
-                    <li><a href="quienes-somos.html" class="menu-link">Quiénes Somos</a></li>
+                    <li><a href="/" class="menu-link active">Inicio</a></li>
+                    <li><a href="/quienes-somos" class="menu-link">Quiénes Somos</a></li>
                     <li class="dropdown relative">
                         <a href="/areas-practica" class="menu-link flex items-center">
                             Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
@@ -406,8 +381,8 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-custom-blue z-40 p-8">
         <ul class="flex flex-col items-center justify-center h-full space-y-6 text-white text-lg uppercase tracking-widest">
-            <li><a href="index.html" class="hover-text-custom-gold">Inicio</a></li>
-            <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
+            <li><a href="/" class="hover-text-custom-gold">Inicio</a></li>
+            <li><a href="/quienes-somos" class="hover-text-custom-gold">Quiénes Somos</a></li>
             <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
             <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
             <li><a href="/contacto" class="hover-text-custom-gold">Contacto</a></li>
@@ -423,24 +398,24 @@
     ================================================================== -->
     <main>
         <!-- BANNER PRINCIPAL -->
-        <section id="main-banner" class="h-screen min-h-[600px] text-white relative overflow-hidden">
+        <section id="main-banner" class="h-screen min-h-[600px] bg-custom-blue text-white relative overflow-hidden">
              <!-- Slides Container -->
             <div class="slide active">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-1.webp');"></div>
-                <div class="absolute inset-0 bg-custom-blue opacity-25"></div>
+                <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
                 <div class="w-full h-full flex justify-center items-center">
                     <div class="container mx-auto px-6 relative z-10">
                         <div class="max-w-2xl text-center mx-auto">
                             <h2 class="text-2xl md:text-3xl font-normal leading-tight mb-4">Confía en un estudio especializado en derecho tributario</h2>
                             <h3 class="text-base md:text-lg font-light mb-8">Más de 2 décadas acompañando a empresas y familias de alto patrimonio en Chile</h3>
-                            <a href="quienes-somos.html" class="btn btn-primary">Quiénes somos</a>
+                            <a href="/quienes-somos" class="btn btn-primary">Quiénes somos</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-2.webp');"></div>
-                 <div class="absolute inset-0 bg-custom-blue opacity-25"></div>
+                 <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
                 <div class="w-full h-full flex justify-center items-center">
                      <div class="container mx-auto px-6 relative z-10">
                         <div class="max-w-2xl text-center mx-auto">
@@ -485,7 +460,7 @@
                     <p class="text-base leading-relaxed mb-6 text-custom-dark-gray font-light">
                         Cabello Abogados Tributarios es una firma boutique especializada en derecho tributario. Brindamos soluciones personalizadas a empresas, personas naturales y familias de alto patrimonio desde hace más de 2 décadas. Combinamos excelencia legal, visión estratégica y atención cercana para enfrentar los desafíos fiscales más complejos.
                     </p>
-                    <a href="quienes-somos.html" class="btn-secondary">Conocer Equipo →</a>
+                    <a href="/quienes-somos" class="btn-secondary">Conocer Equipo →</a>
                 </div>
                 <div class="fade-in-up flex items-center justify-center md:justify-end" style="transition-delay: 0.2s;">
                     <div class="w-full max-w-md aspect-w-1 aspect-h-1">
@@ -598,23 +573,18 @@
         </section>
 
         <!-- SECCIÓN MULTIMEDIA -->
-        <!-- START: Mobile/Desktop background-attachment swap -->
-        <section class="h-[350px] bg-cover bg-center bg-scroll lg:bg-fixed" style="background-image: url('img/multimedia-equipo-reunion.webp');">
+        <section class="h-[350px] bg-cover bg-center bg-fixed" style="background-image: url('img/multimedia-equipo-reunion.webp');">
         </section>
-        <!-- END: Mobile/Desktop background-attachment swap -->
         
         <!-- SECCIÓN CINTILLO SEGURIDAD -->
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-6 text-center fade-in-up">
                 <h2 class="section-title">Confianza y respaldo</h2>
-                <h3 class="section-subtitle">
-                    <span class="lg:hidden">Contamos con certificaciones y membresías en las principales asociaciones del ámbito tributario</span>
-                    <span class="hidden lg:inline">Contamos con certificaciones y membresías<br>en las principales asociaciones del ámbito tributario</span>
-                </h3>
-                <div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-8 mt-8">
-                    <img src="img/logo-colegio-abogados.svg" alt="Logo del Colegio de Abogados de Chile" class="h-32 w-auto grayscale opacity-70">
-                    <img src="img/logo-icdt.svg" alt="Logo del Instituto Chileno de Derecho Tributario" class="h-32 w-auto grayscale opacity-70">
-                    <img src="img/logo-ifa.svg" alt="Logo de la Asociación Fiscal Internacional (IFA)" class="h-32 w-auto grayscale opacity-70">
+                <h3 class="section-subtitle">Contamos con certificaciones y membresías en las principales asociaciones del ámbito tributario</h3>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 mt-8">
+                    <img src="img/logo-colegio-abogados.webp" alt="Logo del Colegio de Abogados de Chile" class="h-14 grayscale opacity-70">
+                    <img src="img/logo-icdt.webp" alt="Logo del Instituto Chileno de Derecho Tributario" class="h-14 grayscale opacity-70">
+                    <img src="img/logo-ifa.webp" alt="Logo de la Asociación Fiscal Internacional (IFA)" class="h-14 grayscale opacity-70">
                 </div>
             </div>
         </section>
@@ -680,28 +650,28 @@
         <!-- CONTACTO / FORMULARIO -->
         <section class="relative py-20 text-white">
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/formulario-contacto-fondo.webp');"></div>
-            <div class="absolute inset-0 bg-custom-blue opacity-75"></div>
+            <div class="absolute inset-0 bg-custom-blue opacity-60"></div>
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 relative z-10">
                 <div class="fade-in-up">
                     <h2 class="section-title !text-custom-gold">Contacto</h2>
                     <h3 class="section-subtitle !text-white !font-light mb-6">¿Necesitas una solución tributaria confiable?</h3>
-                    <p class="text-white opacity-90 text-sm mb-10">Agenda tu reunión o escríbenos. Estamos listos para ayudarte.</p>
+                    <p class="text-gray-300 text-sm mb-10">Agenda tu reunión o escríbenos. Estamos listos para ayudarte.</p>
                     
-                    <div class="grid grid-cols-1 gap-8 text-sm">
+                    <div class="grid sm:grid-cols-2 gap-8 text-sm">
                         <div>
                              <div class="w-8 h-px bg-custom-gold mb-3"></div>
                              <h4 class="font-semibold tracking-widest uppercase mb-2">Teléfono</h4>
-                             <a href="tel:+56229416205" class="text-white hover:text-custom-gold transition-colors">+56 2 2941 6205</a>
+                             <a href="tel:+56229416205" class="text-gray-300 hover:text-white">+56 2 2941 6205</a>
                         </div>
                          <div>
                              <div class="w-8 h-px bg-custom-gold mb-3"></div>
                              <h4 class="font-semibold tracking-widest uppercase mb-2">Email</h4>
-                             <a href="mailto:contacto@cabelloabogados.cl" class="text-white hover:text-custom-gold transition-colors">contacto@cabelloabogados.cl</a>
+                             <a href="mailto:contacto@cabelloabogados.cl" class="text-gray-300 hover:text-white">contacto@cabelloabogados.cl</a>
                         </div>
-                         <div>
+                         <div class="sm:col-span-2">
                              <div class="w-8 h-px bg-custom-gold mb-3"></div>
                              <h4 class="font-semibold tracking-widest uppercase mb-2">Horario</h4>
-                             <p class="text-white">Lunes - Viernes - 9:00 a 19:00hrs</p>
+                             <p class="text-gray-300">Lunes - Viernes - 9:00 a 19:00hrs</p>
                         </div>
                     </div>
                 </div>
@@ -800,33 +770,23 @@
     // END of footer.php
     ================================================================== -->
 
-    <!-- Scroll to Top Button -->
-    <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.getElementById('main-header');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-            // Header scroll effect & Scroll to top button
+            // Header scroll effect
             function handleScroll() {
                 if (window.scrollY > 50) {
                     header.classList.add('header-scrolled');
                 } else {
                     header.classList.remove('header-scrolled');
                 }
-                if (window.scrollY > 300) {
-                    scrollTopBtn.classList.remove('opacity-0', 'invisible');
-                } else {
-                    scrollTopBtn.classList.add('opacity-0', 'invisible');
-                }
             }
             handleScroll(); 
             window.addEventListener('scroll', handleScroll);
+
 
             // Mobile menu toggle
             mobileMenuButton.addEventListener('click', () => {
@@ -837,51 +797,62 @@
             document.getElementById('year').textContent = new Date().getFullYear();
             
             // Intersection Observer for animations
-            const observer = new IntersectionObserver((entries, obs) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        
-                        const counter = entry.target.querySelector('.counter') || (entry.target.matches('.counter') ? entry.target.parentElement.querySelector('.counter') : null);
-                        if (counter && !counter.classList.contains('animated')) {
-                            const targetValue = counter.getAttribute('data-target');
-                            const isPercent = targetValue.includes('%');
-                            const target = parseInt(targetValue.replace('%',''));
-                            counter.innerText = '0' + (isPercent ? '%' : '');
-                            counter.classList.add('animated');
-
-                            const updateCounter = () => {
-                                const count = parseInt(counter.innerText.replace('%',''));
-                                const increment = target / 100;
-
-                                if(count < target) {
-                                    let nextCount = Math.ceil(count + increment);
-                                    if (nextCount > target) nextCount = target;
-                                    counter.innerText = `${nextCount}${isPercent ? '%' : ''}`;
-                                    setTimeout(updateCounter, 20);
-                                } else {
-                                     counter.innerText = `${target}${isPercent ? '%' : ''}`;
-                                }
-                            };
-                            updateCounter();
-                        }
                     }
                 });
-            }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
-
-            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-
-            // Accordion for Team Section
-            const accordions = document.querySelectorAll('.accordion-toggle');
-            accordions.forEach(button => {
-                button.addEventListener('click', () => {
-                    const content = button.nextElementSibling;
-                    button.classList.toggle('open');
-                    content.classList.toggle('open');
-                });
+            }, {
+                threshold: 0.1
             });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Banner Slider
+            const banner = document.getElementById('main-banner');
+            if(banner) {
+                let currentSlide = 0;
+                const slides = banner.querySelectorAll('.slide');
+                const dots = banner.querySelectorAll('.slider-dot');
+                const slideInterval = 5000; // 5 seconds
+                let slideTimer;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        dots[i].classList.remove('active');
+                    });
+                    slides[index].classList.add('active');
+                    dots[index].classList.add('active');
+                }
+                
+                function resetTimer() {
+                    clearInterval(slideTimer);
+                    slideTimer = setInterval(nextSlide, slideInterval);
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                        currentSlide = index;
+                        resetTimer();
+                    });
+                });
+
+                slideTimer = setInterval(nextSlide, slideInterval);
+            }
         });
     </script>
 
 </body>
 </html>
+
