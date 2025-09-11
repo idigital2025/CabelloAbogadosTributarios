@@ -61,8 +61,25 @@
         }
         
         /* Dropdown Menu */
-        .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-menu { display: none; position: absolute; background-color: #212C44; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 4px; }
+        .dropdown .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            padding-top: 0.5rem; /* Creates space */
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-menu {
+            display: block; /* Keep it as block for transitions */
+            position: absolute;
+            background-color: #212C44;
+            min-width: 260px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
         .dropdown-menu a { color: white; padding: 12px 16px; text-decoration: none; display: block; transition: background-color 0.3s ease, color 0.3s ease; }
         .dropdown-menu a:hover { background-color: #BB9D73; color: #FFFFFF; }
         .dropdown-menu a.active { background-color: #BB9D73; color: #FFFFFF; }
@@ -156,7 +173,7 @@
                     <li><a href="index.html" class="menu-link">Inicio</a></li>
                     <li><a href="quienes-somos.html" class="menu-link">Quiénes Somos</a></li>
                     <li class="dropdown relative">
-                        <a href="/areas-practica" class="menu-link active flex items-center">
+                        <a href="index.html#areas-practica" class="menu-link active flex items-center">
                             Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
                         </a>
                         <ul class="dropdown-menu mt-2">
@@ -166,8 +183,8 @@
                             <li><a href="auditoria-tributaria.html">Auditoría tributaria</a></li>
                         </ul>
                     </li>
-                    <li><a href="/prensa" class="menu-link">Prensa</a></li>
-                    <li><a href="/contacto" class="menu-link">Contacto</a></li>
+                    <li><a href="prensa.html" class="menu-link">Prensa</a></li>
+                    <li><a href="contacto.html" class="menu-link">Contacto</a></li>
                 </ul>
                 <div class="lg:hidden">
                     <button id="mobile-menu-button" class="text-custom-white focus:outline-none">
@@ -184,8 +201,8 @@
             <li><a href="index.html" class="hover-text-custom-gold">Inicio</a></li>
             <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
             <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
-            <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
-            <li><a href="/contacto" class="hover-text-custom-gold">Contacto</a></li>
+            <li><a href="prensa.html" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="contacto.html" class="hover-text-custom-gold">Contacto</a></li>
         </ul>
     </div>
     <!-- =================================================================
@@ -372,9 +389,9 @@
                 <div>
                     <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
                     <ul class="mt-4 space-y-2 text-xs">
-                        <li><a href="/areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
-                        <li><a href="/politica-privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
-                        <li><a href="/terminos-condiciones" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                        <li><a href="index.html#areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="politicas-privacidad.html" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="terminos-condiciones.html" class="hover:text-white transition-colors">Términos y condiciones</a></li>
                     </ul>
                 </div>
 
@@ -411,7 +428,7 @@
     <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
         <i class="fas fa-arrow-up"></i>
     </a>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.getElementById('main-header');
