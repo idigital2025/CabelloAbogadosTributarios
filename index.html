@@ -22,6 +22,9 @@
     <!-- Custom Styles -->
     <style>
         /* Applying Work Sans as the default font */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Work Sans', sans-serif;
             background-color: #FFFFFF; /* White background as base */
@@ -56,7 +59,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
-            overflow: visible; /* Changed from hidden to visible */
+            overflow: visible; /* Allows lines to be seen outside */
             border-radius: 4px;
             font-size: 13px;
             display: inline-block;
@@ -72,10 +75,10 @@
             transition: all 0.3s ease;
         }
         .btn::before {
-            left: -15px; /* Initial position */
+            left: -15px; /* Initial position: 10px inside, 15px outside */
         }
         .btn::after {
-            right: -15px; /* Initial position */
+            right: -15px; /* Initial position: 10px inside, 15px outside */
         }
         .btn:hover::before {
             left: -25px; /* Move out on hover */
@@ -136,11 +139,18 @@
         }
         
         /* Dropdown Menu */
+        .dropdown .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            padding-top: 0.5rem; /* Creates space */
+        }
         .dropdown:hover .dropdown-menu {
-            display: block;
+            opacity: 1;
+            visibility: visible;
         }
         .dropdown-menu {
-            display: none;
+            display: block; /* Keep it as block for transitions */
             position: absolute;
             background-color: #212C44;
             min-width: 260px;
@@ -261,14 +271,19 @@
         }
         .form-label {
             display: block;
-            color: #d1d5db; /* Lighter gray for labels */
+            color: #FFFFFF; /* Changed to white */
             font-size: 11px;
             text-transform: uppercase;
             margin-bottom: 4px;
             letter-spacing: 0.05em;
         }
         .cintillo-text {
-             font-size: 11px;
+             font-size: 10px; /* Reduced font size for mobile */
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .cintillo-text {
+                font-size: 11px;
+            }
         }
 
         /* Differentiators section styles */
@@ -315,6 +330,10 @@
             stroke: #FFFFFF;
         }
 
+        /* Scroll to top button */
+        #scrollTopBtn {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
 
     </style>
 </head>
@@ -327,14 +346,27 @@
         <!-- Cintillo -->
         <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
             <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
-                <div class="flex-grow">
-                    <h1 class="tracking-wider uppercase">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</h1>
+                <div class="flex-grow pr-2">
+                    <!-- START: Mobile/Desktop Text Swap -->
+                    <h1 class="tracking-wider uppercase">
+                        <span class="lg:hidden">Tu respaldo legal en asesoría tributaria</span>
+                        <span class="hidden lg:inline">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</span>
+                    </h1>
+                    <!-- END: Mobile/Desktop Text Swap -->
                 </div>
-                <div class="flex items-center space-x-4 uppercase">
-                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors"><i class="fas fa-phone-alt mr-1"></i> +56229416205</a>
-                    <span class="text-gray-500">|</span>
-                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors"><i class="fas fa-envelope mr-1"></i> contacto@cabelloabogados.cl</a>
+                <!-- START: Mobile/Desktop Contact Info Swap -->
+                <div class="flex items-center flex-shrink-0 space-x-3 lg:space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-phone-alt lg:mr-1"></i> 
+                        <span class="hidden lg:inline">+56229416205</span>
+                    </a>
+                    <span class="text-gray-500 hidden lg:inline">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-envelope lg:mr-1"></i> 
+                        <span class="hidden lg:inline">contacto@cabelloabogados.cl</span>
+                    </a>
                 </div>
+                <!-- END: Mobile/Desktop Contact Info Swap -->
             </div>
         </div>
         <div class="container mx-auto px-6">
@@ -345,27 +377,27 @@
         <nav id="main-nav" class="py-3">
             <div class="container mx-auto px-6 flex justify-between items-center">
                 <!-- Logo -->
-                <a href="/">
+                <a href="index.html">
                     <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios" class="h-10">
                 </a>
 
                 <!-- Navigation Links -->
                 <ul class="hidden lg:flex items-center space-x-6 font-light text-xs tracking-widest uppercase">
-                    <li><a href="/" class="menu-link active">Inicio</a></li>
-                    <li><a href="/quienes-somos" class="menu-link">Quiénes Somos</a></li>
+                    <li><a href="index.html" class="menu-link active">Inicio</a></li>
+                    <li><a href="quienes-somos.html" class="menu-link">Quiénes Somos</a></li>
                     <li class="dropdown relative">
-                        <a href="/areas-practica" class="menu-link flex items-center">
+                        <a href="#areas-practica" class="menu-link flex items-center">
                             Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
                         </a>
                         <ul class="dropdown-menu mt-2">
-                            <li><a href="/areas-practica/reorganizacion-empresarial-familiar">Reorganización empresarial y familiar</a></li>
-                            <li><a href="/areas-practica/asesoria-legal-tributaria">Asesoría Legal Tributaria</a></li>
-                            <li><a href="/areas-practica/litigio-solucion-controversias">Litigios y solución de controversias</a></li>
-                            <li><a href="/areas-practica/auditoria-tributaria">Auditoría tributaria</a></li>
+                            <li><a href="reorganizacion.html">Reorganización empresarial y familiar</a></li>
+                            <li><a href="asesoria-legal-tributaria.html">Asesoría Legal Tributaria</a></li>
+                            <li><a href="litigios-solucion-controversias.html">Litigios y solución de controversias</a></li>
+                            <li><a href="auditoria-tributaria.html">Auditoría tributaria</a></li>
                         </ul>
                     </li>
-                    <li><a href="/prensa" class="menu-link">Prensa</a></li>
-                    <li><a href="/contacto" class="menu-link">Contacto</a></li>
+                    <li><a href="prensa.html" class="menu-link">Prensa</a></li>
+                    <li><a href="contacto.html" class="menu-link">Contacto</a></li>
                 </ul>
                 
                 <!-- Mobile Menu Button -->
@@ -381,11 +413,11 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-custom-blue z-40 p-8">
         <ul class="flex flex-col items-center justify-center h-full space-y-6 text-white text-lg uppercase tracking-widest">
-            <li><a href="/" class="hover-text-custom-gold">Inicio</a></li>
-            <li><a href="/quienes-somos" class="hover-text-custom-gold">Quiénes Somos</a></li>
+            <li><a href="index.html" class="hover-text-custom-gold">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
             <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
-            <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
-            <li><a href="/contacto" class="hover-text-custom-gold">Contacto</a></li>
+            <li><a href="prensa.html" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="contacto.html" class="hover-text-custom-gold">Contacto</a></li>
         </ul>
     </div>
     <!-- =================================================================
@@ -398,30 +430,30 @@
     ================================================================== -->
     <main>
         <!-- BANNER PRINCIPAL -->
-        <section id="main-banner" class="h-screen min-h-[600px] bg-custom-blue text-white relative overflow-hidden">
+        <section id="main-banner" class="h-screen min-h-[600px] text-white relative overflow-hidden">
              <!-- Slides Container -->
             <div class="slide active">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-1.webp');"></div>
-                <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
+                <div class="absolute inset-0 bg-custom-blue opacity-25"></div>
                 <div class="w-full h-full flex justify-center items-center">
                     <div class="container mx-auto px-6 relative z-10">
                         <div class="max-w-2xl text-center mx-auto">
                             <h2 class="text-2xl md:text-3xl font-normal leading-tight mb-4">Confía en un estudio especializado en derecho tributario</h2>
                             <h3 class="text-base md:text-lg font-light mb-8">Más de 2 décadas acompañando a empresas y familias de alto patrimonio en Chile</h3>
-                            <a href="/quienes-somos" class="btn btn-primary">Quiénes somos</a>
+                            <a href="quienes-somos.html" class="btn btn-primary">Quiénes somos</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/banner-principal-2.webp');"></div>
-                 <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
+                 <div class="absolute inset-0 bg-custom-blue opacity-25"></div>
                 <div class="w-full h-full flex justify-center items-center">
                      <div class="container mx-auto px-6 relative z-10">
                         <div class="max-w-2xl text-center mx-auto">
                             <h2 class="text-2xl md:text-3xl font-normal leading-tight mb-4">Tu tranquilidad fiscal es nuestra prioridad</h2>
                             <h3 class="text-base md:text-lg font-light mb-8">Soluciones legales que anticipan y resuelven conflictos tributarios</h3>
-                            <a href="/areas-practica" class="btn btn-primary">Ver Áreas de práctica</a>
+                            <a href="#areas-practica" class="btn btn-primary">Ver Áreas de práctica</a>
                         </div>
                     </div>
                 </div>
@@ -460,7 +492,7 @@
                     <p class="text-base leading-relaxed mb-6 text-custom-dark-gray font-light">
                         Cabello Abogados Tributarios es una firma boutique especializada en derecho tributario. Brindamos soluciones personalizadas a empresas, personas naturales y familias de alto patrimonio desde hace más de 2 décadas. Combinamos excelencia legal, visión estratégica y atención cercana para enfrentar los desafíos fiscales más complejos.
                     </p>
-                    <a href="/quienes-somos" class="btn-secondary">Conocer Equipo →</a>
+                    <a href="quienes-somos.html" class="btn-secondary">Conocer Equipo →</a>
                 </div>
                 <div class="fade-in-up flex items-center justify-center md:justify-end" style="transition-delay: 0.2s;">
                     <div class="w-full max-w-md aspect-w-1 aspect-h-1">
@@ -471,7 +503,7 @@
         </section>
 
         <!-- SECCIÓN ÁREAS DE PRÁCTICA -->
-        <section class="bg-gray-50 pt-20">
+        <section id="areas-practica" class="bg-gray-50 pt-20">
             <!-- Image and Title Section -->
             <div class="relative bg-cover bg-center" style="background-image: url('img/areas-practica-fondo.webp');">
                 <div class="absolute inset-0 bg-custom-blue opacity-70"></div>
@@ -490,7 +522,7 @@
                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
                         </div>
                         <h3 class="text-lg font-normal mb-3 text-custom-blue">Reorganización empresarial y familiar</h3>
-                        <a href="/areas-practica/reorganizacion-empresarial-familiar" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                        <a href="reorganizacion.html" class="btn-secondary mt-4 inline-block">Ver más →</a>
                     </div>
                     <!-- Card 2 -->
                     <div class="service-card bg-white p-6 rounded-md text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 0.1s;">
@@ -498,7 +530,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
                         </div>
                         <h3 class="text-lg font-normal mb-3 text-custom-blue">Asesoría Legal Tributaria</h3>
-                        <a href="/areas-practica/asesoria-legal-tributaria" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                        <a href="asesoria-legal-tributaria.html" class="btn-secondary mt-4 inline-block">Ver más →</a>
                     </div>
                     <!-- Card 3 -->
                     <div class="service-card bg-white p-6 rounded-md text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 0.2s;">
@@ -506,7 +538,7 @@
                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>
                         </div>
                         <h3 class="text-lg font-normal mb-3 text-custom-blue">Litigios y solución de controversias</h3>
-                        <a href="/areas-practica/litigio-solucion-controversias" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                        <a href="litigios-solucion-controversias.html" class="btn-secondary mt-4 inline-block">Ver más →</a>
                     </div>
                     <!-- Card 4 -->
                     <div class="service-card bg-white p-6 rounded-md text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 0.3s;">
@@ -514,7 +546,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b39d7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
                         </div>
                         <h3 class="text-lg font-normal mb-3 text-custom-blue">Auditoría tributaria</h3>
-                        <a href="/areas-practica/auditoria-tributaria" class="btn-secondary mt-4 inline-block">Ver más →</a>
+                        <a href="auditoria-tributaria.html" class="btn-secondary mt-4 inline-block">Ver más →</a>
                     </div>
                 </div>
             </div>
@@ -573,18 +605,23 @@
         </section>
 
         <!-- SECCIÓN MULTIMEDIA -->
-        <section class="h-[350px] bg-cover bg-center bg-fixed" style="background-image: url('img/multimedia-equipo-reunion.webp');">
+        <!-- START: Mobile/Desktop background-attachment swap -->
+        <section class="h-[350px] bg-cover bg-center bg-scroll lg:bg-fixed" style="background-image: url('img/multimedia-equipo-reunion.webp');">
         </section>
+        <!-- END: Mobile/Desktop background-attachment swap -->
         
         <!-- SECCIÓN CINTILLO SEGURIDAD -->
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-6 text-center fade-in-up">
                 <h2 class="section-title">Confianza y respaldo</h2>
-                <h3 class="section-subtitle">Contamos con certificaciones y membresías en las principales asociaciones del ámbito tributario</h3>
-                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 mt-8">
-                    <img src="img/logo-colegio-abogados.webp" alt="Logo del Colegio de Abogados de Chile" class="h-14 grayscale opacity-70">
-                    <img src="img/logo-icdt.webp" alt="Logo del Instituto Chileno de Derecho Tributario" class="h-14 grayscale opacity-70">
-                    <img src="img/logo-ifa.webp" alt="Logo de la Asociación Fiscal Internacional (IFA)" class="h-14 grayscale opacity-70">
+                <h3 class="section-subtitle">
+                    <span class="lg:hidden">Contamos con certificaciones y membresías en las principales asociaciones del ámbito tributario</span>
+                    <span class="hidden lg:inline">Contamos con certificaciones y membresías<br>en las principales asociaciones del ámbito tributario</span>
+                </h3>
+                <div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-8 mt-8">
+                    <img src="img/logo-colegio-abogados.svg" alt="Logo del Colegio de Abogados de Chile" class="h-32 w-auto grayscale opacity-70">
+                    <img src="img/logo-icdt.svg" alt="Logo del Instituto Chileno de Derecho Tributario" class="h-32 w-auto grayscale opacity-70">
+                    <img src="img/logo-ifa.svg" alt="Logo de la Asociación Fiscal Internacional (IFA)" class="h-32 w-auto grayscale opacity-70">
                 </div>
             </div>
         </section>
@@ -629,7 +666,7 @@
                     </div>
                 </div>
                 <div class="text-center fade-in-up">
-                    <a href="/prensa" class="btn btn-primary">Ver más Prensa</a>
+                    <a href="prensa.html" class="btn btn-primary">Ver más Prensa</a>
                 </div>
             </div>
         </section>
@@ -643,35 +680,35 @@
                     <i class="fas fa-clock mr-2"></i>
                     Respuesta garantizada en menos de 24 horas.
                 </p>
-                <a href="/contacto" class="btn btn-white">Contáctanos</a>
+                <a href="#contacto-formulario" class="btn btn-white">Contáctanos</a>
             </div>
         </section>
 
         <!-- CONTACTO / FORMULARIO -->
-        <section class="relative py-20 text-white">
+        <section id="contacto-formulario" class="relative py-20 text-white">
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/formulario-contacto-fondo.webp');"></div>
-            <div class="absolute inset-0 bg-custom-blue opacity-60"></div>
+            <div class="absolute inset-0 bg-custom-blue opacity-75"></div>
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 relative z-10">
                 <div class="fade-in-up">
                     <h2 class="section-title !text-custom-gold">Contacto</h2>
                     <h3 class="section-subtitle !text-white !font-light mb-6">¿Necesitas una solución tributaria confiable?</h3>
-                    <p class="text-gray-300 text-sm mb-10">Agenda tu reunión o escríbenos. Estamos listos para ayudarte.</p>
+                    <p class="text-white opacity-90 text-sm mb-10">Agenda tu reunión o escríbenos. Estamos listos para ayudarte.</p>
                     
-                    <div class="grid sm:grid-cols-2 gap-8 text-sm">
+                    <div class="grid grid-cols-1 gap-8 text-sm">
                         <div>
                              <div class="w-8 h-px bg-custom-gold mb-3"></div>
                              <h4 class="font-semibold tracking-widest uppercase mb-2">Teléfono</h4>
-                             <a href="tel:+56229416205" class="text-gray-300 hover:text-white">+56 2 2941 6205</a>
+                             <a href="tel:+56229416205" class="text-white hover:text-custom-gold transition-colors">+56 2 2941 6205</a>
                         </div>
                          <div>
                              <div class="w-8 h-px bg-custom-gold mb-3"></div>
                              <h4 class="font-semibold tracking-widest uppercase mb-2">Email</h4>
-                             <a href="mailto:contacto@cabelloabogados.cl" class="text-gray-300 hover:text-white">contacto@cabelloabogados.cl</a>
+                             <a href="mailto:contacto@cabelloabogados.cl" class="text-white hover:text-custom-gold transition-colors">contacto@cabelloabogados.cl</a>
                         </div>
-                         <div class="sm:col-span-2">
+                         <div>
                              <div class="w-8 h-px bg-custom-gold mb-3"></div>
                              <h4 class="font-semibold tracking-widest uppercase mb-2">Horario</h4>
-                             <p class="text-gray-300">Lunes - Viernes - 9:00 a 19:00hrs</p>
+                             <p class="text-white">Lunes - Viernes - 9:00 a 19:00hrs</p>
                         </div>
                     </div>
                 </div>
@@ -735,9 +772,9 @@
                 <div>
                     <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
                     <ul class="mt-4 space-y-2 text-xs">
-                        <li><a href="/areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
-                        <li><a href="/politica-privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
-                        <li><a href="/terminos-condiciones" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                        <li><a href="index.html#areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="politicas-privacidad.html" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="terminos-condiciones.html" class="hover:text-white transition-colors">Términos y condiciones</a></li>
                     </ul>
                 </div>
 
@@ -770,18 +807,29 @@
     // END of footer.php
     ================================================================== -->
 
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.getElementById('main-header');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-            // Header scroll effect
+            // Header scroll effect & Scroll to top button
             function handleScroll() {
                 if (window.scrollY > 50) {
                     header.classList.add('header-scrolled');
                 } else {
                     header.classList.remove('header-scrolled');
+                }
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                } else {
+                    scrollTopBtn.classList.add('opacity-0', 'invisible');
                 }
             }
             handleScroll(); 

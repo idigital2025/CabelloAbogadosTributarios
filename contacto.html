@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Contacto | Cabello Abogados Tributarios</title>
+    <meta name="description" content="Contáctenos para recibir asesoría tributaria experta. Encuentre nuestra dirección, teléfono y formulario de contacto directo.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles (Reused from Home) -->
+    <style>
+        /* Applying Work Sans as the default font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #FFFFFF;
+            color: #212C44;
+            font-size: 14px;
+        }
+
+        /* Custom Colors */
+        .bg-custom-blue { background-color: #212C44; }
+        .text-custom-blue { color: #212C44; }
+        .border-custom-blue { border-color: #212C44; }
+        .bg-custom-gold { background-color: #BB9D73; }
+        .text-custom-gold { color: #BB9D73; }
+        .hover-text-custom-gold:hover { color: #BB9D73; }
+        .bg-custom-white { background-color: #FFFFFF; }
+        .text-custom-white { color: #FFFFFF; }
+        .text-custom-dark-gray { color: #666666; }
+
+        /* Header styles */
+        .header-scrolled {
+            background-color: #212C44;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Button Style */
+        .btn {
+            padding: 10px 30px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible; /* Allows lines to be seen outside */
+            border-radius: 4px;
+            font-size: 13px;
+            display: inline-block;
+        }
+        .btn::before, .btn::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 25px; /* Fixed width */
+            background-color: currentColor;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+        .btn::before {
+            left: -15px; /* Initial position: 10px inside, 15px outside */
+        }
+        .btn::after {
+            right: -15px; /* Initial position: 10px inside, 15px outside */
+        }
+        .btn:hover::before {
+            left: -25px; /* Move out on hover */
+        }
+        .btn:hover::after {
+            right: -25px; /* Move out on hover */
+        }
+        
+        .btn-primary {
+            background-color: #FFFFFF;
+            color: #212C44;
+            border: 1px solid #212C44;
+        }
+        .btn-primary:hover {
+            background-color: #BB9D73;
+            color: #212C44;
+        }
+        
+        /* Menu link styles */
+        .menu-link {
+            position: relative;
+            color: #FFFFFF;
+            transition: color 0.3s ease;
+        }
+        .menu-link:hover, .menu-link.active {
+            color: #BB9D73;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; background-color: #212C44; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 4px; }
+        .dropdown-menu a { color: white; padding: 12px 16px; text-decoration: none; display: block; transition: background-color 0.3s ease, color 0.3s ease; }
+        .dropdown-menu a:hover { background-color: #BB9D73; color: #FFFFFF; }
+        .dropdown-menu a.active { background-color: #BB9D73; color: #FFFFFF; }
+
+
+        /* Animation for scroll */
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Global Title Styles */
+        .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #BB9D73; margin-bottom: 0.75rem; font-weight: 400; }
+        .section-subtitle { font-size: 1.75rem; font-weight: 400; color: #212C44; }
+
+        /* Scroll to top button */
+        #scrollTopBtn { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        
+        .cintillo-text {
+             font-size: 10px; /* Reduced font size for mobile */
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .cintillo-text {
+                font-size: 11px;
+            }
+        }
+        
+        /* Form Styles for dark background */
+        .form-input-dark {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4b5563;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #f9fafb;
+            font-size: 13px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .form-input-dark::placeholder {
+            color: #9ca3af;
+        }
+        .form-input-dark:focus {
+            outline: none;
+            border-color: #BB9D73;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(187, 157, 115, 0.3);
+        }
+        .form-label-dark {
+            display: block;
+            color: #d1d5db;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.05em;
+        }
+        
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- =================================================================
+    // START of header.php
+    ================================================================== -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <!-- Cintillo -->
+        <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
+            <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
+                <div class="flex-grow pr-2">
+                    <h1 class="tracking-wider uppercase">
+                        <span class="lg:hidden">Tu respaldo legal en asesoría tributaria</span>
+                        <span class="hidden lg:inline">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</span>
+                    </h1>
+                </div>
+                <div class="flex items-center flex-shrink-0 space-x-3 lg:space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-phone-alt lg:mr-1"></i> 
+                        <span class="hidden lg:inline">+56229416205</span>
+                    </a>
+                    <span class="text-gray-500 hidden lg:inline">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-envelope lg:mr-1"></i> 
+                        <span class="hidden lg:inline">contacto@cabelloabogados.cl</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6">
+             <hr id="header-divider" class="border-gray-600 transition-opacity duration-300">
+        </div>
+
+        <!-- Menú Principal -->
+        <nav id="main-nav" class="py-3">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios" class="h-10">
+                </a>
+                <!-- Navigation Links -->
+                <ul class="hidden lg:flex items-center space-x-6 font-light text-xs tracking-widest uppercase">
+                    <li><a href="index.html" class="menu-link">Inicio</a></li>
+                    <li><a href="quienes-somos.html" class="menu-link">Quiénes Somos</a></li>
+                    <li class="dropdown relative">
+                        <a href="/areas-practica" class="menu-link active flex items-center">
+                            Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
+                        </a>
+                        <ul class="dropdown-menu mt-2">
+                            <li><a href="reorganizacion.html">Reorganización empresarial y familiar</a></li>
+                            <li><a href="asesoria-legal-tributaria.html">Asesoría Legal Tributaria</a></li>
+                            <li><a href="litigios-solucion-controversias.html">Litigios y solución de controversias</a></li>
+                            <li><a href="auditoria-tributaria.html">Auditoría tributaria</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/prensa" class="menu-link">Prensa</a></li>
+                    <li><a href="contacto.html" class="menu-link active">Contacto</a></li>
+                </ul>
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-custom-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-custom-blue z-40 p-8">
+        <ul class="flex flex-col items-center justify-center h-full space-y-6 text-white text-lg uppercase tracking-widest">
+            <li><a href="index.html" class="hover-text-custom-gold">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
+            <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
+            <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="contacto.html" class="hover-text-custom-gold">Contacto</a></li>
+        </ul>
+    </div>
+    <!-- =================================================================
+    // END of header.php
+    ================================================================== -->
+
+    <!-- =================================================================
+    // START of page content
+    ================================================================== -->
+    <main>
+        <!-- HERO INICIAL -->
+        <section class="h-64 text-white relative bg-custom-blue">
+            <div class="w-full h-full flex justify-center items-center pt-16">
+                <div class="container mx-auto px-6 relative z-10 text-center">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">Contacto</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN FORMULARIO Y DATOS -->
+         <section class="relative py-20 text-white">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/formulario-contacto-fondo.webp');"></div>
+            <div class="absolute inset-0 bg-custom-blue opacity-75"></div>
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 relative z-10">
+                <div class="fade-in-up">
+                    <h2 class="section-title !text-custom-gold">Contacto</h2>
+                    <h3 class="section-subtitle !text-white !font-light mb-6">¿Necesitas una solución tributaria confiable?</h3>
+                    <p class="text-white opacity-90 text-sm mb-10">Agenda tu reunión o escríbenos. Estamos listos para ayudarte.</p>
+                    
+                    <div class="grid grid-cols-1 gap-8 text-sm">
+                        <div>
+                             <div class="w-8 h-px bg-custom-gold mb-3"></div>
+                             <h4 class="font-semibold tracking-widest uppercase mb-2">Teléfono</h4>
+                             <a href="tel:+56229416205" class="text-white hover:text-custom-gold transition-colors">+56 2 2941 6205</a>
+                        </div>
+                         <div>
+                             <div class="w-8 h-px bg-custom-gold mb-3"></div>
+                             <h4 class="font-semibold tracking-widest uppercase mb-2">Email</h4>
+                             <a href="mailto:contacto@cabelloabogados.cl" class="text-white hover:text-custom-gold transition-colors">contacto@cabelloabogados.cl</a>
+                        </div>
+                         <div>
+                             <div class="w-8 h-px bg-custom-gold mb-3"></div>
+                             <h4 class="font-semibold tracking-widest uppercase mb-2">Horario</h4>
+                             <p class="text-white">Lunes - Viernes - 9:00 a 19:00hrs</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="space-y-5 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="name" class="form-label-dark">Nombre</label>
+                            <input type="text" id="name" placeholder="Tu nombre" class="form-input-dark" required>
+                        </div>
+                         <div>
+                            <label for="phone" class="form-label-dark">Teléfono</label>
+                            <input type="tel" id="phone" placeholder="Tu teléfono" class="form-input-dark">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="company" class="form-label-dark">Empresa</label>
+                        <input type="text" id="company" placeholder="Nombre de la empresa" class="form-input-dark" required>
+                    </div>
+                     <div>
+                        <label for="email" class="form-label-dark">Email</label>
+                        <input type="email" id="email" placeholder="Tu email" class="form-input-dark" required>
+                    </div>
+                    <div>
+                        <label for="message" class="form-label-dark">Mensaje</label>
+                        <textarea id="message" placeholder="Escribe tu mensaje aquí..." rows="4" class="form-input-dark" required></textarea>
+                    </div>
+                    <div class="flex items-start pt-2">
+                        <input type="checkbox" id="privacy" class="mt-1 mr-2 bg-gray-700 border-gray-600">
+                        <label for="privacy" class="text-xs text-gray-400">Acepto la <a href="/politica-privacidad" class="underline hover:text-custom-gold">política de privacidad</a>.</label>
+                    </div>
+                    <div class="text-left pt-2">
+                        <button type="submit" class="btn btn-primary bg-white text-custom-blue border-white hover:bg-custom-gold hover:text-white">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECCIÓN MAPA -->
+        <section>
+            <div class="w-full h-[400px]">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.999015118545!2d-70.5699925249568!3d-33.40986199516641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cedb93086959%3A0x6b412586e3f5383!2sAv.+Alonso+de+C%C3%B3rdova+5900%2C+Las+Condes%2C+Regi%C3%B3n+Metropolitana!5e0!3m2!1ses-419!2scl!4v1693335555555" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+    </main>
+    <!-- =================================================================
+    // END of page content
+    ================================================================== -->
+
+
+    <!-- =================================================================
+    // START of footer.php
+    ================================================================== -->
+    <footer class="bg-gray-900 text-gray-400 text-sm">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Desc -->
+                <div class="md:col-span-2">
+                    <a href="index.html">
+                        <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios en el pie de página" class="h-12">
+                    </a>
+                    <p class="mt-4 max-w-md text-xs">Estudio de Abogados Tributarios. Asesoría tributaria, auditorías preventivas y defensa legal en controversias fiscales.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
+                    <ul class="mt-4 space-y-2 text-xs">
+                        <li><a href="/areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="/politica-privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="/terminos-condiciones" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-xs">
+                        <li>
+                            <a href="https://www.linkedin.com" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin w-5"></i> LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="mailto:contacto@cabelloabogados.cl" class="hover:text-white transition-colors"><i class="fas fa-envelope w-5"></i> contacto@cabelloabogados.cl</a>
+                        </li>
+                        <li>
+                            <a href="tel:+56229416205" class="hover:text-white transition-colors"><i class="fas fa-phone-alt w-5"></i> +56229416205</a>
+                        </li>
+                         <li>
+                            <span class="flex"><i class="fas fa-clock w-5 mt-1"></i> Lunes - Viernes<br>9:00 a 19:00hrs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-10 pt-6 border-t border-gray-800 text-center text-xs">
+                <p><a href="https://www.google.com/maps/place/Av.+Alonso+de+C%C3%B3rdova+5900,+Las+Condes,+Regi%C3%B3n+Metropolitana" target="_blank" class="hover:text-white transition-colors"><i class="fas fa-map-marker-alt mr-2"></i> Av. Alonso de Córdova 5900, Of. 301, Las Condes, Santiago, Chile</a></p>
+                <p class="mt-4">&copy; <span id="year"></span> Cabello Abogados Tributarios. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- =================================================================
+    // END of footer.php
+    ================================================================== -->
+
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/TUNUMERO" target="_blank" class="fixed bottom-20 right-5 bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-green-600 transition-all">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // Header scroll effect & Scroll to top button
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                } else {
+                    scrollTopBtn.classList.add('opacity-0', 'invisible');
+                }
+            }
+            handleScroll(); 
+            window.addEventListener('scroll', handleScroll);
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
+

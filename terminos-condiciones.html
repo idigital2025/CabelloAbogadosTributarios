@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Reorganización Patrimonial y Empresarial | Cabello Abogados Tributarios</title>
-    <meta name="description" content="Diseñamos estructuras legales y tributarias que protegen tu patrimonio y proyectan el futuro de tu empresa o familia.">
+    <title>Términos y Condiciones | Cabello Abogados Tributarios</title>
+    <meta name="description" content="Consulte los términos y condiciones de uso del sitio web de Cabello Abogados Tributarios.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -61,11 +61,40 @@
         }
         
         /* Dropdown Menu */
-        .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-menu { display: none; position: absolute; background-color: #212C44; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 4px; }
-        .dropdown-menu a { color: white; padding: 12px 16px; text-decoration: none; display: block; transition: background-color 0.3s ease, color 0.3s ease; }
-        .dropdown-menu a:hover { background-color: #BB9D73; color: #FFFFFF; }
-        .dropdown-menu a.active { background-color: #BB9D73; color: #FFFFFF; }
+        .dropdown .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            padding-top: 0.5rem; /* Creates space */
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-menu {
+            display: block; /* Keep it as block for transitions */
+            position: absolute;
+            background-color: #212C44;
+            min-width: 260px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        .dropdown-menu a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dropdown-menu a:hover {
+            background-color: #BB9D73;
+            color: #FFFFFF;
+        }
+        .dropdown-menu a.active {
+            background-color: #BB9D73;
+            color: #FFFFFF;
+        }
 
 
         /* Animation for scroll */
@@ -88,28 +117,33 @@
             }
         }
         
-        /* Icon Wrapper Style */
-        .icon-wrapper {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            border-radius: 9999px;
-            background-color: hsl(37deg 27% 59% / 10%);
-            transition: background-color 0.3s ease;
+        .content-area h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #212C44;
+            margin-top: 2rem;
             margin-bottom: 1rem;
         }
-        .icon-wrapper .fas {
-            transition: color 0.3s ease;
+        .content-area h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #212C44;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
-        .group:hover .icon-wrapper {
-            background-color: #BB9D73;
+        .content-area p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
-        .group:hover .icon-wrapper .fas {
-            color: #FFFFFF;
+        .content-area ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
         }
-        
+        .content-area li {
+            margin-bottom: 0.5rem;
+        }
+
     </style>
 </head>
 <body class="bg-white">
@@ -156,18 +190,18 @@
                     <li><a href="index.html" class="menu-link">Inicio</a></li>
                     <li><a href="quienes-somos.html" class="menu-link">Quiénes Somos</a></li>
                     <li class="dropdown relative">
-                        <a href="/areas-practica" class="menu-link active flex items-center">
+                        <a href="/areas-practica" class="menu-link flex items-center">
                             Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
                         </a>
                         <ul class="dropdown-menu mt-2">
-                            <li><a href="reorganizacion.html" class="active">Reorganización empresarial y familiar</a></li>
-                            <li><a href="/areas-practica/asesoria-legal-tributaria">Asesoría Legal Tributaria</a></li>
-                            <li><a href="/areas-practica/litigio-solucion-controversias">Litigios y solución de controversias</a></li>
+                            <li><a href="reorganizacion.html">Reorganización empresarial y familiar</a></li>
+                            <li><a href="asesoria-legal-tributaria.html">Asesoría Legal Tributaria</a></li>
+                            <li><a href="litigios-solucion-controversias.html">Litigios y solución de controversias</a></li>
                             <li><a href="auditoria-tributaria.html">Auditoría tributaria</a></li>
                         </ul>
                     </li>
-                    <li><a href="/prensa" class="menu-link">Prensa</a></li>
-                    <li><a href="/contacto" class="menu-link">Contacto</a></li>
+                    <li><a href="prensa.html" class="menu-link">Prensa</a></li>
+                    <li><a href="contacto.html" class="menu-link">Contacto</a></li>
                 </ul>
                 <div class="lg:hidden">
                     <button id="mobile-menu-button" class="text-custom-white focus:outline-none">
@@ -184,8 +218,8 @@
             <li><a href="index.html" class="hover-text-custom-gold">Inicio</a></li>
             <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
             <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
-            <li><a href="/prensa" class="hover-text-custom-gold">Prensa</a></li>
-            <li><a href="/contacto" class="hover-text-custom-gold">Contacto</a></li>
+            <li><a href="prensa.html" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="contacto.html" class="hover-text-custom-gold">Contacto</a></li>
         </ul>
     </div>
     <!-- =================================================================
@@ -197,117 +231,56 @@
     ================================================================== -->
     <main>
         <!-- HERO INICIAL -->
-        <section class="h-[60vh] min-h-[450px] text-white relative bg-cover bg-center" style="background-image: url('img/servicio-reorganizacion.webp');">
-             <div class="absolute inset-0 bg-custom-blue opacity-50"></div>
-            <div class="w-full h-full flex justify-center items-center">
+        <section class="h-80 text-white relative bg-custom-blue">
+            <div class="w-full h-full flex justify-center items-center pt-16">
                 <div class="container mx-auto px-6 relative z-10 text-center">
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight mb-4">Reorganización patrimonial y empresarial a tu medida</h1>
-                    <p class="text-lg md:text-xl font-light max-w-3xl mx-auto">Diseñamos estructuras legales y tributarias que protegen tu patrimonio y proyectan el futuro de tu empresa o familia.</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">Términos y Condiciones</h1>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN ¿QUÉ OFRECEMOS? -->
+        <!-- SECCIÓN DE CONTENIDO -->
         <section class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center fade-in-up">
-                         <h2 class="section-title">Áreas de práctica: Reorganización patrimonial y empresarial</h2>
-                         <h3 class="section-subtitle mb-6">¿Qué ofrecemos?</h3>
-                    </div>
-                     <p class="text-custom-dark-gray font-light leading-relaxed text-left fade-in-up">
-                        En Cabello Abogados contamos con un equipo altamente especializado en procesos de <b>reorganización legal familiar y empresarial</b>. Acompañamos a nuestros clientes en la <b>planificación de estructuras societarias eficientes</b>, en la conformación o rediseño de <b>holdings familiares</b> y en la definición de estrategias para la <b>sucesión patrimonial</b>, siempre considerando la normativa vigente y las particularidades de cada caso.
-                    </p>
-                </div>
+            <div class="container mx-auto px-6 max-w-4xl content-area text-custom-dark-gray font-light">
+                
+                <p>Última actualización: 11 de septiembre de 2025</p>
 
-                <div class="max-w-4xl mx-auto mt-16">
-                     <div class="text-center mb-12 fade-in-up">
-                        <h2 class="section-subtitle">Materias a tratar en esta área</h2>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start fade-in-up" style="transition-delay: 0.2s;">
-                            <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
-                            <span class="text-custom-dark-gray">Diseño e implementación de estructuras societarias adaptadas a cada realidad empresarial o familiar.</span>
-                        </li>
-                        <li class="flex items-start fade-in-up" style="transition-delay: 0.3s;">
-                            <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
-                            <span class="text-custom-dark-gray">Conformación y reorganización de holdings familiares con enfoque legal y tributario.</span>
-                        </li>
-                         <li class="flex items-start fade-in-up" style="transition-delay: 0.4s;">
-                            <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
-                            <span class="text-custom-dark-gray">Planificación de sucesión patrimonial, considerando implicancias legales, tributarias y personales.</span>
-                        </li>
-                        <li class="flex items-start fade-in-up" style="transition-delay: 0.5s;">
-                            <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
-                            <span class="text-custom-dark-gray">Análisis de riesgos, contingencias y oportunidades tributarias en reorganizaciones.</span>
-                        </li>
-                         <li class="flex items-start fade-in-up" style="transition-delay: 0.6s;">
-                            <i class="fas fa-check-circle text-custom-gold mt-1 mr-3"></i>
-                            <span class="text-custom-dark-gray">Asesoría respaldada por peritos tributarios inscritos en Cortes de Apelaciones.</span>
-                        </li>
-                    </ul>
-                </div>
+                <h2>1. Aceptación de los Términos</h2>
+                <p>Bienvenido al sitio web de Cabello Abogados Tributarios (en adelante, "el Sitio"). Al acceder y utilizar este Sitio, usted acepta estar sujeto a los siguientes Términos y Condiciones de Uso ("Términos") y a nuestra <a href="politicas-privacidad.html" class="text-custom-gold underline">Política de Privacidad</a>. Si no está de acuerdo con estos Términos, por favor no utilice el Sitio.</p>
+
+                <h2>2. Objeto del Sitio Web</h2>
+                <p>El contenido de este Sitio es de carácter meramente informativo y no constituye asesoría legal, tributaria o de cualquier otra índole. La información proporcionada no pretende ser un sustituto del consejo legal profesional y no debe ser utilizada como tal. El uso de la información contenida en el Sitio es de su exclusiva responsabilidad.</p>
+                
+                <h2>3. Propiedad Intelectual</h2>
+                <p>Todos los contenidos del Sitio, incluyendo, pero no limitándose a, textos, gráficos, logotipos, imágenes, y la compilación de los mismos, son propiedad de Cabello Abogados Tributarios o de sus licenciantes y están protegidos por las leyes de propiedad intelectual de Chile y tratados internacionales. No está permitida la reproducción, distribución, modificación o cualquier otro uso no autorizado del contenido sin el previo consentimiento por escrito de Cabello Abogados Tributarios.</p>
+
+                <h2>4. Uso Adecuado del Sitio</h2>
+                <p>Usted se compromete a utilizar el Sitio de manera lícita y de acuerdo con estos Términos. Se prohíbe cualquier uso del Sitio que pueda dañar, deshabilitar, sobrecargar o perjudicar el servidor o las redes conectadas al mismo, así como interferir con el uso y disfrute del Sitio por parte de otros usuarios.</p>
+
+                <h2>5. Exclusión de Responsabilidad</h2>
+                <p>Cabello Abogados Tributarios no garantiza la exactitud, actualidad o exhaustividad de la información contenida en el Sitio. El contenido puede contener errores o imprecisiones. En ningún caso Cabello Abogados Tributarios será responsable por cualquier daño directo, indirecto, incidental, consecuencial o de cualquier otro tipo que surja del uso o la imposibilidad de uso de este Sitio.</p>
+                <p>La relación abogado-cliente no se establece por el simple hecho de visitar este Sitio, enviar un correo electrónico o utilizar el formulario de contacto. Dicha relación solo se formalizará mediante la firma de un acuerdo de servicios profesionales.</p>
+
+                <h2>6. Enlaces a Terceros</h2>
+                <p>El Sitio puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan únicamente para su conveniencia. Cabello Abogados Tributarios no tiene control sobre el contenido de estos sitios de terceros y no se hace responsable de su contenido ni de las prácticas de privacidad que puedan tener.</p>
+
+                <h2>7. Modificaciones a los Términos y Condiciones</h2>
+                <p>Cabello Abogados Tributarios se reserva el derecho de modificar estos Términos en cualquier momento y sin previo aviso. Las modificaciones entrarán en vigor desde el momento de su publicación en el Sitio. Es su responsabilidad revisar periódicamente estos Términos para estar al tanto de las actualizaciones.</p>
+
+                <h2>8. Legislación Aplicable y Jurisdicción</h2>
+                <p>Estos Términos se regirán e interpretarán de acuerdo con las leyes de la República de Chile. Cualquier controversia que surja en relación con estos Términos estará sujeta a la jurisdicción exclusiva de los Tribunales Ordinarios de Justicia de la ciudad de Santiago, Chile.</p>
+
+                <h2>9. Contacto</h2>
+                <p>Si tiene alguna pregunta sobre estos Términos y Condiciones, puede contactarnos a través de los siguientes medios:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:contacto@cabelloabogados.cl" class="text-custom-gold underline">contacto@cabelloabogados.cl</a></li>
+                    <li><strong>Teléfono:</strong> <a href="tel:+56229416205" class="text-custom-gold underline">+56 2 2941 6205</a></li>
+                    <li><strong>Dirección:</strong> Av. Alonso de Córdova 5900, Of. 301, Las Condes, Santiago, Chile</li>
+                </ul>
+
             </div>
         </section>
-        
-        <!-- SECCIÓN ¿POR QUÉ ELEGIRNOS? -->
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12 fade-in-up">
-                     <h2 class="section-subtitle">¿Por qué elegirnos para reorganizar tu patrimonio?</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Item 1 -->
-                    <div class="fade-in-up group text-center p-6">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-brain text-4xl text-custom-gold"></i>
-                        </div>
-                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Especialización real</h3>
-                        <p class="text-custom-dark-gray text-sm font-light">Años de experiencia asesorando procesos complejos de reorganización tributaria y societaria en Chile.</p>
-                    </div>
-                    <!-- Item 2 -->
-                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.1s;">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-balance-scale text-4xl text-custom-gold"></i>
-                        </div>
-                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Peritos calificados</h3>
-                        <p class="text-custom-dark-gray text-sm font-light">Contamos con profesionales reconocidos por las Cortes de Apelaciones.</p>
-                    </div>
-                    <!-- Item 3 -->
-                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.2s;">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-file-signature text-4xl text-custom-gold"></i>
-                        </div>
-                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Cumplimiento normativo</h3>
-                        <p class="text-custom-dark-gray text-sm font-light">Toda la documentación cumple con los más altos estándares legales.</p>
-                    </div>
-                    <!-- Item 4 -->
-                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.3s;">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-comments text-4xl text-custom-gold"></i>
-                        </div>
-                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Asesoría estratégica</h3>
-                        <p class="text-custom-dark-gray text-sm font-light">No solo ejecutamos; proponemos caminos que optimizan cada decisión.</p>
-                    </div>
-                     <!-- Item 5 -->
-                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.4s;">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-calculator text-4xl text-custom-gold"></i>
-                        </div>
-                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Enfoque cuantitativo</h3>
-                        <p class="text-custom-dark-gray text-sm font-light">Cuantificamos impactos tributarios con enfoque preventivo.</p>
-                    </div>
-                     <!-- Item 6 -->
-                     <div class="fade-in-up group text-center p-6" style="transition-delay: 0.5s;">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-handshake text-4xl text-custom-gold"></i>
-                        </div>
-                        <h3 class="font-semibold text-lg text-custom-blue mb-2">Confianza técnica</h3>
-                        <p class="text-custom-dark-gray text-sm font-light">Nuestra reputación se basa en rigor, ética y resultados concretos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
     </main>
     <!-- =================================================================
     // END of page content
@@ -332,9 +305,9 @@
                 <div>
                     <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
                     <ul class="mt-4 space-y-2 text-xs">
-                        <li><a href="/areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
-                        <li><a href="/politica-privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
-                        <li><a href="/terminos-condiciones" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                        <li><a href="index.html#areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="politicas-privacidad.html" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="terminos-condiciones.html" class="hover:text-white transition-colors">Términos y condiciones</a></li>
                     </ul>
                 </div>
 
@@ -371,7 +344,7 @@
     <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
         <i class="fas fa-arrow-up"></i>
     </a>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.getElementById('main-header');
