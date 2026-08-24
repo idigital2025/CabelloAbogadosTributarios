@@ -26,7 +26,7 @@
 </head>
 <body class="page bg-white">
 
-<div id="preview-banner">PREVIEW LOCAL para revisión — no está conectado a WordPress ni es la página en vivo. Formulario no envía datos.</div>
+<div id="preview-banner">PREVIEW LOCAL para revisión — no está conectado a WordPress ni es la página en vivo. El video de fondo NO cargará acá (aún no está subido al hosting real). Formulario no envía datos.</div>
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <!-- Cintillo 
@@ -91,26 +91,44 @@
 
 <main class="landing-reforma-tributaria">
 
+    <!--
+        Estilos de título propios de esta página (rt-heading / rt-eyebrow), en vez de usar
+        directamente las clases .section-title / .section-subtitle del tema.
+        Motivo: el CSS embebido del repo estático (CabelloAbogadosTributarios) tiene esas dos
+        clases INVERTIDAS respecto al WordPress real (ahí .section-title es la etiqueta chica
+        dorada y .section-subtitle es el título grande azul — al revés de custom.css del sitio
+        en vivo). Usar nombres propios con las propiedades explícitas garantiza que el resultado
+        visual sea idéntico sin importar en cuál de los dos sitios se vea esta página.
+    -->
+    <style>
+        .rt-heading { font-size: 1.75rem; font-weight: 400; color: #212C44; }
+        .rt-eyebrow { font-size: 1rem; letter-spacing: 0.1em; font-weight: 400; color: #BB9D73; }
+    </style>
+
     <!-- 1. HEADER / HERO SECTION -->
     <!--
-        TODO (cliente): textos definitivos del encabezado (badge, H1, bajada) pendientes.
-        Se mantiene el copy actual como placeholder mientras tanto.
+        Textos definitivos entregados por el cliente (Propuesta de Contenido 19.08.2026): badge,
+        H1 y bajada ya aplicados.
 
         ESPACIADO BAJO EL HEADER: #main-header es "fixed" (se monta encima del contenido, no lo
         empuja). En el home del mismo sitio, el banner principal usa pt-0 md:pt-[220px] para
         separarse del header fijo en desktop. Replicamos ese mismo valor acá para que quede
         consistente con el resto del sitio.
 
-        VIDEO DE FONDO (pedido de Jorge): dos variantes listas para activar (desktop / mobile),
+        VIDEO DE FONDO: ACTIVADO (if (true) más abajo), con dos variantes (desktop / mobile),
         ocultas vía clases hidden/md:block igual que el resto del sitio. Cada variante trae
         WebM primero (más liviano, lo usa la mayoría de navegadores) y MP4 como fallback
         (compatibilidad total con Safari/iOS) — el navegador usa la primera <source> que soporte.
 
-        Para activar: cambiar el "if (false)" de abajo por "if (true)" y reemplazar el src de
-        cada <source> por el archivo definitivo. Se necesitan 4 archivos en total (2 por variante):
-        (Nota técnica: se usa if(false)/endif en vez de un comentario /* */ porque un comentario
+        ⚠️ PENDIENTE ANTES DE PUBLICAR: los 4 archivos (webm+mp4 x desktop+mobile) todavía NO
+        están subidos al hosting real de WordPress — solo existen en el repo estático de GitHub
+        (CabelloAbogadosTributarios/img/, y ahí solo como .mp4, sin .webm). Hay que subir por
+        FTP/hosting los mismos archivos con estos nombres exactos a:
+          /wp-content/themes/cabelloabogados_theme_v1/assets/video/
+        Mientras no estén ahí, esta sección mostrará un video roto en el sitio en vivo.
+        (Nota técnica: se usa if(true)/endif en vez de un comentario /* */ porque un comentario
         PHP que contiene <?php ?> anidados corta el comentario antes de tiempo y filtra HTML a
-        la página — if(false) es la forma segura de dejar HTML+PHP mezclado inerte.)
+        la página — if(...)/endif es la forma segura de envolver HTML+PHP mezclado.)
           - Formato: WebM (VP9) + MP4 (H.264) del mismo video, sin audio, loop de 10-15s.
           - Desktop: 1920x1080 (16:9). WebM apuntar a ~2-4MB, MP4 fallback ~4-6MB.
           - Mobile: 1080x1350 (formato más vertical, 4:5) o el mismo 16:9 recortado.
@@ -141,9 +159,35 @@
             background: linear-gradient(135deg, #D4B483 0%, #BB9D73 100%);
             box-shadow: 0 4px 14px rgba(187, 157, 115, 0.45);
         }
-        /* Jerarquía de botones: primario sólido y llamativo, secundario más discreto (outline).
-           Alcance limitado a .hero-reforma para no afectar los botones .btn-primary/.btn-white
+        /* Jerarquía de botones: primario sólido y llamativo, secundario en blanco con letras/ícono
+           azules. Alcance limitado a .hero-reforma para no afectar los botones .btn-primary/.btn-white
            del resto del sitio. */
+        .hero-reforma .btn-primary,
+        .hero-reforma .btn-white {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        /* Animación sutil del ícono: leve rebote horizontal continuo, más notorio en hover. */
+        .hero-reforma .btn-icon {
+            animation: btn-icon-nudge 1.8s ease-in-out infinite;
+        }
+        .hero-reforma .btn:hover .btn-icon {
+            animation-duration: 0.9s;
+        }
+        @keyframes btn-icon-nudge {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(3px); }
+        }
+        /* El cliente pidió eliminar las líneas decorativas antes/después de TODOS los botones de
+           esta landing (activas en el CSS embebido del repo estático, a diferencia del WordPress
+           real donde ya estaban comentadas) — no solo las del hero, por eso el alcance es
+           .landing-reforma-tributaria (toda la página) y no .hero-reforma. */
+        .landing-reforma-tributaria .btn::before,
+        .landing-reforma-tributaria .btn::after {
+            content: none !important;
+        }
         .hero-reforma .btn-primary {
             background-color: #BB9D73;
             color: #FFFFFF;
@@ -159,15 +203,14 @@
             box-shadow: 0 10px 26px rgba(187, 157, 115, 0.6);
         }
         .hero-reforma .btn-white {
-            background-color: transparent;
-            color: #FFFFFF;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            background-color: #FFFFFF;
+            color: #212C44;
+            border: 1px solid #FFFFFF;
             transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
         }
         .hero-reforma .btn-white:hover {
-            background-color: rgba(255, 255, 255, 0.12);
-            border-color: #FFFFFF;
-            color: #FFFFFF;
+            background-color: #f3f3f3;
+            color: #212C44;
             transform: translateY(-2px);
         }
         /* Indicador de scroll */
@@ -201,24 +244,37 @@
     <section class="hero-reforma h-[75vh] min-h-[500px] text-white relative bg-cover bg-center flex items-center"
              style="background-image: url('https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/img/servicio-reorganizacion.webp');">
 
-                <div class="absolute inset-0 bg-custom-blue opacity-75 z-[1]"></div>
+                <video class="hero-video hidden md:block" autoplay muted loop playsinline
+               poster="https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/img/servicio-reorganizacion.webp">
+            <source src="https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/video/hero-reforma-tributaria-desktop.webm" type="video/webm">
+            <source src="https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/video/hero-reforma-tributaria-desktop.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video block md:hidden" autoplay muted loop playsinline
+               poster="https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/img/servicio-reorganizacion.webp">
+            <source src="https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/video/hero-reforma-tributaria-mobile.webm" type="video/webm">
+            <source src="https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/video/hero-reforma-tributaria-mobile.mp4" type="video/mp4">
+        </video>
+
+        <div class="absolute inset-0 bg-custom-blue opacity-75 z-[1]"></div>
         <div class="hero-content container mx-auto px-6 relative z-10 text-center md:text-left">
             <div class="max-w-4xl">
                 <span class="hero-badge inline-block text-white text-xs md:text-sm uppercase tracking-widest font-semibold px-4 py-1.5 rounded mb-4 fade-in-up">
-                    Análisis &amp; Estrategia Legal - Reforma Tributaria
+                    Plan de Reconstrucción Nacional
                 </span>
                 <h1 class="text-3xl md:text-5xl lg:text-6xl font-normal leading-tight mb-6 fade-in-up text-white" style="transition-delay: 0.1s;">
-                    Asesoría Estratégica ante la Nueva Reforma Tributaria
+                    Reforma Tributaria 2026
                 </h1>
                 <p class="text-base md:text-xl font-light leading-relaxed max-w-3xl mb-8 opacity-95 fade-in-up text-white" style="transition-delay: 0.2s;">
-                    Acompañamos a <b>empresas, holdings e inversionistas</b> en la evaluación de impactos, reorganización de estructuras y mitigación de riesgos legales y patrimoniales tras las recientes reformas y normas de cumplimiento tributario en Chile.
+                    <b>Aprobada por el Congreso el 4 de agosto de 2026.</b> La reforma combina cambios permanentes en la tributación de empresas y sus propietarios con regímenes transitorios en materias como utilidades acumuladas, donaciones y activos en el exterior.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 fade-in-up" style="transition-delay: 0.3s;">
                     <a href="#formulario-reforma" class="btn btn-primary text-center font-semibold">
-                        Agendar Reunión Comercial
+                        <span>Agendar Reunión Comercial</span>
+                        <i class="fas fa-calendar-check btn-icon"></i>
                     </a>
                     <a href="#materias-aprobadas" class="btn btn-white text-center font-semibold">
-                        Ver Materias Clave ↓
+                        <span>Ver Materias Claves</span>
+                        <i class="fas fa-arrow-right btn-icon"></i>
                     </a>
                 </div>
             </div>
@@ -231,7 +287,7 @@
 
     <!-- BANNER DE ALERTA ESTRATÉGICA -->
     <section class="bg-custom-gold text-white py-6">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left fade-in-up">
             <div class="flex items-center space-x-3">
                 <i class="fas fa-exclamation-circle text-2xl text-custom-blue flex-shrink-0"></i>
                 <p class="text-base font-medium text-custom-blue">
@@ -248,101 +304,96 @@
     <section id="materias-aprobadas" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                <!-- TODO (cliente): título nuevo pendiente (se eliminó "Nuevas Reglas del Juego Fiscal"). Subtítulo y bajada dorada eliminados por pedido del cliente, no se repone. -->
+                <!-- Sin bajada ni párrafo introductorio, por pedido explícito del cliente: solo título y las 6 casillas. -->
+                <h2 class="rt-heading">Reforma Tributaria 2026</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Materia 1 -->
+                <!-- Fila superior -->
                 <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up">
-                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Impuesto Corporativo y Regímenes</h3>
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Impuesto a las empresas</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
-                        Modificaciones en el impuesto de Primera Categoría, incentivos al ahorro e inversión corporativa, y ajustes en la tributación de utilidades empresariales.
+                        Rebaja gradual del Impuesto de Primera Categoría, desde el 27% hasta una tasa permanente de 23%.
                     </p>
                 </div>
 
-                <!-- Materia 2 -->
                 <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.1s;">
-                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Impuesto Sustitutivo (ISIF)</h3>
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Integración tributaria</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
-                        Régimen opcional para tributar utilidades acumuladas en los registros tributarios (FUT/RAP) a una tasa fija y preferencial con liberación de tributación futura.
+                        Reintegración gradual del sistema, aumentando la utilización del crédito pagado por la empresa contra los impuestos finales de sus propietarios.
                     </p>
                 </div>
 
-                <!-- Materia 3 -->
                 <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.2s;">
-                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Repatriación de Capitales</h3>
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Ganancias de capital</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
-                        Mecanismos extraordinarios de declaración voluntaria e impuesto único liberatorio para bienes, fondos y divisas mantenidos fuera de Chile por contribuyentes locales.
+                        Las ganancias por determinados instrumentos con presencia bursátil vuelven a tener el tratamiento de ingreso no constitutivo de renta.
                     </p>
                 </div>
 
-                <!-- Materia 4 -->
+                <!-- Fila inferior -->
                 <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.3s;">
-                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Normas Antielusión (NGA / GAAR)</h3>
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Utilidades acumuladas</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
-                        Nuevos criterios de aplicación de la Norma General Antielusiva, fiscalizaciones del SII a reorganizaciones y fiscalización de grupos empresariales.
+                        Régimen transitorio de impuesto sustitutivo para determinadas utilidades acumuladas de ejercicios anteriores.
                     </p>
                 </div>
 
-                <!-- Materia 5 -->
                 <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.4s;">
-                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Certeza e Invariabilidad Tributaria</h3>
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Donaciones</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
-                        Protección legal e incentivos tributarios para proyectos de inversión de alto impacto y contratos de estabilidad para capitales internacionales.
+                        Rebaja transitoria del 50% del impuesto a las donaciones, sujeta a requisitos y límites específicos.
                     </p>
                 </div>
 
-                <!-- Materia 6 -->
                 <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.5s;">
-                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Franquicias de Donaciones</h3>
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Activos en el exterior</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
-                        Actualización del marco regulatorio sobre beneficios tributarios por donaciones corporativas y financiamiento a proyectos de interés social.
+                        Régimen transitorio para declarar bienes y rentas mantenidos en el extranjero, con reglas especiales para su ingreso e inversión en Chile.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. IMPACTO POTENCIAL PARA EMPRESAS -->
-    <section class="py-20 bg-gray-50">
+    <!-- 3. DEL ANÁLISIS A LA IMPLEMENTACIÓN -->
+    <!-- Fondo de borde a borde (color #E2CAA8, sin tarjeta ni bordes redondeados) tanto en desktop
+         como en mobile. El contenido interior usa el mismo container mx-auto px-6 que el resto de
+         las secciones — sin padding extra de tarjeta — para quedar alineado con todo lo demás. -->
+    <style>
+        /* Fondo de borde a borde pero con las puntas recortadas/redondeadas (el blanco de la
+           página asoma en las 4 esquinas), no una tarjeta angosta con márgenes. Radio responsivo:
+           más chico en mobile, más grande en desktop. */
+        .analisis-bg {
+            background-color: #E2CAA8;
+            border-radius: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .analisis-bg { border-radius: 2.5rem; }
+        }
+        .analisis-steps > div + div { border-left: 1px solid rgba(33, 44, 68, 0.2); }
+    </style>
+    <section class="py-20 analisis-bg">
         <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-in-up">
-                    <h2 class="section-title mb-2">Impacto en la Toma de Decisiones Corporativas</h2>
-                    <h3 class="section-subtitle mb-6">¿Cómo afecta la Reforma Tributaria a su Empresa?</h3>
-                    <p class="text-custom-dark-gray font-light text-base leading-relaxed mb-6">
-                        Las nuevas normativas imponen un replanteamiento de la planificación financiera, corporativa y tributaria. Estructuras constituidas en esquemas anteriores requieren revisión para mantener su coherencia económica y prevenir observaciones de la autoridad fiscal.
+            <div class="grid lg:grid-cols-2 gap-12 items-center fade-in-up">
+                <div>
+                    <h2 class="rt-heading mb-6">Del análisis a la implementación</h2>
+                    <p class="text-custom-blue font-light text-base leading-relaxed mb-8">
+                        Nuestro trabajo comienza por comprender la estructura, los antecedentes y los objetivos de cada caso, para evaluar las alternativas disponibles y definir una estrategia a la luz de sus efectos tributarios, societarios y patrimoniales, acompañando la decisión hasta su implementación.
                     </p>
 
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 rounded-full bg-custom-gold/20 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                                <i class="fas fa-chart-line text-custom-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-custom-blue text-base">Carga Fiscal y Flujos de Caja</h4>
-                                <p class="text-custom-dark-gray text-base font-light leading-relaxed">Determinación rigurosa de la tasa efectiva final de impuestos corporativos y estructuración de repartos de dividendos.</p>
-                            </div>
+                    <div class="analisis-steps grid grid-cols-3 text-center">
+                        <div class="px-2 fade-in-up">
+                            <span class="block text-2xl md:text-3xl font-bold text-custom-blue leading-none">01</span>
+                            <span class="block mt-2 text-xs md:text-sm font-semibold text-custom-blue uppercase tracking-wide">Análisis</span>
                         </div>
-
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 rounded-full bg-custom-gold/20 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                                <i class="fas fa-sitemap text-custom-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-custom-blue text-base">Reorganización de Holdings y Filiales</h4>
-                                <p class="text-custom-dark-gray text-base font-light leading-relaxed">Adaptación de mallas societarias asegurando la legítima razón de negocios y el respaldo sustantivo de las operaciones de grupo.</p>
-                            </div>
+                        <div class="px-2 fade-in-up" style="transition-delay: 0.1s;">
+                            <span class="block text-2xl md:text-3xl font-bold text-custom-blue leading-none">02</span>
+                            <span class="block mt-2 text-xs md:text-sm font-semibold text-custom-blue uppercase tracking-wide">Decisión</span>
                         </div>
-
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 rounded-full bg-custom-gold/20 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                                <i class="fas fa-user-shield text-custom-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-custom-blue text-base">Gobernanza y Cumplimiento Preventivo</h4>
-                                <p class="text-custom-dark-gray text-base font-light leading-relaxed">Respaldos técnicos para directorios y gerencias frente a procesos de fiscalización y requerimientos del Servicio de Impuestos Internos.</p>
-                            </div>
+                        <div class="px-2 fade-in-up" style="transition-delay: 0.2s;">
+                            <span class="block text-2xl md:text-3xl font-bold text-custom-blue leading-none">03</span>
+                            <span class="block mt-2 text-xs md:text-sm font-semibold text-custom-blue uppercase tracking-wide">Implementación</span>
                         </div>
                     </div>
                 </div>
@@ -352,10 +403,9 @@
                         <img src="https://cabelloabogados.cl/wp-content/themes/cabelloabogados_theme_v1/assets/img/enfoque-imagen.webp"
                              alt="Reunión directiva analizando impacto tributario empresarial"
                              class="w-full h-auto object-cover">
-                        <div class="absolute inset-0 gradient-overlay-bottom" style="background: linear-gradient(to top, rgba(33, 44, 68, 0.98) 0%, rgba(33, 44, 68, 0.8) 55%, rgba(33, 44, 68, 0) 100%);"></div>
+                        <div class="absolute inset-0 gradient-overlay-bottom" style="background: linear-gradient(to top, rgba(33, 44, 68, 0.95) 0%, rgba(33, 44, 68, 0.55) 28%, rgba(33, 44, 68, 0) 58%);"></div>
                         <div class="absolute bottom-0 inset-x-0 p-6 md:p-8 text-white z-10">
-                            <p class="text-xs md:text-sm font-semibold text-custom-gold uppercase tracking-wider mb-1">Asesoría Corporativa</p>
-                            <p class="text-base font-light text-white leading-relaxed">Definición de hojas de ruta legales para directorios y gerencias de finanzas.</p>
+                            <p class="text-base md:text-lg font-semibold text-white uppercase tracking-wider">Cabello Abogados Tributarios</p>
                         </div>
                     </div>
                 </div>
@@ -366,9 +416,10 @@
     <!--
         Secciones eliminadas por pedido del cliente:
         - "Efectos Patrimoniales y de Inversión" (bloque + foto servicio-asesoria.webp): se fusionó
-          con la sección anterior ("Impacto en la Toma de Decisiones Corporativas"), que ahora queda
-          como el único bloque de imagen+texto y conserva la foto de la escalera (enfoque-imagen.webp).
-          TODO (cliente): texto consolidado pendiente para ese bloque unificado.
+          con la sección anterior, que ahora queda como el único bloque de imagen+texto y conserva
+          la foto de la escalera (enfoque-imagen.webp). Título, bajada y texto sobre la foto ya
+          actualizados con la Propuesta de Contenido del 19.08.2026 ("Del análisis a la
+          implementación").
         - "Soluciones Específicas Priorizadas" (4 tarjetas de áreas): eliminada completa.
         - "Experiencia del Estudio en Cifras" / "Por qué Cabello Abogados" (contadores): eliminada completa.
     -->
@@ -377,9 +428,8 @@
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in-up">
-                <!-- TODO (cliente): pulir texto del título de esta sección -->
-                <h2 class="section-title">Nuestros Voceros y Abogados Expertos</h2>
-                <h3 class="section-subtitle">Líderes de opinión y referentes en materias tributarias</h3>
+                <h2 class="rt-heading">Nuestros Abogados Expertos</h2>
+                <h3 class="rt-eyebrow">Líderes de opinión y referentes en materias tributarias</h3>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
@@ -390,7 +440,7 @@
                          alt="Foto de Juan Pablo Cabello P."
                          class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
                     <h3 class="text-xl font-semibold text-custom-blue">Juan Pablo Cabello P.</h3>
-                    <p class="text-custom-gold mb-2 text-sm font-medium">Socio Fundador</p>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socio</p>
                     <a href="mailto:juan.cabello@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
                         <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
                         <span class="truncate">juan.cabello@cabelloabogados.cl</span>
@@ -416,7 +466,7 @@
                          alt="Foto de María Pilar Cabello P."
                          class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
                     <h3 class="text-xl font-semibold text-custom-blue">María Pilar Cabello P.</h3>
-                    <p class="text-custom-gold mb-2 text-sm font-medium">Socia Auditoría &amp; Peritaje</p>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socia</p>
                     <a href="mailto:pilar.cabello@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
                         <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
                         <span class="truncate">pilar.cabello@cabelloabogados.cl</span>
@@ -442,7 +492,7 @@
                          alt="Foto de Estephania Aguayo A."
                          class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
                     <h3 class="text-xl font-semibold text-custom-blue">Estephania Aguayo A.</h3>
-                    <p class="text-custom-gold mb-2 text-sm font-medium">Socia Consultoría &amp; Reorganización</p>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socia</p>
                     <a href="mailto:estephania.aguayo@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
                         <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
                         <span class="truncate">estephania.aguayo@cabelloabogados.cl</span>
@@ -468,7 +518,7 @@
                          alt="Foto de Michel Aguilera R."
                          class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
                     <h3 class="text-xl font-semibold text-custom-blue">Michel Aguilera R.</h3>
-                    <p class="text-custom-gold mb-2 text-sm font-medium">Socio Litigios Tributarios</p>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socio</p>
                     <a href="mailto:michel.aguilera@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
                         <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
                         <span class="truncate">michel.aguilera@cabelloabogados.cl</span>
@@ -502,8 +552,8 @@
     <!-- 8. AUTORIDAD Y PRENSA -->
     <section class="py-16 bg-white border-t border-b border-gray-100">
         <div class="container mx-auto px-6 text-center fade-in-up">
-            <h2 class="section-title mb-2">Presencia en Medios y Respaldos Institucionales</h2>
-            <h3 class="section-subtitle mb-8">Nuestros abogados analizan de forma continua la coyuntura tributaria nacional</h3>
+            <h2 class="rt-heading mb-2">Presencia en Medios y Respaldos Institucionales</h2>
+            <h3 class="rt-eyebrow mb-8">Nuestros abogados analizan de forma continua la coyuntura tributaria nacional</h3>
 
             <!-- Grid de respaldos -->
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 mb-12">
@@ -539,25 +589,24 @@
         </div>
     </section>
 
-    <!-- 9. PREGUNTAS FRECUENTES (FAQ) CON INFORMACIÓN FIDEDIGNA Y PRECISA -->
-    <!-- TODO (cliente): preguntas y respuestas definitivas pendientes; se mantiene el set actual como placeholder -->
+    <!-- 9. PREGUNTAS FRECUENTES (FAQ) -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-16 fade-in-up">
-                <h2 class="section-title">Preguntas Frecuentes</h2>
-                <h3 class="section-subtitle">Respuestas fidedignas a las principales inquietudes tributarias</h3>
+                <h2 class="rt-heading">Preguntas Frecuentes</h2>
+                <h3 class="rt-eyebrow">Respuestas fidedignas a las principales inquietudes tributarias</h3>
             </div>
 
             <div class="space-y-4">
                 <!-- FAQ 1 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up">
                     <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Cuándo entran en vigencia las principales disposiciones de la nueva reforma y leyes de cumplimiento tributario?</span>
+                        <span>¿Qué debe considerarse al evaluar una donación o transferencia patrimonial bajo el nuevo régimen?</span>
                         <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
-                            Las normas sobre cumplimiento tributario y fiscalización rigen conforme a lo dispuesto en la legislación promulgada: aquellas relativas a facultades administrativas de fiscalización y procedimientos generales aplican tras su publicación en el Diario Oficial, mientras que las reglas especiales de sustitución de impuestos y modificaciones a regímenes de impuesto a la renta operan bajo plazos y disposiciones transitorias expresas.
+                            La rebaja transitoria del impuesto puede ser relevante para familias que ya estén evaluando una donación o transferencia patrimonial, siendo el monto a enterar por concepto de impuesto a las donaciones solo uno de los aspectos que deben ponderarse. La evaluación debe considerar también la composición y valorización del patrimonio, la estructura societaria, el control de las empresas, las asignaciones sucesorias y las transferencias realizadas anteriormente.
                         </p>
                     </div>
                 </div>
@@ -565,12 +614,12 @@
                 <!-- FAQ 2 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.1s;">
                     <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Cómo afectan las reglas de la Norma General Antielusiva (NGA) a holdings y sociedades de inversión?</span>
+                        <span>¿Cuándo puede resultar conveniente acogerse al régimen transitorio sobre utilidades acumuladas?</span>
                         <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
-                            El Servicio de Impuestos Internos (SII) intensifica la revisión de reestructuraciones corporativas, fusiones y traspasos societarios. Para evitar contingencias por abuso o simulación tributaria, es indispensable que toda reorganización cuente con una legítima razón de negocios con sustento económico y operativo acreditable, más allá del mero ahorro fiscal.
+                            La conveniencia de acogerse al régimen transitorio no depende únicamente de la tasa aplicable, sino también de los saldos que pueden acogerse, los créditos asociados, la situación tributaria de los propietarios, las necesidades de liquidez y el horizonte previsto para futuras distribuciones, considerando sus efectos en comparación con la tributación que correspondería bajo el régimen permanente.
                         </p>
                     </div>
                 </div>
@@ -578,12 +627,12 @@
                 <!-- FAQ 3 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.2s;">
                     <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Qué ventajas otorga el Impuesto Sustitutivo (ISIF) sobre utilidades acumuladas y quiénes pueden acogerse?</span>
+                        <span>¿Qué debe revisarse respecto de bienes, inversiones o rentas mantenidos en el extranjero?</span>
                         <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
-                            El Impuesto Sustitutivo de Impuestos Finales (ISIF) es un régimen opcional y voluntario que permite a los contribuyentes adelantar la tributación sobre saldos de utilidades acumuladas en los registros tributarios (FUT / RAP) aplicando una tasa única fija. Al pagar el ISIF, los montos quedan liberados de los impuestos finales (Global Complementario o Adicional) al momento de su retiro o distribución.
+                            La evaluación requiere determinar si la situación se encuentra comprendida en el régimen transitorio y las condiciones bajo las cuales este resulta aplicable, considerando para ello la titularidad y origen de los bienes o rentas, su fecha y forma de adquisición, las declaraciones tributarias anteriores, su valorización y la documentación disponible para respaldar adecuadamente su situación tributaria.
                         </p>
                     </div>
                 </div>
@@ -591,12 +640,12 @@
                 <!-- FAQ 4 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.3s;">
                     <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿En qué consiste el procedimiento de repatriación y declaración voluntaria de bienes en el extranjero?</span>
+                        <span>¿La reforma hace necesario revisar la estructura societaria o la política de distribución de un grupo empresarial o familiar?</span>
                         <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
-                            Constituye un mecanismo legal extraordinario que permite a contribuyentes domiciliados o residentes en Chile declarar bienes, divisas o activos mantenidos fuera del país sin haber tributado oportunamente. Al acogerse mediante el pago de una tasa de impuesto único, el contribuyente obtiene la regularización fiscal liberándolo de sanciones administrativas, reajustes o acciones penales tributarias.
+                            La reforma no supone, por sí sola, la necesidad de modificar una estructura que cumple adecuadamente su función. Sin perjuicio de ello, los cambios en la tributación de las empresas y sus propietarios pueden hacer conveniente revisar los holdings, los regímenes tributarios, las utilidades acumuladas, los créditos y las políticas de distribución, considerando también los objetivos empresariales y patrimoniales que dieron origen a esa estructura.
                         </p>
                     </div>
                 </div>
@@ -604,18 +653,27 @@
                 <!-- FAQ 5 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.4s;">
                     <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Por qué es fundamental realizar una auditoría y planificación preventiva con un estudio tributario boutique?</span>
+                        <span>¿Qué aspectos deben resguardarse al implementar una reorganización o una decisión empresarial o patrimonial con efectos tributarios?</span>
                         <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
-                            Una revisión técnica oportuna dictaminada por abogados y contadores peritos tributarios permite identificar inconsistencias en los registros empresariales antes de una fiscalización formal del SII, cuantificar contingencias de manera exacta y aprovechar los beneficios o ventanas transitorias vigentes en la legislación chilena.
+                            El efecto tributario esperado constituye solo uno de los aspectos que deben considerarse para una adecuada implementación. La decisión debe ser consistente con la naturaleza y los efectos económicos y jurídicos de los actos realizados y reflejarse adecuadamente en las valorizaciones, acuerdos societarios, contratos, registros y declaraciones correspondientes, resguardando asimismo las formalidades y plazos aplicables y la consistencia de los antecedentes frente a una eventual revisión posterior.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- NOTA LEGAL - PIE DE LA LANDING (reubicada tras el FAQ, por pedido del cliente) -->
+    <div class="bg-custom-gold/10 border-t border-b border-custom-gold/30 py-6">
+        <div class="container mx-auto px-6 fade-in-up">
+            <p class="text-sm text-custom-blue font-medium leading-relaxed text-center max-w-3xl mx-auto">
+                La información contenida en este sitio es de carácter general e informativo y no constituye asesoría legal respecto de situaciones particulares.
+            </p>
+        </div>
+    </div>
 
     <!-- 10. FORMULARIO DE CONVERSIÓN (CTA FINAL) -->
     <section id="formulario-reforma" class="relative py-24 text-white">
