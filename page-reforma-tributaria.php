@@ -170,32 +170,49 @@ endif;
             color: #212C44;
             transform: translateY(-2px);
         }
-        /* Indicador de scroll */
+        /* Indicador de scroll: "mouse" animado (pastilla + puntito que se desliza y se desvanece
+           en loop) en vez del círculo con flecha anterior. */
         .hero-reforma .scroll-indicator {
             position: absolute;
             bottom: 28px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
-            width: 40px;
-            height: 40px;
-            border-radius: 9999px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: #FFFFFF;
+            gap: 8px;
             text-decoration: none;
-            animation: hero-scroll-bounce 2s ease-in-out infinite;
-            transition: border-color 0.25s ease, background-color 0.25s ease;
         }
-        .hero-reforma .scroll-indicator:hover {
+        .hero-reforma .scroll-mouse {
+            width: 26px;
+            height: 42px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            padding-top: 7px;
+            box-sizing: border-box;
+            transition: border-color 0.25s ease;
+        }
+        .hero-reforma .scroll-indicator:hover .scroll-mouse {
             border-color: #BB9D73;
-            background-color: rgba(187, 157, 115, 0.15);
         }
-        @keyframes hero-scroll-bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
+        .hero-reforma .scroll-mouse-wheel {
+            width: 4px;
+            height: 8px;
+            border-radius: 999px;
+            background-color: #FFFFFF;
+            animation: scroll-wheel-move 1.6s ease-in-out infinite;
+        }
+        .hero-reforma .scroll-indicator:hover .scroll-mouse-wheel {
+            background-color: #BB9D73;
+        }
+        @keyframes scroll-wheel-move {
+            0% { transform: translateY(0); opacity: 1; }
+            55% { transform: translateY(13px); opacity: 0; }
+            56% { transform: translateY(0); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
     </style>
     <section class="hero-reforma h-[calc(75vh+20px)] min-h-[520px] text-white relative bg-cover bg-center flex items-center"
@@ -240,7 +257,9 @@ endif;
         </div>
 
         <a href="#materias-aprobadas" class="scroll-indicator" aria-label="Bajar para ver más contenido">
-            <i class="fas fa-chevron-down text-sm"></i>
+            <span class="scroll-mouse">
+                <span class="scroll-mouse-wheel"></span>
+            </span>
         </a>
     </section>
 
