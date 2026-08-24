@@ -216,49 +216,40 @@
             color: #212C44;
             transform: translateY(-2px);
         }
-        /* Indicador de scroll: "mouse" animado (pastilla + puntito que se desliza y se desvanece
-           en loop) en vez del círculo con flecha anterior. */
+        /* Indicador de scroll: 3 flechas (chevron-down) apiladas que se desvanecen en cascada de
+           arriba hacia abajo, dando sensación de flujo/goteo continuo hacia abajo. */
         .hero-reforma .scroll-indicator {
             position: absolute;
             bottom: 28px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
+            text-decoration: none;
+            color: #FFFFFF;
+            transition: color 0.25s ease;
+        }
+        .hero-reforma .scroll-indicator:hover {
+            color: #BB9D73;
+        }
+        .hero-reforma .scroll-chevrons {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            text-decoration: none;
+            gap: 2px;
         }
-        .hero-reforma .scroll-mouse {
-            width: 26px;
-            height: 42px;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 999px;
-            display: flex;
-            justify-content: center;
-            padding-top: 7px;
-            box-sizing: border-box;
-            transition: border-color 0.25s ease;
+        .hero-reforma .scroll-chevrons i {
+            font-size: 14px;
+            color: inherit;
+            opacity: 0;
+            animation: scroll-chevron-cascade 1.6s ease-in-out infinite;
         }
-        .hero-reforma .scroll-indicator:hover .scroll-mouse {
-            border-color: #BB9D73;
-        }
-        .hero-reforma .scroll-mouse-wheel {
-            width: 4px;
-            height: 8px;
-            border-radius: 999px;
-            background-color: #FFFFFF;
-            animation: scroll-wheel-move 1.6s ease-in-out infinite;
-        }
-        .hero-reforma .scroll-indicator:hover .scroll-mouse-wheel {
-            background-color: #BB9D73;
-        }
-        @keyframes scroll-wheel-move {
-            0% { transform: translateY(0); opacity: 1; }
-            55% { transform: translateY(13px); opacity: 0; }
-            56% { transform: translateY(0); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+        .hero-reforma .scroll-chevrons i:nth-child(1) { animation-delay: 0s; }
+        .hero-reforma .scroll-chevrons i:nth-child(2) { animation-delay: 0.2s; }
+        .hero-reforma .scroll-chevrons i:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes scroll-chevron-cascade {
+            0% { opacity: 0; transform: translateY(-6px); }
+            50% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(6px); }
         }
     </style>
     <section class="hero-reforma h-[calc(75vh+20px)] min-h-[520px] text-white relative bg-cover bg-center flex items-center"
@@ -301,8 +292,10 @@
         </div>
 
         <a href="#materias-aprobadas" class="scroll-indicator" aria-label="Bajar para ver más contenido">
-            <span class="scroll-mouse">
-                <span class="scroll-mouse-wheel"></span>
+            <span class="scroll-chevrons">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down"></i>
             </span>
         </a>
     </section>
