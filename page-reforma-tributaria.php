@@ -558,6 +558,54 @@ endif;
     </section>
 
     <!-- 9. PREGUNTAS FRECUENTES (FAQ) -->
+    <!--
+        Cada pregunta ahora muestra, mientras está cerrada: título + flecha + primera línea de la
+        respuesta truncada con puntos suspensivos (clase .accordion-preview, con "truncate" de
+        Tailwind). Al hacer click se oculta esa vista previa y se despliega la respuesta completa.
+
+        Importante: .accordion-preview va DENTRO del <button>, no como hermano de .accordion-content.
+        Así el botón sigue siendo inmediatamente seguido por .accordion-content en el DOM, que es
+        justo lo que espera el script de acordeones ya existente (busca "nextElementSibling" del
+        botón) — no hizo falta tocar ese script para que esto funcione en el WordPress real.
+
+        También se redefine acá el CSS base del acordeón (.accordion-content, la rotación de la
+        flecha) por las dudas: en custom.css del sitio real ya existe, pero en el repo estático
+        NO existía (esa página nunca había tenido acordeones antes), así que sin esto el contenido
+        se veía siempre desplegado sin poder plegarse. Definirlo acá en la página garantiza que
+        funcione igual en los dos sitios sin depender de qué hoja de estilos comparta cada uno.
+    -->
+    <style>
+        .accordion-preview {
+            display: block;
+            margin-top: 0.5rem;
+            padding-right: 1.5rem;
+        }
+        .accordion-toggle.open .accordion-preview {
+            display: none;
+        }
+        /* !important en max-height/padding: en pruebas, algo en el entorno (probablemente el
+           mismo tipo de conflicto de Tailwind CDN visto antes con el padding-top del hero) podía
+           ganarle a esta regla incluso estando bien especificada. !important la deja a prueba de
+           eso sin depender de en qué orden termine cargando cada hoja de estilos. */
+        .accordion-content {
+            max-height: 0 !important;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        .accordion-content.open {
+            max-height: 1500px !important;
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+        .accordion-toggle .fa-chevron-down {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-toggle.open .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+    </style>
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-16 fade-in-up">
@@ -568,9 +616,14 @@ endif;
             <div class="space-y-4">
                 <!-- FAQ 1 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up">
-                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Qué debe considerarse al evaluar una donación o transferencia patrimonial bajo el nuevo régimen?</span>
-                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    <button class="accordion-toggle w-full text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-lg text-custom-blue">¿Qué debe considerarse al evaluar una donación o transferencia patrimonial bajo el nuevo régimen?</span>
+                            <i class="fas fa-chevron-down text-custom-gold transition-transform flex-shrink-0 ml-4"></i>
+                        </div>
+                        <p class="accordion-preview truncate text-base font-light text-custom-dark-gray">
+                            La rebaja transitoria del impuesto puede ser relevante para familias que ya estén evaluando una donación o transferencia patrimonial…
+                        </p>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
@@ -581,9 +634,14 @@ endif;
 
                 <!-- FAQ 2 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.1s;">
-                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Cuándo puede resultar conveniente acogerse al régimen transitorio sobre utilidades acumuladas?</span>
-                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    <button class="accordion-toggle w-full text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-lg text-custom-blue">¿Cuándo puede resultar conveniente acogerse al régimen transitorio sobre utilidades acumuladas?</span>
+                            <i class="fas fa-chevron-down text-custom-gold transition-transform flex-shrink-0 ml-4"></i>
+                        </div>
+                        <p class="accordion-preview truncate text-base font-light text-custom-dark-gray">
+                            La conveniencia de acogerse al régimen transitorio no depende únicamente de la tasa aplicable, sino también de los saldos que pueden acogerse…
+                        </p>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
@@ -594,9 +652,14 @@ endif;
 
                 <!-- FAQ 3 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.2s;">
-                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Qué debe revisarse respecto de bienes, inversiones o rentas mantenidos en el extranjero?</span>
-                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    <button class="accordion-toggle w-full text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-lg text-custom-blue">¿Qué debe revisarse respecto de bienes, inversiones o rentas mantenidos en el extranjero?</span>
+                            <i class="fas fa-chevron-down text-custom-gold transition-transform flex-shrink-0 ml-4"></i>
+                        </div>
+                        <p class="accordion-preview truncate text-base font-light text-custom-dark-gray">
+                            La evaluación requiere determinar si la situación se encuentra comprendida en el régimen transitorio y las condiciones bajo las cuales este resulta aplicable…
+                        </p>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
@@ -607,9 +670,14 @@ endif;
 
                 <!-- FAQ 4 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.3s;">
-                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿La reforma hace necesario revisar la estructura societaria o la política de distribución de un grupo empresarial o familiar?</span>
-                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    <button class="accordion-toggle w-full text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-lg text-custom-blue">¿La reforma hace necesario revisar la estructura societaria o la política de distribución de un grupo empresarial o familiar?</span>
+                            <i class="fas fa-chevron-down text-custom-gold transition-transform flex-shrink-0 ml-4"></i>
+                        </div>
+                        <p class="accordion-preview truncate text-base font-light text-custom-dark-gray">
+                            La reforma no supone, por sí sola, la necesidad de modificar una estructura que cumple adecuadamente su función…
+                        </p>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
@@ -620,9 +688,14 @@ endif;
 
                 <!-- FAQ 5 -->
                 <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.4s;">
-                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
-                        <span>¿Qué aspectos deben resguardarse al implementar una reorganización o una decisión empresarial o patrimonial con efectos tributarios?</span>
-                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    <button class="accordion-toggle w-full text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-lg text-custom-blue">¿Qué aspectos deben resguardarse al implementar una reorganización o una decisión empresarial o patrimonial con efectos tributarios?</span>
+                            <i class="fas fa-chevron-down text-custom-gold transition-transform flex-shrink-0 ml-4"></i>
+                        </div>
+                        <p class="accordion-preview truncate text-base font-light text-custom-dark-gray">
+                            El efecto tributario esperado constituye solo uno de los aspectos que deben considerarse para una adecuada implementación…
+                        </p>
                     </button>
                     <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
                         <p class="pt-4 text-base font-light leading-relaxed">
