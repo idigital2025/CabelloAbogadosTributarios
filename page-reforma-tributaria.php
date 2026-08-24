@@ -171,13 +171,15 @@ endif;
             transform: translateY(-2px);
         }
         /* Indicador de scroll: 3 flechas (chevron-down) apiladas que se desvanecen en cascada de
-           arriba hacia abajo, dando sensación de flujo/goteo continuo hacia abajo. */
+           arriba hacia abajo, dando sensación de flujo/goteo continuo hacia abajo.
+           A propósito NO usa position:absolute con "bottom": eso obligaba a calcular a ciegas
+           cuánto espacio libre quedaba bajo los botones, y en viewports más bajos el cálculo
+           fallaba y se superponía con el botón "Agendar Reunión Comercial". Al dejarlo en el
+           flujo normal, justo debajo de los botones, nunca puede solaparse. */
         .hero-reforma .scroll-indicator {
-            position: absolute;
-            bottom: 28px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
             text-decoration: none;
             color: #FFFFFF;
             transition: color 0.25s ease;
@@ -206,7 +208,7 @@ endif;
             100% { opacity: 0; transform: translateY(6px); }
         }
     </style>
-    <section class="hero-reforma h-[calc(75vh+20px)] min-h-[520px] text-white relative bg-cover bg-center flex items-center"
+    <section class="hero-reforma min-h-[calc(75vh+20px)] py-12 text-white relative bg-cover bg-center flex items-center"
              style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/servicio-reorganizacion.webp');">
 
         <?php if (true): // Activado — IMPORTANTE: falta subir los archivos de video al hosting real (ver nota arriba) ?>
@@ -244,16 +246,16 @@ endif;
                         <i class="fas fa-arrow-right btn-icon"></i>
                     </a>
                 </div>
+
+                <a href="#materias-aprobadas" class="scroll-indicator" aria-label="Bajar para ver más contenido">
+                    <span class="scroll-chevrons">
+                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </a>
             </div>
         </div>
-
-        <a href="#materias-aprobadas" class="scroll-indicator" aria-label="Bajar para ver más contenido">
-            <span class="scroll-chevrons">
-                <i class="fas fa-chevron-down"></i>
-                <i class="fas fa-chevron-down"></i>
-                <i class="fas fa-chevron-down"></i>
-            </span>
-        </a>
     </section>
 
     <!-- BANNER DE ALERTA ESTRATÉGICA -->
