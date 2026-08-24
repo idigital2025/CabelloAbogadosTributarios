@@ -278,7 +278,7 @@ endif;
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
                 <!-- Sin bajada ni párrafo introductorio, por pedido explícito del cliente: solo título y las 6 casillas. -->
-                <h2 class="rt-heading">Reforma Tributaria 2026</h2>
+                <h2 class="rt-heading">Principales cambios</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -401,8 +401,7 @@ endif;
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in-up">
-                <h2 class="rt-heading">Nuestros Abogados Expertos</h2>
-                <h3 class="rt-eyebrow">Líderes de opinión y referentes en materias tributarias</h3>
+                <h2 class="rt-heading">Nuestro equipo</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
@@ -512,14 +511,6 @@ endif;
                 </div>
 
             </div>
-
-            <!-- Botón Conocer a todo el equipo -->
-            <div class="text-center mt-12 fade-in-up">
-                <a href="<?php echo esc_url(home_url('/quienes-somos')); ?>" class="btn btn-primary font-semibold inline-flex items-center justify-center gap-2">
-                    <span>Conocer a todo el equipo</span>
-                    <i class="fas fa-arrow-right btn-icon"></i>
-                </a>
-            </div>
         </div>
     </section>
 
@@ -609,7 +600,7 @@ endif;
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-16 fade-in-up">
-                <h2 class="rt-heading">Preguntas Frecuentes</h2>
+                <h2 class="rt-heading">Preguntas que abre la reforma</h2>
                 <h3 class="rt-eyebrow">Respuestas fidedignas a las principales inquietudes tributarias</h3>
             </div>
 
