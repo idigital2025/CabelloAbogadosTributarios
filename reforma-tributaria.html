@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Reforma Tributaria | Cabello Abogados Tributarios</title>
+    <meta name="description" content="Asesoría estratégica ante la Reforma Tributaria: reorganización de estructuras, ISIF, repatriación de capitales y cumplimiento normativo.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Applying Work Sans as the default font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #FFFFFF; /* White background as base */
+            color: #212C44; /* Main text color */
+            font-size: 14px; /* Base font size reduction */
+        }
+
+        /* Custom Colors */
+        .bg-custom-blue { background-color: #212C44; }
+        .text-custom-blue { color: #212C44; }
+        .border-custom-blue { border-color: #212C44; }
+
+        .bg-custom-gold { background-color: #BB9D73; }
+        .text-custom-gold { color: #BB9D73; }
+        .hover-text-custom-gold:hover { color: #BB9D73; }
+
+        .bg-custom-white { background-color: #FFFFFF; }
+        .text-custom-white { color: #FFFFFF; }
+        
+        .text-custom-dark-gray { color: #666666; }
+
+        /* Header styles */
+        .header-scrolled {
+            background-color: #212C44;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Button Style */
+        .btn {
+            padding: 10px 30px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible; /* Allows lines to be seen outside */
+            border-radius: 4px;
+            font-size: 13px;
+            display: inline-block;
+        }
+        .btn::before, .btn::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 25px; /* Fixed width */
+            background-color: currentColor;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+        .btn::before {
+            left: -15px; /* Initial position: 10px inside, 15px outside */
+        }
+        .btn::after {
+            right: -15px; /* Initial position: 10px inside, 15px outside */
+        }
+        .btn:hover::before {
+            left: -25px; /* Move out on hover */
+        }
+        .btn:hover::after {
+            right: -25px; /* Move out on hover */
+        }
+        
+        .btn-primary {
+            background-color: #FFFFFF;
+            color: #212C44;
+            border: 1px solid #212C44;
+        }
+        .btn-primary:hover {
+            background-color: #BB9D73;
+            color: #212C44;
+        }
+        
+        .btn-white {
+            background-color: #FFFFFF;
+            color: #212C44;
+            border: 1px solid #FFFFFF;
+        }
+        .btn-white:hover {
+            background-color: #BB9D73;
+            color: #FFFFFF;
+            border-color: #BB9D73;
+        }
+        .btn-white::before, .btn-white::after {
+             color: #212C44;
+        }
+        .btn-white:hover::before, .btn-white:hover::after {
+             color: #FFFFFF;
+        }
+
+
+        /* Secondary Button Style */
+        .btn-secondary {
+            color: #BB9D73;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.3s ease;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .btn-secondary:hover {
+            color: #212C44;
+        }
+
+        /* Menu link styles */
+        .menu-link {
+            position: relative;
+            color: #FFFFFF;
+            transition: color 0.3s ease;
+        }
+        .menu-link:hover, .menu-link.active {
+            color: #BB9D73;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            padding-top: 0.5rem; /* Creates space */
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-menu {
+            display: block; /* Keep it as block for transitions */
+            position: absolute;
+            background-color: #212C44;
+            min-width: 260px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        .dropdown-menu a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dropdown-menu a:hover {
+            background-color: #BB9D73;
+            color: #FFFFFF;
+        }
+
+        /* Animation for scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Logo Carousel Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .scrolling-wrapper {
+            display: flex;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+        .logo-carousel-container:hover .scrolling-wrapper {
+            animation-play-state: paused;
+        }
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+        }
+        
+        /* Global Title Styles */
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #BB9D73;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+        .section-subtitle {
+            font-size: 1.75rem;
+            font-weight: 400; /* Regular weight */
+            color: #212C44;
+        }
+
+        /* Slider Styles */
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+        }
+        .slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .slider-dot.active {
+            background-color: #FFFFFF;
+        }
+        
+        /* Form Styles */
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4b5563; /* Darker border for contrast on blue */
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent background */
+            color: #f9fafb; /* Light text */
+            font-size: 13px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #BB9D73;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(187, 157, 115, 0.3);
+        }
+        .form-label {
+            display: block;
+            color: #FFFFFF; /* Changed to white */
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.05em;
+        }
+        .cintillo-text {
+             font-size: 10px; /* Reduced font size for mobile */
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .cintillo-text {
+                font-size: 11px;
+            }
+        }
+
+        /* Differentiators section styles */
+        .differentiator-item .icon-wrapper {
+            background-color: hsl(37deg 27% 59% / 10%);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .differentiator-item .icon-wrapper svg {
+            transition: stroke 0.3s ease;
+        }
+        .differentiator-item:hover .icon-wrapper {
+            background-color: #BB9D73;
+        }
+        .differentiator-item:hover .icon-wrapper svg {
+            stroke: #FFFFFF;
+        }
+        .differentiator-item .differentiator-title {
+            color: #BB9D73;
+            transition: color 0.3s ease;
+        }
+        .differentiator-item:hover .differentiator-title {
+            color: #212C44;
+        }
+
+        /* Custom icon styles for service cards */
+        .service-card .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 9999px;
+            background-color: hsl(37deg 27% 59% / 10%);
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+         .service-card .icon-wrapper svg {
+            transition: stroke 0.3s ease;
+        }
+        .service-card:hover .icon-wrapper {
+            background-color: #BB9D73;
+        }
+        .service-card:hover .icon-wrapper svg {
+            stroke: #FFFFFF;
+        }
+
+        /* Scroll to top button */
+        #scrollTopBtn {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+    </style>
+<body class="bg-white">
+
+    <!-- =================================================================
+    // START of header.php
+    ================================================================== -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <!-- Cintillo -->
+        <div id="cintillo" class="bg-transparent text-white py-2 transition-all duration-300">
+            <div class="container mx-auto px-6 flex justify-between items-center cintillo-text">
+                <div class="flex-grow pr-2">
+                    <!-- START: Mobile/Desktop Text Swap -->
+                    <h1 class="tracking-wider uppercase">
+                        <span class="lg:hidden">Tu respaldo legal en asesoría tributaria</span>
+                        <span class="hidden lg:inline">Tu respaldo legal en asesoría tributaria en Chile. Más de 2 décadas de experiencia</span>
+                    </h1>
+                    <!-- END: Mobile/Desktop Text Swap -->
+                </div>
+                <!-- START: Mobile/Desktop Contact Info Swap -->
+                <div class="flex items-center flex-shrink-0 space-x-3 lg:space-x-4 uppercase">
+                    <a href="tel:+56229416205" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-phone-alt lg:mr-1"></i> 
+                        <span class="hidden lg:inline">+56229416205</span>
+                    </a>
+                    <span class="text-gray-500 hidden lg:inline">|</span>
+                    <a href="mailto:contacto@cabelloabogados.cl" class="hover-text-custom-gold transition-colors text-base lg:text-xs">
+                        <i class="fas fa-envelope lg:mr-1"></i> 
+                        <span class="hidden lg:inline">contacto@cabelloabogados.cl</span>
+                    </a>
+                </div>
+                <!-- END: Mobile/Desktop Contact Info Swap -->
+            </div>
+        </div>
+        <div class="container mx-auto px-6">
+             <hr id="header-divider" class="border-gray-600 transition-opacity duration-300">
+        </div>
+
+        <!-- Menú Principal -->
+        <nav id="main-nav" class="py-3">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios" class="h-10">
+                </a>
+
+                <!-- Navigation Links -->
+                <ul class="hidden lg:flex items-center space-x-6 font-light text-xs tracking-widest uppercase">
+                    <li><a href="index.html" class="menu-link">Inicio</a></li>
+                    <li><a href="quienes-somos.html" class="menu-link">Quiénes Somos</a></li>
+                    <li class="dropdown relative">
+                        <a href="#areas-practica" class="menu-link flex items-center">
+                            Áreas de práctica <i class="fas fa-chevron-down text-xs ml-2"></i>
+                        </a>
+                        <ul class="dropdown-menu mt-2">
+                            <li><a href="reorganizacion.html">Reorganización empresarial y familiar</a></li>
+                            <li><a href="asesoria-legal-tributaria.html">Asesoría Legal Tributaria</a></li>
+                            <li><a href="litigios-solucion-controversias.html">Litigios y solución de controversias</a></li>
+                            <li><a href="auditoria-tributaria.html">Auditoría tributaria</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prensa.html" class="menu-link">Prensa</a></li>
+                    <li><a href="contacto.html" class="menu-link">Contacto</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-custom-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-custom-blue z-40 p-8">
+        <ul class="flex flex-col items-center justify-center h-full space-y-6 text-white text-lg uppercase tracking-widest">
+            <li><a href="index.html" class="hover-text-custom-gold">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover-text-custom-gold">Quiénes Somos</a></li>
+            <li><a href="/areas-practica" class="hover-text-custom-gold">Áreas de práctica</a></li>
+            <li><a href="prensa.html" class="hover-text-custom-gold">Prensa</a></li>
+            <li><a href="contacto.html" class="hover-text-custom-gold">Contacto</a></li>
+        </ul>
+    </div>
+    <!-- =================================================================
+    // END of header.php
+    ================================================================== -->
+
+<main class="landing-reforma-tributaria">
+
+    <!-- 1. HEADER / HERO SECTION -->
+    <!--
+        TODO (cliente): textos definitivos del encabezado (badge, H1, bajada) pendientes.
+        Se mantiene el copy actual como placeholder mientras tanto.
+
+        ESPACIADO BAJO EL HEADER: #main-header es "fixed" (se monta encima del contenido, no lo
+        empuja). En el home del mismo sitio, el banner principal usa pt-0 md:pt-[220px] para
+        separarse del header fijo en desktop. Replicamos ese mismo valor acá para que quede
+        consistente con el resto del sitio.
+
+        VIDEO DE FONDO (pedido de Jorge): dos variantes listas para activar (desktop / mobile),
+        ocultas vía clases hidden/md:block igual que el resto del sitio. Cada variante trae
+        WebM primero (más liviano, lo usa la mayoría de navegadores) y MP4 como fallback
+        (compatibilidad total con Safari/iOS) — el navegador usa la primera <source> que soporte.
+
+        Para activar: cambiar el "if (false)" de abajo por "if (true)" y reemplazar el src de
+        cada <source> por el archivo definitivo. Se necesitan 4 archivos en total (2 por variante):
+        (Nota técnica: se usa if(false)/endif en vez de un comentario /* */ porque un comentario
+        PHP que contiene <?php ?> anidados corta el comentario antes de tiempo y filtra HTML a
+        la página — if(false) es la forma segura de dejar HTML+PHP mezclado inerte.)
+          - Formato: WebM (VP9) + MP4 (H.264) del mismo video, sin audio, loop de 10-15s.
+          - Desktop: 1920x1080 (16:9). WebM apuntar a ~2-4MB, MP4 fallback ~4-6MB.
+          - Mobile: 1080x1350 (formato más vertical, 4:5) o el mismo 16:9 recortado.
+            WebM apuntar a ~1-2MB, MP4 fallback ~2-3MB (el móvil no debería cargar el
+            archivo pesado de desktop: por eso son variantes/nombres de archivo separados).
+          - Herramienta simple: HandBrake para el MP4 (preset "Fast 1080p30", CRF ~28-30);
+            para WebM, HandBrake también soporta el encoder VP9, o usar ffmpeg
+            (ej: ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 32 -b:v 0 -an output.webm).
+        Mientras no haya video, la imagen de fondo (servicio-reorganizacion.webp) sigue funcionando
+        como fallback normal.
+    -->
+    <style>
+        .hero-reforma { position: relative; overflow: hidden; }
+        .hero-reforma .hero-content { padding-top: 0; }
+        @media (min-width: 768px) {
+            /* !important: Tailwind (via CDN) inyecta sus utilidades (.items-center) de forma
+               asíncrona y puede terminar cargando después de este bloque, empatando en
+               especificidad con .hero-reforma y ganando por orden de carga. Forzamos el
+               resultado para no depender de ese orden. */
+            .hero-reforma { align-items: flex-start !important; }
+            .hero-reforma .hero-content { padding-top: 220px !important; }
+        }
+        .hero-reforma .hero-video {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0;
+        }
+        .hero-reforma .hero-badge {
+            background: linear-gradient(135deg, #D4B483 0%, #BB9D73 100%);
+            box-shadow: 0 4px 14px rgba(187, 157, 115, 0.45);
+        }
+        /* Jerarquía de botones: primario sólido y llamativo, secundario más discreto (outline).
+           Alcance limitado a .hero-reforma para no afectar los botones .btn-primary/.btn-white
+           del resto del sitio. */
+        .hero-reforma .btn-primary {
+            background-color: #BB9D73;
+            color: #FFFFFF;
+            border: 1px solid #BB9D73;
+            box-shadow: 0 6px 20px rgba(187, 157, 115, 0.45);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        }
+        .hero-reforma .btn-primary:hover {
+            background-color: #a5885f;
+            border-color: #a5885f;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(187, 157, 115, 0.6);
+        }
+        .hero-reforma .btn-white {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+        }
+        .hero-reforma .btn-white:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: #FFFFFF;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        /* Indicador de scroll */
+        .hero-reforma .scroll-indicator {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            text-decoration: none;
+            animation: hero-scroll-bounce 2s ease-in-out infinite;
+            transition: border-color 0.25s ease, background-color 0.25s ease;
+        }
+        .hero-reforma .scroll-indicator:hover {
+            border-color: #BB9D73;
+            background-color: rgba(187, 157, 115, 0.15);
+        }
+        @keyframes hero-scroll-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+    </style>
+    <section class="hero-reforma h-[75vh] min-h-[500px] text-white relative bg-cover bg-center flex items-center"
+             style="background-image: url('img/servicio-reorganizacion.webp');">
+
+                <div class="absolute inset-0 bg-custom-blue opacity-75 z-[1]"></div>
+        <div class="hero-content container mx-auto px-6 relative z-10 text-center md:text-left">
+            <div class="max-w-4xl">
+                <span class="hero-badge inline-block text-white text-xs md:text-sm uppercase tracking-widest font-semibold px-4 py-1.5 rounded mb-4 fade-in-up">
+                    Análisis &amp; Estrategia Legal - Reforma Tributaria
+                </span>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-normal leading-tight mb-6 fade-in-up text-white" style="transition-delay: 0.1s;">
+                    Asesoría Estratégica ante la Nueva Reforma Tributaria
+                </h1>
+                <p class="text-base md:text-xl font-light leading-relaxed max-w-3xl mb-8 opacity-95 fade-in-up text-white" style="transition-delay: 0.2s;">
+                    Acompañamos a <b>empresas, holdings e inversionistas</b> en la evaluación de impactos, reorganización de estructuras y mitigación de riesgos legales y patrimoniales tras las recientes reformas y normas de cumplimiento tributario en Chile.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 fade-in-up" style="transition-delay: 0.3s;">
+                    <a href="#formulario-reforma" class="btn btn-primary text-center font-semibold">
+                        Agendar Reunión Comercial
+                    </a>
+                    <a href="#materias-aprobadas" class="btn btn-white text-center font-semibold">
+                        Ver Materias Clave ↓
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#materias-aprobadas" class="scroll-indicator" aria-label="Bajar para ver más contenido">
+            <i class="fas fa-chevron-down text-sm"></i>
+        </a>
+    </section>
+
+    <!-- BANNER DE ALERTA ESTRATÉGICA -->
+    <section class="bg-custom-gold text-white py-6">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-exclamation-circle text-2xl text-custom-blue flex-shrink-0"></i>
+                <p class="text-base font-medium text-custom-blue">
+                    <b>Atención Holdings e Inversionistas:</b> Los plazos legales para acogerse a regímenes sustitutivos transitorios y ajustar estructuras societarias ya se encuentran vigentes.
+                </p>
+            </div>
+            <a href="#formulario-reforma" class="px-5 py-2.5 bg-custom-blue text-white rounded text-xs md:text-sm font-semibold hover:bg-opacity-90 transition-all flex-shrink-0">
+                Evaluar mi Caso
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. PRINCIPALES MATERIAS EN DISCUSIÓN / APROBADAS -->
+    <section id="materias-aprobadas" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                <!-- TODO (cliente): título nuevo pendiente (se eliminó "Nuevas Reglas del Juego Fiscal"). Subtítulo y bajada dorada eliminados por pedido del cliente, no se repone. -->
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Materia 1 -->
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up">
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Impuesto Corporativo y Regímenes</h3>
+                    <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
+                        Modificaciones en el impuesto de Primera Categoría, incentivos al ahorro e inversión corporativa, y ajustes en la tributación de utilidades empresariales.
+                    </p>
+                </div>
+
+                <!-- Materia 2 -->
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.1s;">
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Impuesto Sustitutivo (ISIF)</h3>
+                    <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
+                        Régimen opcional para tributar utilidades acumuladas en los registros tributarios (FUT/RAP) a una tasa fija y preferencial con liberación de tributación futura.
+                    </p>
+                </div>
+
+                <!-- Materia 3 -->
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Repatriación de Capitales</h3>
+                    <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
+                        Mecanismos extraordinarios de declaración voluntaria e impuesto único liberatorio para bienes, fondos y divisas mantenidos fuera de Chile por contribuyentes locales.
+                    </p>
+                </div>
+
+                <!-- Materia 4 -->
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.3s;">
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Normas Antielusión (NGA / GAAR)</h3>
+                    <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
+                        Nuevos criterios de aplicación de la Norma General Antielusiva, fiscalizaciones del SII a reorganizaciones y fiscalización de grupos empresariales.
+                    </p>
+                </div>
+
+                <!-- Materia 5 -->
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Certeza e Invariabilidad Tributaria</h3>
+                    <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
+                        Protección legal e incentivos tributarios para proyectos de inversión de alto impacto y contratos de estabilidad para capitales internacionales.
+                    </p>
+                </div>
+
+                <!-- Materia 6 -->
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.5s;">
+                    <h3 class="text-xl font-semibold text-custom-blue mb-3">Franquicias de Donaciones</h3>
+                    <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
+                        Actualización del marco regulatorio sobre beneficios tributarios por donaciones corporativas y financiamiento a proyectos de interés social.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. IMPACTO POTENCIAL PARA EMPRESAS -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <h2 class="section-title mb-2">Impacto en la Toma de Decisiones Corporativas</h2>
+                    <h3 class="section-subtitle mb-6">¿Cómo afecta la Reforma Tributaria a su Empresa?</h3>
+                    <p class="text-custom-dark-gray font-light text-base leading-relaxed mb-6">
+                        Las nuevas normativas imponen un replanteamiento de la planificación financiera, corporativa y tributaria. Estructuras constituidas en esquemas anteriores requieren revisión para mantener su coherencia económica y prevenir observaciones de la autoridad fiscal.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-custom-gold/20 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <i class="fas fa-chart-line text-custom-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-custom-blue text-base">Carga Fiscal y Flujos de Caja</h4>
+                                <p class="text-custom-dark-gray text-base font-light leading-relaxed">Determinación rigurosa de la tasa efectiva final de impuestos corporativos y estructuración de repartos de dividendos.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-custom-gold/20 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <i class="fas fa-sitemap text-custom-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-custom-blue text-base">Reorganización de Holdings y Filiales</h4>
+                                <p class="text-custom-dark-gray text-base font-light leading-relaxed">Adaptación de mallas societarias asegurando la legítima razón de negocios y el respaldo sustantivo de las operaciones de grupo.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-custom-gold/20 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <i class="fas fa-user-shield text-custom-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-custom-blue text-base">Gobernanza y Cumplimiento Preventivo</h4>
+                                <p class="text-custom-dark-gray text-base font-light leading-relaxed">Respaldos técnicos para directorios y gerencias frente a procesos de fiscalización y requerimientos del Servicio de Impuestos Internos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="relative rounded-lg overflow-hidden shadow-2xl">
+                        <img src="img/enfoque-imagen.webp"
+                             alt="Reunión directiva analizando impacto tributario empresarial"
+                             class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 gradient-overlay-bottom" style="background: linear-gradient(to top, rgba(33, 44, 68, 0.98) 0%, rgba(33, 44, 68, 0.8) 55%, rgba(33, 44, 68, 0) 100%);"></div>
+                        <div class="absolute bottom-0 inset-x-0 p-6 md:p-8 text-white z-10">
+                            <p class="text-xs md:text-sm font-semibold text-custom-gold uppercase tracking-wider mb-1">Asesoría Corporativa</p>
+                            <p class="text-base font-light text-white leading-relaxed">Definición de hojas de ruta legales para directorios y gerencias de finanzas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+        Secciones eliminadas por pedido del cliente:
+        - "Efectos Patrimoniales y de Inversión" (bloque + foto servicio-asesoria.webp): se fusionó
+          con la sección anterior ("Impacto en la Toma de Decisiones Corporativas"), que ahora queda
+          como el único bloque de imagen+texto y conserva la foto de la escalera (enfoque-imagen.webp).
+          TODO (cliente): texto consolidado pendiente para ese bloque unificado.
+        - "Soluciones Específicas Priorizadas" (4 tarjetas de áreas): eliminada completa.
+        - "Experiencia del Estudio en Cifras" / "Por qué Cabello Abogados" (contadores): eliminada completa.
+    -->
+
+    <!-- 7. VOCEROS Y ABOGADOS EXPERTOS -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <!-- TODO (cliente): pulir texto del título de esta sección -->
+                <h2 class="section-title">Nuestros Voceros y Abogados Expertos</h2>
+                <h3 class="section-subtitle">Líderes de opinión y referentes en materias tributarias</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+
+                <!-- Vocero 1: Juan Pablo Cabello -->
+                <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg">
+                    <img src="img/equipo-jp-cabello.webp"
+                         alt="Foto de Juan Pablo Cabello P."
+                         class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
+                    <h3 class="text-xl font-semibold text-custom-blue">Juan Pablo Cabello P.</h3>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socio Fundador</p>
+                    <a href="mailto:juan.cabello@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
+                        <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
+                        <span class="truncate">juan.cabello@cabelloabogados.cl</span>
+                    </a>
+                    <div class="mt-4 border-t border-gray-200 pt-4">
+                        <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue text-sm">
+                            Ver Trayectoria <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                            <p class="mt-2 mb-2 leading-relaxed">
+                                Abogado (Universidad de Chile), Magíster en Dirección y Gestión Tributaria (UAI). Vicepresidente del Instituto Chileno de Derecho Tributario (ICDT). Reconocido por Chambers &amp; Partners, Legal 500 y Best Lawyers.
+                            </p>
+                            <p class="leading-relaxed">
+                                Profesor en Magísteres de Tributación en la P. Universidad Católica de Chile y Universidad de Chile.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vocero 2: María Pilar Cabello -->
+                <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg" style="transition-delay: 0.1s;">
+                    <img src="img/equipo-mp-cabello.webp"
+                         alt="Foto de María Pilar Cabello P."
+                         class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
+                    <h3 class="text-xl font-semibold text-custom-blue">María Pilar Cabello P.</h3>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socia Auditoría &amp; Peritaje</p>
+                    <a href="mailto:pilar.cabello@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
+                        <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
+                        <span class="truncate">pilar.cabello@cabelloabogados.cl</span>
+                    </a>
+                    <div class="mt-4 border-t border-gray-200 pt-4">
+                        <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue text-sm">
+                            Ver Trayectoria <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                            <p class="mt-2 mb-2 leading-relaxed">
+                                Contador Público y Auditor (USACH), Magíster en Gestión Tributaria (UAI). Perito Judicial acreditada en Cortes de Apelaciones.
+                            </p>
+                            <p class="leading-relaxed">
+                                Ex Ejecutiva y Gerenta en Walmart Chile y D&amp;S. Docente en Diplomados de la Facultad de Economía y Negocios de la Universidad de Chile.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vocero 3: Estephania Aguayo -->
+                <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg" style="transition-delay: 0.2s;">
+                    <img src="img/equipo-e-aguayo.webp"
+                         alt="Foto de Estephania Aguayo A."
+                         class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
+                    <h3 class="text-xl font-semibold text-custom-blue">Estephania Aguayo A.</h3>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socia Consultoría &amp; Reorganización</p>
+                    <a href="mailto:estephania.aguayo@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
+                        <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
+                        <span class="truncate">estephania.aguayo@cabelloabogados.cl</span>
+                    </a>
+                    <div class="mt-4 border-t border-gray-200 pt-4">
+                        <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue text-sm">
+                            Ver Trayectoria <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                            <p class="mt-2 mb-2 leading-relaxed">
+                                Abogada (Universidad de Chile), Magíster en Dirección y Gestión Tributaria (UAI). Especialista en estructuras corporativas complejas.
+                            </p>
+                            <p class="leading-relaxed">
+                                Docente del Diplomado en Planificación Tributaria en FEN U. de Chile.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vocero 4: Michel Alejandro Aguilera -->
+                <div class="bg-white rounded-lg p-6 fade-in-up shadow-lg" style="transition-delay: 0.3s;">
+                    <img src="img/equipo-m-aguilera.webp"
+                         alt="Foto de Michel Aguilera R."
+                         class="w-full rounded-md mb-4 aspect-[3/4] object-cover">
+                    <h3 class="text-xl font-semibold text-custom-blue">Michel Aguilera R.</h3>
+                    <p class="text-custom-gold mb-2 text-sm font-medium">Socio Litigios Tributarios</p>
+                    <a href="mailto:michel.aguilera@cabelloabogados.cl" class="text-xs text-custom-dark-gray hover:text-custom-gold transition-colors flex items-center mb-4 truncate">
+                        <i class="fas fa-envelope mr-2 text-custom-gold flex-shrink-0"></i>
+                        <span class="truncate">michel.aguilera@cabelloabogados.cl</span>
+                    </a>
+                    <div class="mt-4 border-t border-gray-200 pt-4">
+                        <button class="accordion-toggle w-full text-left font-semibold flex justify-between items-center text-custom-blue text-sm">
+                            Ver Trayectoria <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content text-sm text-custom-dark-gray font-light">
+                            <p class="mt-2 mb-2 leading-relaxed">
+                                Abogado (Universidad de Chile, Distinción Máxima), Magíster (c) en Derecho Tributario (U. de Chile). Ex Asociado Senior en firmas internacionales Dentons.
+                            </p>
+                            <p class="leading-relaxed">
+                                Especialista en defensa forense procesal ante Tribunales Tributarios y Aduaneros (TTA).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botón Conocer a todo el equipo -->
+            <div class="text-center mt-12 fade-in-up">
+                <a href="quienes-somos.html" class="btn btn-primary font-semibold">
+                    Conocer a todo el equipo →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. AUTORIDAD Y PRENSA -->
+    <section class="py-16 bg-white border-t border-b border-gray-100">
+        <div class="container mx-auto px-6 text-center fade-in-up">
+            <h2 class="section-title mb-2">Presencia en Medios y Respaldos Institucionales</h2>
+            <h3 class="section-subtitle mb-8">Nuestros abogados analizan de forma continua la coyuntura tributaria nacional</h3>
+
+            <!-- Grid de respaldos -->
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 mb-12">
+                <img src="img/logo-colegio-abogados.svg"
+                     alt="Colegio de Abogados de Chile"
+                     class="h-20 w-auto grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all">
+                <img src="img/logo-icdt.svg"
+                     alt="Instituto Chileno de Derecho Tributario"
+                     class="h-20 w-auto grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all">
+                <img src="img/logo-ifa.svg"
+                     alt="International Fiscal Association"
+                     class="h-20 w-auto grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all">
+            </div>
+
+            <!-- Carrusel de reconocimientos -->
+            <div class="logo-carousel-container overflow-hidden pt-4">
+                <div class="scrolling-wrapper">
+                    
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo1-38.webp" alt="Reconocimiento Chambers & Partners" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo2-23.webp" alt="Reconocimiento The Legal 500" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo3-22.webp" alt="Reconocimiento Best Lawyers" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo4-21.webp" alt="Reconocimiento International Tax Review" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo5-19.webp" alt="Reconocimiento Leaders League" class="mx-auto grayscale opacity-60 h-16"></div>
+                    
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo1-38.webp" alt="Reconocimiento Chambers & Partners" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo2-23.webp" alt="Reconocimiento The Legal 500" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo3-22.webp" alt="Reconocimiento Best Lawyers" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo4-21.webp" alt="Reconocimiento International Tax Review" class="mx-auto grayscale opacity-60 h-16"></div>
+                        <div class="logo-item px-6"><img src="https://cabelloabogados.cl/wp-content/uploads/2026/04/logo5-19.webp" alt="Reconocimiento Leaders League" class="mx-auto grayscale opacity-60 h-16"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. PREGUNTAS FRECUENTES (FAQ) CON INFORMACIÓN FIDEDIGNA Y PRECISA -->
+    <!-- TODO (cliente): preguntas y respuestas definitivas pendientes; se mantiene el set actual como placeholder -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <h3 class="section-subtitle">Respuestas fidedignas a las principales inquietudes tributarias</h3>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up">
+                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
+                        <span>¿Cuándo entran en vigencia las principales disposiciones de la nueva reforma y leyes de cumplimiento tributario?</span>
+                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    </button>
+                    <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
+                        <p class="pt-4 text-base font-light leading-relaxed">
+                            Las normas sobre cumplimiento tributario y fiscalización rigen conforme a lo dispuesto en la legislación promulgada: aquellas relativas a facultades administrativas de fiscalización y procedimientos generales aplican tras su publicación en el Diario Oficial, mientras que las reglas especiales de sustitución de impuestos y modificaciones a regímenes de impuesto a la renta operan bajo plazos y disposiciones transitorias expresas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.1s;">
+                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
+                        <span>¿Cómo afectan las reglas de la Norma General Antielusiva (NGA) a holdings y sociedades de inversión?</span>
+                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    </button>
+                    <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
+                        <p class="pt-4 text-base font-light leading-relaxed">
+                            El Servicio de Impuestos Internos (SII) intensifica la revisión de reestructuraciones corporativas, fusiones y traspasos societarios. Para evitar contingencias por abuso o simulación tributaria, es indispensable que toda reorganización cuente con una legítima razón de negocios con sustento económico y operativo acreditable, más allá del mero ahorro fiscal.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.2s;">
+                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
+                        <span>¿Qué ventajas otorga el Impuesto Sustitutivo (ISIF) sobre utilidades acumuladas y quiénes pueden acogerse?</span>
+                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    </button>
+                    <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
+                        <p class="pt-4 text-base font-light leading-relaxed">
+                            El Impuesto Sustitutivo de Impuestos Finales (ISIF) es un régimen opcional y voluntario que permite a los contribuyentes adelantar la tributación sobre saldos de utilidades acumuladas en los registros tributarios (FUT / RAP) aplicando una tasa única fija. Al pagar el ISIF, los montos quedan liberados de los impuestos finales (Global Complementario o Adicional) al momento de su retiro o distribución.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.3s;">
+                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
+                        <span>¿En qué consiste el procedimiento de repatriación y declaración voluntaria de bienes en el extranjero?</span>
+                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    </button>
+                    <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
+                        <p class="pt-4 text-base font-light leading-relaxed">
+                            Constituye un mecanismo legal extraordinario que permite a contribuyentes domiciliados o residentes en Chile declarar bienes, divisas o activos mantenidos fuera del país sin haber tributado oportunamente. Al acogerse mediante el pago de una tasa de impuesto único, el contribuyente obtiene la regularización fiscal liberándolo de sanciones administrativas, reajustes o acciones penales tributarias.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 fade-in-up" style="transition-delay: 0.4s;">
+                    <button class="accordion-toggle w-full text-left font-semibold text-lg text-custom-blue flex justify-between items-center">
+                        <span>¿Por qué es fundamental realizar una auditoría y planificación preventiva con un estudio tributario boutique?</span>
+                        <i class="fas fa-chevron-down text-custom-gold transition-transform"></i>
+                    </button>
+                    <div class="accordion-content text-base text-custom-dark-gray font-light leading-relaxed">
+                        <p class="pt-4 text-base font-light leading-relaxed">
+                            Una revisión técnica oportuna dictaminada por abogados y contadores peritos tributarios permite identificar inconsistencias en los registros empresariales antes de una fiscalización formal del SII, cuantificar contingencias de manera exacta y aprovechar los beneficios o ventanas transitorias vigentes en la legislación chilena.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FORMULARIO DE CONVERSIÓN (CTA FINAL) -->
+    <section id="formulario-reforma" class="relative py-24 text-white">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/formulario-contacto-fondo.webp');"></div>
+        <div class="absolute inset-0 bg-custom-blue opacity-90"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+
+                <div class="text-center mb-12 fade-in-up">
+                    <span class="text-custom-gold text-xs font-semibold uppercase tracking-widest block mb-2">Agende una Sesión Comercial con un Socio</span>
+                    <h2 class="text-3xl md:text-4xl font-normal text-white mb-4">¿Listo para adaptar su empresa o patrimonio a la Reforma Tributaria?</h2>
+                    <p class="text-white opacity-90 text-base font-light max-w-2xl mx-auto leading-relaxed">
+                        Complete el formulario estratégico a continuación y un socio de nuestro estudio evaluará su requerimiento para agendar una reunión ejecutiva personalizada.
+                    </p>
+                </div>
+
+                <form class="space-y-6 bg-white/5 p-8 md:p-10 rounded-xl border border-white/10 backdrop-blur-sm fade-in-up" method="post" action="">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Tipo de Contribuyente -->
+                            <div>
+                                <label for="client_type" class="form-label">Tipo de Cliente / Perfil</label>
+                                <select id="client_type" name="client_type" class="form-input text-gray-900 bg-white" required>
+                                    <option value="" disabled selected>Seleccione perfil...</option>
+                                    <option value="Empresa / Holding Corporativo">Empresa / Holding Corporativo</option>
+                                    <option value="Socio / Inversionista / Persona Natural">Socio / Inversionista / Persona Natural</option>
+                                    <option value="Family Office / Administración Patrimonial">Family Office / Administración Patrimonial</option>
+                                    <option value="Asesor Legal o Financiero">Asesor Legal o Financiero Externo</option>
+                                </select>
+                            </div>
+
+                            <!-- Nombre o Razón Social -->
+                            <div>
+                                <label for="fullname" class="form-label">Nombre Completo / Razón Social</label>
+                                <input type="text" id="fullname" name="fullname" placeholder="Ej: Juan Pérez / Inversiones SpA" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="form-label">Email Corporativo o Personal</label>
+                                <input type="email" id="email" name="email" placeholder="nombre@empresa.cl" class="form-input" required>
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div>
+                                <label for="phone" class="form-label">Teléfono de Contacto Directo</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+56 9 1234 5678" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <!-- Campo "Plazo para Resolver" eliminado por pedido del cliente -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Materia de Consulta -->
+                            <div>
+                                <label for="subject_area" class="form-label">Materia Principal</label>
+                                <select id="subject_area" name="subject_area" class="form-input text-gray-900 bg-white" required>
+                                    <option value="" disabled selected>Seleccione materia...</option>
+                                    <!-- TODO (cliente): ajuste exacto del texto de estas opciones pendiente -->
+                                    <option value="Reorganización Corporativa / Holding">Reorganización Corporativa / Holding</option>
+                                    <option value="Impuesto Sustitutivo ISIF">Impuesto Sustitutivo ISIF</option>
+                                    <option value="Repatriación de Capitales">Repatriación de Capitales</option>
+                                    <option value="Planificación Patrimonial Familiar">Planificación Patrimonial Familiar</option>
+                                    <option value="Litigio / Defensa ante el SII">Litigio / Defensa ante el SII</option>
+                                    <option value="Diagnóstico General Reforma">Diagnóstico General Reforma</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                            </div>
+
+                            <!-- Medio preferido -->
+                            <div>
+                                <label for="preferred_medium" class="form-label">Canal Preferido</label>
+                                <select id="preferred_medium" name="preferred_medium" class="form-input text-gray-900 bg-white" required>
+                                    <option value="" disabled selected>Seleccione medio...</option>
+                                    <option value="Reunión Presencial (Las Condes)">Reunión Presencial (Las Condes)</option>
+                                    <option value="Videollamada (Teams / Zoom)">Videollamada (Teams / Zoom)</option>
+                                    <option value="Llamada Telefónica">Llamada Telefónica</option>
+                                    <option value="Respuesta por Email">Respuesta por Email</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div>
+                            <label for="message" class="form-label">Detalles o Comentarios Adicionales</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Describa brevemente la situación de su empresa o patrimonio..." class="form-input"></textarea>
+                        </div>
+
+                        <!-- Aceptación -->
+                        <div class="flex items-start pt-2">
+                            <input type="checkbox" id="privacy_reforma" name="privacy" class="mt-1 mr-3 rounded border-gray-600 bg-gray-700 focus:ring-custom-gold" required>
+                            <label for="privacy_reforma" class="text-xs text-gray-300 font-light">
+                                Acepto la <a href="#" class="underline text-custom-gold hover:text-white">política de privacidad</a> y autorizo el tratamiento de los datos aportados para la programación de la reunión comercial.
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center pt-4">
+                            <button type="submit" name="submit_reforma_contact" class="btn btn-primary w-full sm:w-auto text-base px-10 py-3 font-semibold shadow-lg hover:shadow-2xl">
+                                Agendar Reunión Comercial con un Socio
+                            </button>
+                        </div>
+                    </form>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-gray-900 text-gray-400 text-sm">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Desc -->
+                <div class="md:col-span-2">
+                    <a href="/">
+                        <img src="img/logo.svg" alt="Logo Cabello Abogados Tributarios en el pie de página" class="h-12">
+                    </a>
+                    <p class="mt-4 max-w-md text-xs">Estudio de Abogados Tributarios. Asesoría tributaria, auditorías preventivas y defensa legal en controversias fiscales.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Links</h4>
+                    <ul class="mt-4 space-y-2 text-xs">
+                        <li><a href="index.html#areas-practica" class="hover:text-white transition-colors">Áreas de práctica</a></li>
+                        <li><a href="politicas-privacidad.html" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="terminos-condiciones.html" class="hover:text-white transition-colors">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase text-sm">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-xs">
+                        <li>
+                            <a href="https://www.linkedin.com" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin w-5"></i> LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="mailto:contacto@cabelloabogados.cl" class="hover:text-white transition-colors"><i class="fas fa-envelope w-5"></i> contacto@cabelloabogados.cl</a>
+                        </li>
+                        <li>
+                            <a href="tel:+56229416205" class="hover:text-white transition-colors"><i class="fas fa-phone-alt w-5"></i> +56229416205</a>
+                        </li>
+                         <li>
+                            <span class="flex"><i class="fas fa-clock w-5 mt-1"></i> Lunes - Viernes<br>9:00 a 19:00hrs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-10 pt-6 border-t border-gray-800 text-center text-xs">
+                <p><a href="https://www.google.com/maps/place/Av.+Alonso+de+C%C3%B3rdova+5900,+Las+Condes,+Regi%C3%B3n+Metropolitana" target="_blank" class="hover:text-white transition-colors"><i class="fas fa-map-marker-alt mr-2"></i> Av. Alonso de Córdova 5900, Of. 301, Las Condes, Santiago, Chile</a></p>
+                <p class="mt-4">&copy; <span id="year"></span> Cabello Abogados Tributarios. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- =================================================================
+    // END of footer.php
+    ================================================================== -->
+
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollTopBtn" class="fixed bottom-5 right-5 bg-custom-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible z-50 hover:bg-custom-blue transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // Header scroll effect & Scroll to top button
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove('opacity-0', 'invisible');
+                } else {
+                    scrollTopBtn.classList.add('opacity-0', 'invisible');
+                }
+            }
+            handleScroll(); 
+            window.addEventListener('scroll', handleScroll);
+
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Banner Slider
+            const banner = document.getElementById('main-banner');
+            if(banner) {
+                let currentSlide = 0;
+                const slides = banner.querySelectorAll('.slide');
+                const dots = banner.querySelectorAll('.slider-dot');
+                const slideInterval = 5000; // 5 seconds
+                let slideTimer;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        dots[i].classList.remove('active');
+                    });
+                    slides[index].classList.add('active');
+                    dots[index].classList.add('active');
+                }
+                
+                function resetTimer() {
+                    clearInterval(slideTimer);
+                    slideTimer = setInterval(nextSlide, slideInterval);
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                        currentSlide = index;
+                        resetTimer();
+                    });
+                });
+
+                slideTimer = setInterval(nextSlide, slideInterval);
+            }
+        });
+    </script>
+
+</body>
+</html>
+
