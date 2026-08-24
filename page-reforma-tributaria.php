@@ -123,11 +123,14 @@ endif;
             justify-content: center;
             gap: 0.5rem;
         }
-        /* Animación sutil del ícono: leve rebote horizontal continuo, más notorio en hover. */
-        .hero-reforma .btn-icon {
+        /* Animación sutil del ícono: leve rebote horizontal continuo, más notorio en hover.
+           Alcance de toda la página (no solo el hero) para que también aplique al botón
+           "Conocer a todo el equipo". */
+        .landing-reforma-tributaria .btn-icon {
+            display: inline-block;
             animation: btn-icon-nudge 1.8s ease-in-out infinite;
         }
-        .hero-reforma .btn:hover .btn-icon {
+        .landing-reforma-tributaria .btn:hover .btn-icon {
             animation-duration: 0.9s;
         }
         @keyframes btn-icon-nudge {
@@ -195,7 +198,7 @@ endif;
             50% { transform: translateX(-50%) translateY(8px); }
         }
     </style>
-    <section class="hero-reforma h-[75vh] min-h-[500px] text-white relative bg-cover bg-center flex items-center"
+    <section class="hero-reforma h-[calc(75vh+20px)] min-h-[520px] text-white relative bg-cover bg-center flex items-center"
              style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/servicio-reorganizacion.webp');">
 
         <?php if (true): // Activado — IMPORTANTE: falta subir los archivos de video al hosting real (ver nota arriba) ?>
@@ -212,8 +215,8 @@ endif;
         <?php endif; ?>
 
         <div class="absolute inset-0 bg-custom-blue opacity-75 z-[1]"></div>
-        <div class="hero-content container mx-auto px-6 relative z-10 text-center md:text-left">
-            <div class="max-w-4xl">
+        <div class="hero-content container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
                 <span class="hero-badge inline-block text-white text-xs md:text-sm uppercase tracking-widest font-semibold px-4 py-1.5 rounded mb-4 fade-in-up">
                     Plan de Reconstrucción Nacional
                 </span>
@@ -223,7 +226,7 @@ endif;
                 <p class="text-base md:text-xl font-light leading-relaxed max-w-3xl mb-8 opacity-95 fade-in-up text-white" style="transition-delay: 0.2s;">
                     <b>Aprobada por el Congreso el 4 de agosto de 2026.</b> La reforma combina cambios permanentes en la tributación de empresas y sus propietarios con regímenes transitorios en materias como utilidades acumuladas, donaciones y activos en el exterior.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 fade-in-up" style="transition-delay: 0.3s;">
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-5 fade-in-up" style="transition-delay: 0.3s;">
                     <a href="#formulario-reforma" class="btn btn-primary text-center font-semibold">
                         <span>Agendar Reunión Comercial</span>
                         <i class="fas fa-calendar-check btn-icon"></i>
@@ -266,21 +269,21 @@ endif;
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Fila superior -->
-                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up">
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-[#BB9D73] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up">
                     <h3 class="text-xl font-semibold text-custom-blue mb-3">Impuesto a las empresas</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
                         Rebaja gradual del Impuesto de Primera Categoría, desde el 27% hasta una tasa permanente de 23%.
                     </p>
                 </div>
 
-                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.1s;">
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-[#BB9D73] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.1s;">
                     <h3 class="text-xl font-semibold text-custom-blue mb-3">Integración tributaria</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
                         Reintegración gradual del sistema, aumentando la utilización del crédito pagado por la empresa contra los impuestos finales de sus propietarios.
                     </p>
                 </div>
 
-                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.2s;">
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-[#BB9D73] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.2s;">
                     <h3 class="text-xl font-semibold text-custom-blue mb-3">Ganancias de capital</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
                         Las ganancias por determinados instrumentos con presencia bursátil vuelven a tener el tratamiento de ingreso no constitutivo de renta.
@@ -288,21 +291,21 @@ endif;
                 </div>
 
                 <!-- Fila inferior -->
-                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.3s;">
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-[#BB9D73] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.3s;">
                     <h3 class="text-xl font-semibold text-custom-blue mb-3">Utilidades acumuladas</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
                         Régimen transitorio de impuesto sustitutivo para determinadas utilidades acumuladas de ejercicios anteriores.
                     </p>
                 </div>
 
-                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.4s;">
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-[#BB9D73] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.4s;">
                     <h3 class="text-xl font-semibold text-custom-blue mb-3">Donaciones</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
                         Rebaja transitoria del 50% del impuesto a las donaciones, sujeta a requisitos y límites específicos.
                     </p>
                 </div>
 
-                <div class="service-card bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.5s;">
+                <div class="service-card bg-gray-50 p-8 rounded-lg border border-[#BB9D73] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="transition-delay: 0.5s;">
                     <h3 class="text-xl font-semibold text-custom-blue mb-3">Activos en el exterior</h3>
                     <p class="text-custom-dark-gray text-base font-light leading-relaxed mb-4">
                         Régimen transitorio para declarar bienes y rentas mantenidos en el extranjero, con reglas especiales para su ingreso e inversión en Chile.
@@ -498,8 +501,9 @@ endif;
 
             <!-- Botón Conocer a todo el equipo -->
             <div class="text-center mt-12 fade-in-up">
-                <a href="<?php echo esc_url(home_url('/quienes-somos')); ?>" class="btn btn-primary font-semibold">
-                    Conocer a todo el equipo →
+                <a href="<?php echo esc_url(home_url('/quienes-somos')); ?>" class="btn btn-primary font-semibold inline-flex items-center justify-center gap-2">
+                    <span>Conocer a todo el equipo</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
                 </a>
             </div>
         </div>
